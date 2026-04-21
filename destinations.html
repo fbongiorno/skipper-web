@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over 130 Yachting Destinations | Skipper</title>
+    <meta name="description" content="Explore luxury yacht charter destinations around the world.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css?v=6">
+    <style>
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .destination-card {
+            display: block;
+            background: var(--c-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: var(--c-text-dark);
+        }
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .dc-img {
+            height: 200px;
+            background: #eee;
+            width: 100%;
+            object-fit: cover;
+        }
+        .dc-content {
+            padding: 20px;
+        }
+        .dc-content h3 {
+            margin-bottom: 5px;
+            font-size: 1.25rem;
+        }
+        .dc-content span {
+            font-size: 0.85rem;
+            color: var(--c-sunset-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <i data-feather="anchor"></i> Skipper
+            </a>
+        </div>
+        <div class="nav-links desktop-only">
+            <a href="index.html">Fleet Search</a>
+            <a href="destinations.html" style="color: var(--c-punchy-coral);">Destinations</a>
+        </div>
+        <div class="user-actions desktop-only">
+            <button class="btn btn-secondary">Log In</button>
+            <button class="btn btn-primary">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation (Bottom) -->
+    <nav class="mobile-nav">
+        <a href="index.html"><i data-feather="search"></i><span>Search</span></a>
+        <a href="destinations.html" class="active"><i data-feather="map"></i><span>Destinations</span></a>
+        <a href="index.html"><i data-feather="book-open"></i><span>Log</span></a>
+        <a href="#"><i data-feather="user"></i><span>Profile</span></a>
+    </nav>
+
+    <main class="page-container">
+        
+        <section class="hero-split">
+            <div class="hero-split-content">
+                <h1>Explore over 130 Yachting Destinations</h1>
+                <p>Enjoy privileged access to some of the world’s most beautiful destinations onboard a superyacht. Tailored to you from start to finish.</p>
+            </div>
+            <div class="hero-split-image">
+                <img src="hero-bg_wide.png" alt="Global destinations">
+            </div>
+        </section>
+
+        <section style="padding: 60px 20px; max-width: 1200px; margin: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Where to next?</h2>
+                    <p style="color: var(--c-text-muted); font-size: 1.1rem; max-width: 600px;">Our extensive selection represents the best builds, most experienced crews, and most competitive rates of the season.</p>
+                </div>
+            </div>
+
+            <div class="destination-grid">
+    <a href="destinations/greece.html" class="destination-card">
+        <img src="assets/greece.png" class="dc-img" alt="Greece" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Mediterranean</span>
+            <h3>Greece</h3>
+        </div>
+    </a>
+    <a href="destinations/french-riviera.html" class="destination-card">
+        <img src="assets/french-riviera.png" class="dc-img" alt="French Riviera" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Mediterranean</span>
+            <h3>French Riviera</h3>
+        </div>
+    </a>
+    <a href="destinations/italy.html" class="destination-card">
+        <img src="assets/italy.png" class="dc-img" alt="Italy" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Mediterranean</span>
+            <h3>Italy</h3>
+        </div>
+    </a>
+    <a href="destinations/croatia.html" class="destination-card">
+        <img src="assets/croatia.png" class="dc-img" alt="Croatia" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Mediterranean</span>
+            <h3>Croatia</h3>
+        </div>
+    </a>
+    <a href="destinations/monaco.html" class="destination-card">
+        <img src="assets/monaco.png" class="dc-img" alt="Monaco" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Mediterranean</span>
+            <h3>Monaco</h3>
+        </div>
+    </a>
+    <a href="destinations/turkey.html" class="destination-card">
+        <img src="assets/turkey.png" class="dc-img" alt="Turkey" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Mediterranean</span>
+            <h3>Turkey</h3>
+        </div>
+    </a>
+    <a href="destinations/bahamas.html" class="destination-card">
+        <img src="assets/bahamas.png" class="dc-img" alt="The Bahamas" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Americas</span>
+            <h3>The Bahamas</h3>
+        </div>
+    </a>
+    <a href="destinations/florida.html" class="destination-card">
+        <img src="assets/florida.png" class="dc-img" alt="Florida" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Americas</span>
+            <h3>Florida</h3>
+        </div>
+    </a>
+    <a href="destinations/caribbean.html" class="destination-card">
+        <img src="assets/caribbean.png" class="dc-img" alt="Caribbean" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Americas</span>
+            <h3>Caribbean</h3>
+        </div>
+    </a>
+    <a href="destinations/south-pacific.html" class="destination-card">
+        <img src="assets/south-pacific.png" class="dc-img" alt="South Pacific" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>South Pacific</h3>
+        </div>
+    </a>
+    <a href="destinations/new-england.html" class="destination-card">
+        <img src="assets/new-england.png" class="dc-img" alt="New England" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Americas</span>
+            <h3>New England</h3>
+        </div>
+    </a>
+    <a href="destinations/pacific-northwest.html" class="destination-card">
+        <img src="assets/pacific-northwest.png" class="dc-img" alt="Pacific Northwest" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Americas</span>
+            <h3>Pacific Northwest</h3>
+        </div>
+    </a>
+    <a href="destinations/southeast-asia.html" class="destination-card">
+        <img src="assets/southeast-asia.png" class="dc-img" alt="Southeast Asia" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>Southeast Asia</h3>
+        </div>
+    </a>
+    <a href="destinations/indian-ocean.html" class="destination-card">
+        <img src="assets/indian-ocean.png" class="dc-img" alt="Indian Ocean" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>Indian Ocean</h3>
+        </div>
+    </a>
+    <a href="destinations/galapagos.html" class="destination-card">
+        <img src="assets/galapagos.png" class="dc-img" alt="Galapagos Islands" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>Galapagos Islands</h3>
+        </div>
+    </a>
+    <a href="destinations/australia.html" class="destination-card">
+        <img src="assets/australia.png" class="dc-img" alt="Australia" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>Australia</h3>
+        </div>
+    </a>
+    <a href="destinations/norway.html" class="destination-card">
+        <img src="assets/norway.png" class="dc-img" alt="Norway" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>Norway</h3>
+        </div>
+    </a>
+    <a href="destinations/dubai.html" class="destination-card">
+        <img src="assets/dubai.png" class="dc-img" alt="Dubai" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>Dubai</h3>
+        </div>
+    </a>
+    <a href="destinations/mexico.html" class="destination-card">
+        <img src="assets/mexico.png" class="dc-img" alt="Mexico" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Americas</span>
+            <h3>Mexico</h3>
+        </div>
+    </a>
+    <a href="destinations/red-sea.html" class="destination-card">
+        <img src="assets/red-sea.png" class="dc-img" alt="Red Sea" onerror="this.src='hero-bg_wide.png';">
+        <div class="dc-content">
+            <span>Global</span>
+            <h3>Red Sea</h3>
+        </div>
+    </a>
+</div>
+        </section>
+        
+    </main>
+
+    <footer style="background-color: var(--c-text-dark); color: var(--c-white); padding: 40px 20px; text-align: center;">
+        <p style="color: rgba(255,255,255,0.7);">&copy; 2026 Skipper Global Yacht Rentals. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,194 @@
+[
+  { 
+      "id": "greece", "name": "Greece", "region": "Mediterranean", "unsplash": "greece,mykonos,santorini",
+      "desc": "Explore ancient ruins, secluded anchorages, and whitewashed villages across thousands of islands.",
+      "best_time": "The best time to charter in Greece is between April and October. The peak summer months of July and August bring warm waters and the famously cooling Meltemi winds.",
+      "cost": "Weekly base rates for crewed motor yachts typically start around €25,000 and can exceed €350,000 for full superyachts. You should also budget an APA (Advance Provisioning Allowance) of 25-40%.",
+      "dest_visit": "Explore over 2,000 islands! Iconic routes start in Athens or Mykonos, granting access to the pristine Cyclades, while the Ionian Islands to the west offer a gentler pace.",
+      "travel": "Greece is a member of the Schengen Area, meaning passport-free travel for EU citizens. The Euro is the standard currency, and the summer brings endless dry, sunny days.",
+      "article_1": "More than 2000 islands make up Greece’s seascape, scattered across miles of coastline far from the mainland. It makes for memorable island hopping and every yacht charter different from the last. Though many islands are remote, some even without vehicles, accessibility by boat is surprisingly easy. Cruising by boat is the best way to discover isolated bays, enjoy picnics in solitude and make the most of water toys away from onlookers. Island hopping allows guests to experience the culture, immerse in the villages and dine on fine delicacies unique to certain areas.",
+      "article_2": "Greece offers the best of the Mediterranean climate, with mild winters and dry summers. Yachts typically charter during the summer months of June, July and August, though the bookend months of May and September can prove to be equally as rewarding once the heat has waned and the crowds have departed. Defined by the warm constant winds that blow throughout the year and rocky outcrops that harbor bays and paths ripe for discovery, the many isles sprinkled across the Aegean Sea create mesmeric yachting itineraries.",
+      "article_3": "Dripping in historic importance and renowned for the role it played in the progression of western civilization, Greece has many accolades to its name. From philosophers to Olympians, its culturally diverse lands beg to be explored one island at a time. The windmill island of Mykonos has earned an international reputation for its throbbing nightlife, while the glowing sunsets of Santorini melt hearts and minds. For a taste of Greek mythology, Apollo’s ancient seaside temple in Delos will deliver."
+  },
+  { 
+      "id": "french-riviera", "name": "French Riviera", "region": "Mediterranean", "unsplash": "cannes,nice,monaco",
+      "desc": "The ultimate playground for superyachts. Experience glamorous ports, Michelin-star dining, and crystalline waters.",
+      "best_time": "May through September is ideal. The glittering Cannes Film Festival and Monaco Grand Prix kick off the high season in May.",
+      "cost": "The Cote d'Azur commands premium pricing. Expect base rates from €35,000 escalating swiftly for the top-tier mega yachts that populate these elite harbors.",
+      "dest_visit": "Hop between legendary VIP destinations like St. Tropez, Antibes, Cannes, and Nice, occasionally anchoring off the secluded Iles de Lérins.",
+      "travel": "Arrive seamlessly via Nice Côte d'Azur Airport or helicopter. The climate is spectacularly mild, though August sees the region at its most active.",
+      "article_1": "The French Riviera, stretching from the glamour of Saint-Tropez to the exclusive enclave of Monaco, is the undisputed capital of European yachting. Cruising the Côte d'Azur provides unmatched access to Michelin-starred waterfront restaurants, elite beach clubs, and serene coastal beauty. Drop anchor off Cap Ferrat for a private swim in crystalline waters, or cruise past the iconic Promenade des Anglais in Nice before docking directly in the port of Cannes for an evening of luxury.",
+      "article_2": "Known for its endlessly sunny microclimate, the French Riviera enjoys mild winters and spectacularly warm, sun-drenched summers. The yachting season traditionally kicks off in May with the legendary Cannes Film Festival and Monaco Grand Prix, stretching beautifully until late September when the prestigious Monaco Yacht Show takes place. August is the undeniable peak, buzzing with mega-yachts and summer regattas, making early reservations absolutely essential for elite berthing.",
+      "article_3": "The Riviera is synonymous with artistic inspiration and high-society glamour. Wander the exact cobblestone alleys in Antibes where Picasso painted, or indulge in the fragrant perfume capital of Grasse nestled in the hills just above the coastline. The cultural fabric here is a breathtaking tapestry of old-world Belle Époque architecture seamlessly blended with the sharp, modern edge of the contemporary global elite that flock here every summer."
+  },
+  { 
+      "id": "italy", "name": "Italy", "region": "Mediterranean", "unsplash": "amalfi,capri,positano",
+      "desc": "From the dramatic cliffs of the Amalfi Coast to the exclusive glamour of Capri and Portofino.",
+      "best_time": "Late May to September is perfect. July and August bring vibrant energy, while September offers pleasantly warm seas and uncrowded piazzas.",
+      "cost": "Chartering a classic Italian motor yacht begins around €30,000 weekly. High VAT rates may apply depending on your exact cruising itinerary.",
+      "dest_visit": "The Amalfi Coast (Positano/Ravello), the rugged coastline of Sardinia, or the colorful and stylish Italian Riviera including Portofino and Cinque Terre.",
+      "travel": "Italy operates on the Euro. The food scene is unparalleled, from fresh Mediterranean seafood to world-famous regional pasta and wine.",
+      "article_1": "Italy boasts over 4,500 miles of dramatic coastline, making it impossible to see entirely in one trip. The Amalfi Coast features gravity-defying villages clinging to sheer cliffs, providing stunning anchorages directly beneath towns like Positano and Ravello. Further west, the rugged island of Sardinia (and the exclusive Costa Smeralda) offers emerald waters and archipelago hopping, while the Italian Riviera in the north is defined by the colorful cliffside houses of Cinque Terre and Portofino.",
+      "article_2": "Italian summers are deeply entrenched in the concept of 'La Dolce Vita'. July and August represent the vibrant, electric peak of the season, where glamorous beach clubs in Capri and Ischia are packed with the global elite. For those looking to avoid the intense heat and the highest crowds, the shoulder season of September offers arguably the best yachting conditions; the sea has been warmed all summer, local harvests have begun, and the anchorages are wonderfully peaceful.",
+      "article_3": "Cruising Italy is just as much a culinary and historical expedition as it is a beach vacation. Anchor off the coast of Naples for authentic Neapolitan pizza, sail the Sicilian coast tracing ancient Greek and Roman ruins, or tender into a coastal vineyard for a private tasting of world-class regional wines. The Italian approach to hospitality is warm, loud, and incredibly passionate, ensuring every moment ashore feels deeply authentic and culturally rewarding."
+  },
+  { 
+      "id": "croatia", "name": "Croatia", "region": "Mediterranean", "unsplash": "croatia,dubrovnik,split",
+      "desc": "Discover thousands of islands, historic walled cities, and pristine national parks along the Dalmatian coast.",
+      "best_time": "Like the rest of the Med, May to October is prime. The Adriatic Sea is incredibly calm, making it a great choice for families.",
+      "cost": "Croatia offers excellent value with a wide range of motor sailors, catamarans, and luxury yachts starting at €15,000 to €25,000 weekly.",
+      "dest_visit": "Sail down the Dalmatian Coast from Split to Dubrovnik, stopping at the trendy island of Hvar and the remote, stunning Kornati National Park.",
+      "travel": "Croatia recently adopted the Euro and joined the Schengen Zone, making travel smoother than ever. Expect historic Roman ruins and breathtaking national parks.",
+      "article_1": "Navigate through sheltered anchorages, discover isolated coves, and dine at pristine waterfront establishments. Cruising this region offers the ultimate freedom to explore at your own tailored pace.",
+      "article_2": "Enjoy endless summer days with steady breezes. The climate here is consistently celebrated by superyacht captains as one of the most reliable and comfortable regions in the world for an extended luxury charter.",
+      "article_3": "Immerse yourself in world-class culinary traditions, centuries of unique regional maritime history, and vibrant nightlife that draws discerning guests from all corners of the globe."
+  },
+  { 
+      "id": "monaco", "name": "Monaco", "region": "Mediterranean", "unsplash": "montecarlo,monaco,casino",
+      "desc": "The global capital of yachting. Indulge in high-stakes casinos, luxury boutiques, and the iconic Grand Prix.",
+      "best_time": "Visit in May for the Grand Prix or September for the Monaco Yacht Show. Summer is dazzlingly chic but incredibly busy.",
+      "cost": "Berthing in Port Hercules comes at a premium. Yacht charters here start around €40,000 and the sky is the limit.",
+      "dest_visit": "Monaco serves as an excellent home port to explore the rest of the Riviera or a quick dash down into the Italian coastline.",
+      "travel": "An independent microstate closely tied to France. Extremely safe, highly international, and utilizing the Euro.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "turkey", "name": "Turkey", "region": "Mediterranean", "unsplash": "bodrum,antalya,turkey",
+      "desc": "The Turquoise Coast offers a blend of ancient history, lush pine forests, and magnificent classic gulets.",
+      "best_time": "The season stretches longer here from late April all the way to late October, shielded by the warm Mediterranean winds.",
+      "cost": "Renowned for traditional 'Gulet' sailing charters which provide massive volume and luxury at very competitive price points (from €10,000 weekly).",
+      "dest_visit": "The bustling yachting hubs of Bodrum and Marmaris, combined with hidden coves and sunken ancient cities along the Lycian Way.",
+      "travel": "Use the Turkish Lira, though Euros are widely accepted. Visas are required for many nationalities but are easily obtained online.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "bahamas", "name": "The Bahamas", "region": "Americas", "unsplash": "bahamas,exumas,beach",
+      "desc": "Navigate the shallow sapphire waters of the Exumas and Abacos, perfect for luxury catamarans.",
+      "best_time": "An incredible winter escape, the Bahamas are perfect from November through May, avoiding the late summer hurricane season.",
+      "cost": "Catamarans start around $20,000 whilst large, shallow-draft motor yachts start at $45,000 weekly (+ APA).",
+      "dest_visit": "The Exumas string of 365 cays (home of the swimming pigs), the sailing haven of the Abacos, or the vibrant nightlife of Nassau.",
+      "travel": "Just a short flight from Miami. The Bahamian dollar translates 1:1 with the USD. Prepare for warm, incredibly clear, and shallow waters.",
+      "article_1": "Comprised of 700 distinct coral islands and thousands of uninhabited cays, the Bahamas are custom-built for island hopping. Unlike deep-water regions, much of the Bahamian archipelago is incredibly shallow, making it the premier global playground for luxury catamarans and shallow-draft motor yachts. Snorkel the vibrant James Bond 'Thunderball Grotto', feed the famous swimming pigs at Big Major Cay, or sail the protected central Sea of Abaco where land is almost always in sight.",
+      "article_2": "While the Mediterranean sleeps out the winter, the Bahamas come alive. This is the ultimate winter escape, offering balmy, dry weather from November straight through to late May. The trade winds blow clear and consistently across the Exuma Sound, offering brilliant blue skies and water so stunningly transparent that yachts appear to be suspended in mid-air. Summer months are quieter but significantly hotter, transitioning into the tropical storm season.",
+      "article_3": "Bahamian culture is deeply tied to the rhythm of the sea and the legacy of its people. Nassau provides high-energy Junkanoo festivals, rich colonial history, and sprawling luxury casino resorts like Baha Mar. However, the true soul of the Bahamas is found in the 'Out Islands'—where generations of boat builders, conch divers, and friendly locals operate welcoming beachfront shacks serving up fresh conch salad, cracked lobster, and the beloved Bahama Mama cocktail under the shade of swaying palms."
+  },
+  { 
+      "id": "florida", "name": "Florida", "region": "Americas", "unsplash": "miami,florida,keys",
+      "desc": "From the vibrant energy of South Beach to the tranquil, tropical rhythms of the Florida Keys.",
+      "best_time": "December to April is peak season in Florida, offering warm, sunny relief for snowbirds.",
+      "cost": "Wide ranges exist, but luxury charters from Miami typically command $30,000+ weekly. Day charters are also heavily popular here.",
+      "dest_visit": "Cruise Biscayne Bay, dock & dine in Fort Lauderdale (the yachting capital), or journey down to the coral reefs of Key West.",
+      "travel": "Incredible infrastructure with Fort Lauderdale and Miami airports right alongside major deepwater superyacht marinas.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "caribbean", "name": "Caribbean", "region": "Americas", "unsplash": "virginislands,bvi,stbarths",
+      "desc": "An iconic winter escape. Sail the trade winds down the Leeward and Windward islands in eternal sunshine.",
+      "best_time": "The Caribbean is the world's premier winter yachting hub. Mid-December to April offers the best weather and reliable trade winds.",
+      "cost": "Varies by island, but the average luxury catamaran starts at $25,000, while motor yachts are $50,000 and up.",
+      "dest_visit": "The British Virgin Islands are the global sailing capital. St. Barths and Antigua offer elite superyacht glamour.",
+      "travel": "Logistics vary widely between sovereign islands. USD is king, but the Euro rules in French territories like Guadeloupe and St. Martin.",
+      "article_1": "From the sheltered, line-of-sight sailing in the British Virgin Islands to the dramatic, deep-water volcanic peaks of St. Lucia, the Caribbean offers a spectacularly diverse cruising ground. Superyachts frequently utilize St. Maarten or Antigua as central hubs before island-hopping down the Leeward chain, dropping anchor in the impossibly chic harbor of Gustavia in St. Barths, or escaping to the protected coral reefs of the Grenadines.",
+      "article_2": "The ultimate antidote to the Northern Hemisphere winter. The Caribbean yachting season operates opposite to the Mediterranean, reaching its absolute peak during the festive season (Christmas and New Year’s) and stretching through April. The consistent easterly trade winds provide ideal, predictable conditions for spectacular sailing yachts, while the lush, tropical climate keeps the ocean waters warm and inviting day and night.",
+      "article_3": "The Caribbean is an intricate mosaic of distinct sovereign nations, European territories, and vibrant local cultures. One day you may be dining on fine French cuisine and fresh croissants in Guadeloupe, and the next you are listening to authentic steel drum bands and sipping world-renowned aged rum in Antigua. Every island offers a unique cultural footprint heavily influenced by its colonial past, blended inextricably with robust Afro-Caribbean heritage."
+  },
+  { 
+      "id": "south-pacific", "name": "South Pacific", "region": "Global", "unsplash": "borabora,tahiti,fiji",
+      "desc": "Journey to the ends of the earth. Tahiti, Fiji, and Bora Bora offer volcanic peaks and legendary lagoons.",
+      "best_time": "The dry season, from May to October, provides sublime weather for exploring these remote atolls.",
+      "cost": "Due to remoteness, highly specialized expedition yachts and luxury catamarans operate here, starting around €40,000 weekly.",
+      "dest_visit": "The Society Islands (Tahiti, Moorea, Bora Bora) for volcanic drama, or Fiji for incredible island-hopping and diving.",
+      "travel": "Long-haul flights lead to ultimate seclusion. Expect a slower pace of life, deep Polynesian culture, and unspoiled coral reefs.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "new-england", "name": "New England", "region": "Americas", "unsplash": "nantucket,newport,maine",
+      "desc": "Classic nautical charm. Enjoy lobster bakes, historic lighthouses, and the chic streets of Nantucket.",
+      "best_time": "A highly concentrated summer season: July and August are absolute perfection, while September offers crisp fall sailing.",
+      "cost": "Weekly rates typically land between $35,000 to over $100,000, catering heavily to the East Coast luxury market.",
+      "dest_visit": "The sailing capital of Newport, the exclusive islands of Martha's Vineyard and Nantucket, and the rugged, pine-lined coast of Maine.",
+      "travel": "Rich in American maritime history. Seafood lovers will thrive on local oysters, clams, and fresh, drawn-butter lobster.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "pacific-northwest", "name": "Pacific Northwest", "region": "Americas", "unsplash": "seattle,vancouver,orcas",
+      "desc": "Dramatic alpine scenery, dense evergreen forests, and rich wildlife including majestic orcas.",
+      "best_time": "June through August provides the driest, sunniest weather to navigate the inside passages.",
+      "cost": "Niche explorer yachts and rugged cruisers dominate this region, typically starting around $40,000 weekly.",
+      "dest_visit": "The San Juan Islands, the emerald waters of Puget Sound, and the incredible fjords venturing up into British Columbia.",
+      "travel": "Temperatures are cooler here than the Caribbean, but the majestic backdrop of snowcapped mountains and breaching whales is unrivaled.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "southeast-asia", "name": "Southeast Asia", "region": "Global", "unsplash": "phuket,thailand,indonesia",
+      "desc": "Exotic cultures, towering limestone karsts, and untouched reefs in Thailand, Indonesia, and beyond.",
+      "best_time": "The northeast monsoon (November to April) provides dry, beautiful weather for the Andaman Sea and Thailand.",
+      "cost": "Varies by country, but expect base rates around $30,000 weekly for a well-appointed vessel exploring these exotic waters.",
+      "dest_visit": "Phuket brings limestone cliffs and islands, whilst Indonesia's Komodo National Park offers dragon encounters and premier diving.",
+      "travel": "An incredible blend of vibrant street culture, spicy cuisine, and remote spiritual temples accessible only by water.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "indian-ocean", "name": "Indian Ocean", "region": "Global", "unsplash": "maldives,seychelles",
+      "desc": "The Maldives and Seychelles boast some of the world's most remote, pristine coral atolls.",
+      "best_time": "Seychelles is a year-round destination, while the Maldives peaks from December to April.",
+      "cost": "High-end mega yachts and luxury catamarans service the region, typically starting at €35,000 weekly.",
+      "dest_visit": "With over 1,000 coral islands in the Maldives, isolation is guaranteed. The Seychelles offer giant tortoises and granite boulders.",
+      "travel": "The ultimate destination for diving enthusiasts and those looking to disconnect entirely. Luxury resorts often serve as strategic tender stops.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "galapagos", "name": "Galapagos Islands", "region": "Global", "unsplash": "galapagos,ecuador,turtle",
+      "desc": "A UNESCO World Heritage site offering unparalleled, up-close encounters with evolutionary wildlife.",
+      "best_time": "Year-round viability. December to May brings warmer waters for snorkeling, while the cooler dry season is great for land exploration.",
+      "cost": "Heavily regulated by the Ecuadorian government, boutique expedition vessels usually start at $50,000 weekly.",
+      "dest_visit": "Isabela, Santa Cruz, and San Cristobal. Strict itineraries must be adhered to to protect the fragile biomes.",
+      "travel": "Wildlife is fearless and abundant. This is less of a beach-club vacation and more of an elite, private naturalist expedition.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "australia", "name": "Australia", "region": "Global", "unsplash": "whitsundays,sydney,reef",
+      "desc": "Dive the Great Barrier Reef or cruise the iconic Whitsundays in the land down under.",
+      "best_time": "The Whitsundays (Winter: June to August) and Sydney Harbour (Summer: December to February) offer split seasons.",
+      "cost": "As the Superyacht fleet grows down under, options expand. Entry level luxury yachts begin around $35,000 AUD.",
+      "dest_visit": "Sydney Harbour for spectacular city backdrops, or Tropical North Queensland for unrivaled reef diving.",
+      "travel": "Australia's sheer size means yachting is concentrated in specific hubs. Expect warm hospitality, incredible marine life, and vast wilderness.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "norway", "name": "Norway", "region": "Global", "unsplash": "norway,fjords,mountains",
+      "desc": "Experience the midnight sun while navigating between towering, serene Scandinavian fjords.",
+      "best_time": "June to August offers the best temperatures and the famous midnight sun phenomenon.",
+      "cost": "Specialized expedition vessels with ice-class hulls are often required, pushing starting rates towards €60,000+.",
+      "dest_visit": "The Lofoten Islands, Svalbard (for polar bears), and the stunning western fjords like Geirangerfjord.",
+      "travel": "A highly active charter. Prepare for kayaking alongside glaciers, hiking sheer cliffs, and absorbing the silent majesty of the Arctic Circle.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "dubai", "name": "Dubai", "region": "Global", "unsplash": "dubai,marina,skyscrapers",
+      "desc": "Futuristic skylines, man-made archipelagos, and unrivaled modern luxury in the Arabian Gulf.",
+      "best_time": "Winter! November through March offers comfortable temperatures, avoiding the intense desert summer heat.",
+      "cost": "Highly competitive day charter market, with weekly term charters starting around €30,000 for luxury vessels.",
+      "dest_visit": "Cruise past the Palm Jumeirah, dock at the ultra-modern Dubai Marina, or venture up to Abu Dhabi.",
+      "travel": "Opulence and world-class infrastructure. Expect VIP marina service, luxury car transfers, and Michelin-star dining ashore.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "mexico", "name": "Mexico", "region": "Americas", "unsplash": "cabo,mexico,baja",
+      "desc": "The Sea of Cortez provides dramatic desert landscapes crashing into rich, biodiverse sea life.",
+      "best_time": "November to May avoids the heat and humidity of late summer and aligns with peak whale watching season.",
+      "cost": "Luxury motor yachts based out of Cabo San Lucas generally start at around $35,000 weekly.",
+      "dest_visit": "La Paz, Cabo San Lucas, and the secluded islands of the Sea of Cortez - dubbed 'the aquarium of the world' by Jacques Cousteau.",
+      "travel": "Fantastic regional cuisine, brilliant deep-sea sportfishing access, and incredibly abundant marine mammal populations.",
+      "article_1": "", "article_2": "", "article_3": ""
+  },
+  { 
+      "id": "red-sea", "name": "Red Sea", "region": "Global", "unsplash": "egypt,redsea,coral",
+      "desc": "World-class wreck and reef diving in crystal clear waters surrounded by vast desert dunes.",
+      "best_time": "Spring (March to May) and Autumn (September to November) provide perfect conditions both above and below the water.",
+      "cost": "Growing luxury market, particularly around Egypt and Saudi Arabia. Start budgeting around €40,000 for modern motor yachts.",
+      "dest_visit": "The majestic dive sites of Sharm El-Sheikh, Ras Mohammed, or the rapidly developing high-end resorts of the Saudi coast.",
+      "travel": "Visas and regulations depend strongly on the host country. An absolute must for serious diving and snorkeling enthusiasts.",
+      "article_1": "", "article_2": "", "article_3": ""
+  }
+]
