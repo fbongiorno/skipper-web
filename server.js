@@ -26,7 +26,7 @@ async function ensureDbInitialized() {
     if (isDbInitialized || !process.env.DATABASE_URL) return;
     
     await pool.query(`
-        CREATE TABLE IF NOT EXISTS waitlist (
+        CREATE TABLE IF NOT EXISTS waitlist_signups (
             id SERIAL PRIMARY KEY,
             email VARCHAR(255) UNIQUE NOT NULL,
             created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
@@ -48,7 +48,7 @@ app.post('/api/waitlist', async (req, res) => {
         if (process.env.DATABASE_URL) {
             await ensureDbInitialized();
             await pool.query(
-                'INSERT INTO waitlist (email) VALUES ($1) ON CONFLICT (email) DO NOTHING',
+                'INSERT INTO waitlist_signups (email) VALUES ($1) ON CONFLICT (email) DO NOTHING',
                 [email]
             );
         }
