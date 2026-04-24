@@ -40,26 +40,51 @@ async function ensureDbInitialized() {
 app.post('/api/waitlist', async (req, res) => {
     const { email } = req.body;
 
+    console.log(`[API POST] Received waitlist request for: ${email}`);
+
     if (!email || !email.includes('@')) {
         return res.status(400).json({ error: 'Valid email address is required.' });
     }
 
     try {
         if (process.env.DATABASE_URL) {
+            console.log(`[API POST] DATABASE_URL is defined. Ensuring DB is initialized...`);
             await ensureDbInitialized();
-            await pool.query(
-                'INSERT INTO waitlist_signups (email) VALUES ($1) ON CONFLICT (email) DO NOTHING',
+            
+            console.log(`[API POST] Executing insert query...`);
+            const dbRes = await pool.query(
+                'INSERT INTO waitlist_signups (email) VALUES ($1) ON CONFLICT (email) DO NOTHING RETURNING *',
                 [email]
             );
+            console.log(`[API POST] Query successful. Rows inserted: ${dbRes.rowCount}`);
+        } else {
+            console.log(`[API POST] WARNING: DATABASE_URL is missing. Skipping DB insert.`);
         }
         
-        // Simulating the email functionality requested to be skipped for now
         console.log(`[SKIP EMAIL] New sign up saved and notification ready to send: ${email}`);
-
         res.status(200).json({ success: true, message: 'Successfully joined the waitlist!' });
     } catch (err) {
-        console.error('Error saving waitlist entry:', err);
+        console.error('[API POST] CRITICAL ERROR saving waitlist entry:', err);
         res.status(500).json({ error: 'Failed to process waitlist entry.' });
+    }
+});
+
+// Admin Route to Verify Database Directly
+app.get('/api/admin/waitlist', async (req, res) => {
+    try {
+        if (!process.env.DATABASE_URL) {
+             return res.send('<h2>DATABASE_URL is not connected to this app!</h2>');
+        }
+        await ensureDbInitialized();
+        const result = await pool.query('SELECT * FROM waitlist_signups');
+        res.json({
+            count: result.rows.length,
+            records: result.rows,
+            message: "If count is 0, the database is genuinely empty."
+        });
+    } catch (err) {
+        console.error('[ADMIN] Error fetching records:', err);
+        res.status(500).send('Database connection completely failed: ' + err.message);
     }
 });
 
