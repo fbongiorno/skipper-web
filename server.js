@@ -11,28 +11,29 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 // Database setup
 // Railway sets process.env.DATABASE_URL automatically when you connect a PG database plugin
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  // If no DATABASE_URL is found (like when testing locally without db), it will fail to connect.
+  ...(isProduction && { ssl: { rejectUnauthorized: false } })
 });
 
-// Initialize table
-if (process.env.DATABASE_URL) {
-  pool.query(`
-    CREATE TABLE IF NOT EXISTS waitlist (
-        id SERIAL PRIMARY KEY,
-        email VARCHAR(255) UNIQUE NOT NULL,
-        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-    );
-  `).then(() => {
-    console.log('Database initialized successfully.');
-  }).catch(err => {
-    console.error('Error initializing database:', err);
-  });
-} else {
-  console.log('No DATABASE_URL found. Running without active Postgres connection.');
+let isDbInitialized = false;
+
+async function ensureDbInitialized() {
+    if (isDbInitialized || !process.env.DATABASE_URL) return;
+    
+    await pool.query(`
+        CREATE TABLE IF NOT EXISTS waitlist (
+            id SERIAL PRIMARY KEY,
+            email VARCHAR(255) UNIQUE NOT NULL,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        );
+    `);
+    isDbInitialized = true;
+    console.log('Database table verified/created successfully.');
 }
 
 // Waitlist Endpoint
@@ -45,6 +46,7 @@ app.post('/api/waitlist', async (req, res) => {
 
     try {
         if (process.env.DATABASE_URL) {
+            await ensureDbInitialized();
             await pool.query(
                 'INSERT INTO waitlist (email) VALUES ($1) ON CONFLICT (email) DO NOTHING',
                 [email]
