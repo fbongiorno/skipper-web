@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'skipper-content')));
 
 const isProduction = process.env.NODE_ENV === 'production';
 
