@@ -30,4 +30,16 @@
   <url><loc>https://www.skipper.com/magazine/sailing-cyclades-solo/</loc><priority>0.6</priority><changefreq>never</changefreq></url>
   <url><loc>https://www.skipper.com/magazine/bareboat-license-at-40/</loc><priority>0.6</priority><changefreq>never</changefreq></url>
   <url><loc>https://www.skipper.com/magazine/most-beautiful-anchorages-mediterranean/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
+
+  <!-- New destination pages added 2026 -->
+  <url><loc>https://www.skipper.com/destinations/europe/italy/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/europe/france/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/europe/sardinia/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/europe/montenegro/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/europe/malta/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/caribbean/grenadines/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/caribbean/bahamas/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/caribbean/us-virgin-islands/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/pacific/whitsundays/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/pacific/french-polynesia/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 </urlset>
