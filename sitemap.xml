@@ -37,9 +37,9 @@
   <url><loc>https://www.skipper.com/destinations/best-sailing-destinations-world/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
 
   <!-- Comparisons -->
-  <url><loc>https://www.skipper.com/destinations/compare/greece-vs-croatia/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/destinations/compare/bvi-vs-usvi/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/destinations/compare/catamaran-charter-families/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- placeholder --><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- placeholder2 --><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- placeholder3 --><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
   <!-- Sailing Guides -->
   <url><loc>https://www.skipper.com/guides/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
@@ -85,5 +85,14 @@
   <url><loc>https://www.skipper.com/magazine/sailing-cyclades-solo/</loc><priority>0.7</priority><changefreq>never</changefreq></url>
   <url><loc>https://www.skipper.com/magazine/bareboat-license-at-40/</loc><priority>0.7</priority><changefreq>never</changefreq></url>
   <url><loc>https://www.skipper.com/magazine/most-beautiful-anchorages-mediterranean/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
+
+
+  <!-- Comparison pages -->
+  <url><loc>https://www.skipper.com/destinations/compare/greece-vs-croatia/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/bvi-vs-usvi/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/catamaran-charter-families/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Additional routes -->
+  <url><loc>https://www.skipper.com/routes/corsica-loop/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
 
 </urlset>
