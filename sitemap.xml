@@ -95,4 +95,18 @@
   <!-- Additional routes -->
   <url><loc>https://www.skipper.com/routes/corsica-loop/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
 
+
+  <!-- Best time to sail pages -->
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-greece/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-croatia/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-turkey/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-italy/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-bvi/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-whitsundays/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+
+  <!-- Marina guides -->
+  <url><loc>https://www.skipper.com/planning/best-marinas-greece/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-marinas-croatia/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-marinas-bvi/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+
 </urlset>
