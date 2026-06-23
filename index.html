@@ -226,12 +226,19 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
+    <nav class="navbar" style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:16px;">
+        <div class="logo" style="flex-shrink:0;">
             <i data-feather="anchor"></i> Skipper
         </div>
-
-
+        <div style="display:flex;align-items:center;gap:4px;flex:1;justify-content:center;">
+            <a href="/destinations/" style="color:#6A7B8C;font-weight:600;font-size:.875rem;padding:7px 13px;border-radius:9999px;text-decoration:none;transition:.18s;white-space:nowrap;" onmouseover="this.style.background='rgba(0,229,255,.12)';this.style.color='#1A2B3C'" onmouseout="this.style.background='';this.style.color='#6A7B8C'">Destinations</a>
+            <a href="/guides/" style="color:#6A7B8C;font-weight:600;font-size:.875rem;padding:7px 13px;border-radius:9999px;text-decoration:none;transition:.18s;white-space:nowrap;" onmouseover="this.style.background='rgba(0,229,255,.12)';this.style.color='#1A2B3C'" onmouseout="this.style.background='';this.style.color='#6A7B8C'">Sailing Guides</a>
+            <a href="/charter/" style="color:#6A7B8C;font-weight:600;font-size:.875rem;padding:7px 13px;border-radius:9999px;text-decoration:none;transition:.18s;white-space:nowrap;" onmouseover="this.style.background='rgba(0,229,255,.12)';this.style.color='#1A2B3C'" onmouseout="this.style.background='';this.style.color='#6A7B8C'">Yacht Charter</a>
+            <a href="/routes/" style="color:#6A7B8C;font-weight:600;font-size:.875rem;padding:7px 13px;border-radius:9999px;text-decoration:none;transition:.18s;white-space:nowrap;" onmouseover="this.style.background='rgba(0,229,255,.12)';this.style.color='#1A2B3C'" onmouseout="this.style.background='';this.style.color='#6A7B8C'">Routes</a>
+            <a href="/planning/" style="color:#6A7B8C;font-weight:600;font-size:.875rem;padding:7px 13px;border-radius:9999px;text-decoration:none;transition:.18s;white-space:nowrap;" onmouseover="this.style.background='rgba(0,229,255,.12)';this.style.color='#1A2B3C'" onmouseout="this.style.background='';this.style.color='#6A7B8C'">Trip Planning</a>
+            <a href="/magazine/" style="color:#6A7B8C;font-weight:600;font-size:.875rem;padding:7px 13px;border-radius:9999px;text-decoration:none;transition:.18s;white-space:nowrap;" onmouseover="this.style.background='rgba(0,229,255,.12)';this.style.color='#1A2B3C'" onmouseout="this.style.background='';this.style.color='#6A7B8C'">Magazine</a>
+        </div>
+        <a href="/waitlist/" style="flex-shrink:0;background:#FFBF00;color:#1A2B3C;font-weight:800;font-size:.875rem;padding:9px 22px;border-radius:9999px;text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px rgba(255,191,0,.35);" onmouseover="this.style.background='#FF5E00';this.style.color='white'" onmouseout="this.style.background='#FFBF00';this.style.color='#1A2B3C'">Join Waitlist</a>
     </nav>
 
     <main class="page-container">
@@ -251,6 +258,149 @@
         </section>
 
 
+
+
+
+        <!-- Content Hub Section -->
+        <section style="padding:80px 20px;background:#F7FBFC;">
+            <div style="max-width:1200px;margin:0 auto;">
+                <div style="text-align:center;margin-bottom:56px;">
+                    <div style="display:inline-block;background:rgba(0,229,255,0.12);border:1px solid rgba(0,229,255,0.3);color:#00B8CC;border-radius:9999px;padding:6px 18px;font-size:.85rem;font-weight:700;letter-spacing:.04em;margin-bottom:16px;">EXPLORE THE GUIDE</div>
+                    <h2 style="font-size:2.4rem;font-weight:800;color:#1A2B3C;margin-bottom:12px;">Everything You Need to Plan Your Sailing Holiday</h2>
+                    <p style="font-size:1.1rem;color:#6A7B8C;max-width:560px;margin:0 auto;">From picking a destination to budgeting, booking, and packing — Skipper covers every step.</p>
+                </div>
+
+                <!-- Pillar cards grid -->
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px;">
+
+                    <!-- Destinations -->
+                    <a href="/destinations/" style="text-decoration:none;display:block;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(26,43,60,.07);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,229,255,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(26,43,60,.07)'">
+                        <div style="height:160px;overflow:hidden;position:relative;">
+                            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80&client_id=ByvUU1wixIfUuHkViQobtEnioq025AsBwJKZKhuMK2E" alt="Sailing Destinations" style="width:100%;height:100%;object-fit:cover;display:block;" referrerpolicy="no-referrer-when-downgrade" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#0D2B3E,#0D4F5C)'">
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,43,60,.6) 0%,transparent 60%);"></div>
+                            <div style="position:absolute;bottom:12px;left:16px;background:rgba(0,229,255,.18);border:1px solid rgba(0,229,255,.35);color:#00E5FF;border-radius:9999px;padding:3px 12px;font-size:.72rem;font-weight:700;">17 destinations</div>
+                        </div>
+                        <div style="padding:20px 22px 24px;">
+                            <div style="font-size:.75rem;font-weight:700;color:#00B8CC;letter-spacing:.06em;margin-bottom:6px;">DESTINATIONS</div>
+                            <div style="font-size:1.15rem;font-weight:800;color:#1A2B3C;margin-bottom:8px;">Where to Sail</div>
+                            <div style="font-size:.9rem;color:#6A7B8C;line-height:1.5;">Greece, Croatia, BVI, Whitsundays and 13 more — find your perfect sailing destination.</div>
+                            <div style="margin-top:14px;font-size:.85rem;font-weight:700;color:#00B8CC;">Explore destinations →</div>
+                        </div>
+                    </a>
+
+                    <!-- Charter -->
+                    <a href="/charter/" style="text-decoration:none;display:block;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(26,43,60,.07);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,229,255,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(26,43,60,.07)'">
+                        <div style="height:160px;overflow:hidden;position:relative;">
+                            <img src="https://images.unsplash.com/photo-1516467798-4e41c2e53c99?auto=format&fit=crop&w=800&q=80&client_id=ByvUU1wixIfUuHkViQobtEnioq025AsBwJKZKhuMK2E" alt="Yacht Charter" style="width:100%;height:100%;object-fit:cover;display:block;" referrerpolicy="no-referrer-when-downgrade" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#0D2B3E,#0D4F5C)'">
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,43,60,.6) 0%,transparent 60%);"></div>
+                            <div style="position:absolute;bottom:12px;left:16px;background:rgba(0,229,255,.18);border:1px solid rgba(0,229,255,.35);color:#00E5FF;border-radius:9999px;padding:3px 12px;font-size:.72rem;font-weight:700;">6 guides</div>
+                        </div>
+                        <div style="padding:20px 22px 24px;">
+                            <div style="font-size:.75rem;font-weight:700;color:#00B8CC;letter-spacing:.06em;margin-bottom:6px;">YACHT CHARTER</div>
+                            <div style="font-size:1.15rem;font-weight:800;color:#1A2B3C;margin-bottom:8px;">Charter a Yacht</div>
+                            <div style="font-size:.9rem;color:#6A7B8C;line-height:1.5;">Catamaran vs monohull, bareboat vs crewed — everything before you book.</div>
+                            <div style="margin-top:14px;font-size:.85rem;font-weight:700;color:#00B8CC;">Browse charter guides →</div>
+                        </div>
+                    </a>
+
+                    <!-- Sailing Guides -->
+                    <a href="/guides/" style="text-decoration:none;display:block;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(26,43,60,.07);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,229,255,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(26,43,60,.07)'">
+                        <div style="height:160px;overflow:hidden;position:relative;">
+                            <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80&client_id=ByvUU1wixIfUuHkViQobtEnioq025AsBwJKZKhuMK2E" alt="Sailing Guides" style="width:100%;height:100%;object-fit:cover;display:block;" referrerpolicy="no-referrer-when-downgrade" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#0D2B3E,#0D4F5C)'">
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,43,60,.6) 0%,transparent 60%);"></div>
+                            <div style="position:absolute;bottom:12px;left:16px;background:rgba(0,229,255,.18);border:1px solid rgba(0,229,255,.35);color:#00E5FF;border-radius:9999px;padding:3px 12px;font-size:.72rem;font-weight:700;">7 guides</div>
+                        </div>
+                        <div style="padding:20px 22px 24px;">
+                            <div style="font-size:.75rem;font-weight:700;color:#00B8CC;letter-spacing:.06em;margin-bottom:6px;">SAILING GUIDES</div>
+                            <div style="font-size:1.15rem;font-weight:800;color:#1A2B3C;margin-bottom:8px;">Learn to Sail</div>
+                            <div style="font-size:.9rem;color:#6A7B8C;line-height:1.5;">Beginner guides, knots, charts, and everything you need before your first charter.</div>
+                            <div style="margin-top:14px;font-size:.85rem;font-weight:700;color:#00B8CC;">Read sailing guides →</div>
+                        </div>
+                    </a>
+
+                    <!-- Routes -->
+                    <a href="/routes/" style="text-decoration:none;display:block;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(26,43,60,.07);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,229,255,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(26,43,60,.07)'">
+                        <div style="height:160px;overflow:hidden;position:relative;">
+                            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80&client_id=ByvUU1wixIfUuHkViQobtEnioq025AsBwJKZKhuMK2E" alt="Sailing Routes" style="width:100%;height:100%;object-fit:cover;display:block;" referrerpolicy="no-referrer-when-downgrade" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#0D2B3E,#0D4F5C)'">
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,43,60,.6) 0%,transparent 60%);"></div>
+                            <div style="position:absolute;bottom:12px;left:16px;background:rgba(0,229,255,.18);border:1px solid rgba(0,229,255,.35);color:#00E5FF;border-radius:9999px;padding:3px 12px;font-size:.72rem;font-weight:700;">10 routes</div>
+                        </div>
+                        <div style="padding:20px 22px 24px;">
+                            <div style="font-size:.75rem;font-weight:700;color:#00B8CC;letter-spacing:.06em;margin-bottom:6px;">SAILING ROUTES</div>
+                            <div style="font-size:1.15rem;font-weight:800;color:#1A2B3C;margin-bottom:8px;">Plan Your Route</div>
+                            <div style="font-size:.9rem;color:#6A7B8C;line-height:1.5;">Day-by-day itineraries for Greece, Croatia, the BVI, Bahamas, and more.</div>
+                            <div style="margin-top:14px;font-size:.85rem;font-weight:700;color:#00B8CC;">Browse itineraries →</div>
+                        </div>
+                    </a>
+
+                    <!-- Trip Planning -->
+                    <a href="/planning/" style="text-decoration:none;display:block;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(26,43,60,.07);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,229,255,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(26,43,60,.07)'">
+                        <div style="height:160px;overflow:hidden;position:relative;">
+                            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80&client_id=ByvUU1wixIfUuHkViQobtEnioq025AsBwJKZKhuMK2E" alt="Trip Planning" style="width:100%;height:100%;object-fit:cover;display:block;" referrerpolicy="no-referrer-when-downgrade" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#0D2B3E,#0D4F5C)'">
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,43,60,.6) 0%,transparent 60%);"></div>
+                            <div style="position:absolute;bottom:12px;left:16px;background:rgba(255,191,0,.25);border:1px solid rgba(255,191,0,.5);color:#FFBF00;border-radius:9999px;padding:3px 12px;font-size:.72rem;font-weight:700;">30 guides</div>
+                        </div>
+                        <div style="padding:20px 22px 24px;">
+                            <div style="font-size:.75rem;font-weight:700;color:#00B8CC;letter-spacing:.06em;margin-bottom:6px;">TRIP PLANNING</div>
+                            <div style="font-size:1.15rem;font-weight:800;color:#1A2B3C;margin-bottom:8px;">Plan Your Holiday</div>
+                            <div style="font-size:.9rem;color:#6A7B8C;line-height:1.5;">Best time to go, marina guides, sailing costs, and packing lists for every destination.</div>
+                            <div style="margin-top:14px;font-size:.85rem;font-weight:700;color:#00B8CC;">Start planning →</div>
+                        </div>
+                    </a>
+
+                    <!-- Magazine -->
+                    <a href="/magazine/" style="text-decoration:none;display:block;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(26,43,60,.07);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,229,255,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(26,43,60,.07)'">
+                        <div style="height:160px;overflow:hidden;position:relative;">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80&client_id=ByvUU1wixIfUuHkViQobtEnioq025AsBwJKZKhuMK2E" alt="Sailing Magazine" style="width:100%;height:100%;object-fit:cover;display:block;" referrerpolicy="no-referrer-when-downgrade" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#0D2B3E,#0D4F5C)'">
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,43,60,.6) 0%,transparent 60%);"></div>
+                            <div style="position:absolute;bottom:12px;left:16px;background:rgba(0,229,255,.18);border:1px solid rgba(0,229,255,.35);color:#00E5FF;border-radius:9999px;padding:3px 12px;font-size:.72rem;font-weight:700;">3 stories</div>
+                        </div>
+                        <div style="padding:20px 22px 24px;">
+                            <div style="font-size:.75rem;font-weight:700;color:#00B8CC;letter-spacing:.06em;margin-bottom:6px;">MAGAZINE</div>
+                            <div style="font-size:1.15rem;font-weight:800;color:#1A2B3C;margin-bottom:8px;">Sailing Stories</div>
+                            <div style="font-size:.9rem;color:#6A7B8C;line-height:1.5;">Real stories from real sailors — inspiration, adventure, and hard-won wisdom.</div>
+                            <div style="margin-top:14px;font-size:.85rem;font-weight:700;color:#00B8CC;">Read the magazine →</div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- Featured quick links -->
+                <div style="background:#fff;border-radius:20px;padding:32px 36px;box-shadow:0 2px 16px rgba(26,43,60,.07);">
+                    <div style="font-size:.8rem;font-weight:700;color:#6A7B8C;letter-spacing:.08em;margin-bottom:20px;">POPULAR RIGHT NOW</div>
+                    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                        <a href="/destinations/europe/greece/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">⛵ Sailing Greece</a>
+                        <a href="/destinations/europe/croatia/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">⛵ Sailing Croatia</a>
+                        <a href="/destinations/caribbean/british-virgin-islands/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">⛵ Sailing the BVI</a>
+                        <a href="/planning/sailing-cost-greece/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">💰 Cost to sail Greece</a>
+                        <a href="/destinations/compare/greece-vs-croatia/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">⚖️ Greece vs Croatia</a>
+                        <a href="/charter/catamaran-vs-monohull/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">🛥️ Cat vs Monohull</a>
+                        <a href="/guides/sailing-for-beginners/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">📖 Beginner guide</a>
+                        <a href="/planning/best-time-to-sail-greece/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">📅 Best time for Greece</a>
+                        <a href="/routes/greek-islands-7-day-cyclades/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">🗺️ Cyclades 7-day route</a>
+                        <a href="/planning/sailing-cost-mediterranean/" style="background:#F0FDFF;border:1px solid rgba(0,229,255,.25);color:#1A2B3C;border-radius:9999px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.15s;" onmouseover="this.style.background='rgba(0,229,255,.15)'" onmouseout="this.style.background='#F0FDFF'">💰 Med sailing costs</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Responsive fix for 3-col grid -->
+        <style>
+            @media(max-width:900px) {
+                .adventure-grid { grid-template-columns: 1fr !important; }
+            }
+            @media(max-width:700px) {
+                section[style*="padding:80px"] > div > div[style*="grid-template-columns:repeat(3"] {
+                    grid-template-columns: 1fr !important;
+                }
+            }
+            @media(max-width:1000px) {
+                section[style*="padding:80px"] > div > div[style*="grid-template-columns:repeat(3"] {
+                    grid-template-columns: repeat(2,1fr) !important;
+                }
+            }
+        </style>
 
     </main>
 
