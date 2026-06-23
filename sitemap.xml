@@ -139,4 +139,13 @@
   <url><loc>https://www.skipper.com/destinations/compare/mediterranean-vs-caribbean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/compare/monohull-vs-catamaran-beginners/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
+
+  <!-- Legacy compare pages -->
+  <url><loc>https://www.skipper.com/compare/bvi-vs-usvi/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/compare/catamaran-vs-monohull-families/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/compare/greece-vs-croatia/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Routes -->
+  <url><loc>https://www.skipper.com/routes/corsica-circumnavigation/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+
 </urlset>
