@@ -5,8 +5,6 @@
   <title>Yacht Trip Planner — Plan Your Charter Holiday | Skipper</title>
   <meta name="description" content="Plan your perfect yacht charter holiday. Choose your destination, boat type, duration and group size — get instant cost estimates, suggested routes, and an AI-generated itinerary.">
   <meta property="og:title" content="Yacht Trip Planner | Skipper">
-  <meta property="og:description" content="Interactive yacht trip planner — costs, routes, boat types, and AI itineraries for Greece, Croatia, BVI, and more.">
-  <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.skipper.com/plan/">
   <link rel="canonical" href="https://www.skipper.com/plan/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -16,133 +14,183 @@
   <meta name="theme-color" content="#0D2B3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/skipper-content/assets/skipper.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Skipper Yacht Trip Planner","description":"Interactive yacht charter trip planner with cost estimates, route suggestions, and AI-generated itineraries","url":"https://www.skipper.com/plan/","applicationCategory":"TravelApplication"}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3W0MF9Q5VZ"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3W0MF9Q5VZ');</script>
   <style>
-    .plan-wrap{max-width:900px;margin:0 auto;padding:48px 24px 80px;}
-    .plan-intro{text-align:center;margin-bottom:48px;}
-    .plan-intro h1{font-size:2.4rem;font-weight:800;margin-bottom:12px;}
-    .plan-intro p{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --teal:#00E5FF;--teal-dark:#00B8CC;--teal-dim:rgba(0,229,255,0.12);
+      --amber:#FFBF00;--orange:#FF5E00;--navy:#0D2B3E;--navy2:#0D4F5C;
+      --bg:#F0F6F8;--text:#1A2B3C;--muted:#6A7B8C;--white:#fff;
+      --border:#E0EBF0;--pill:9999px;--r:8px;--r-md:16px;--r-lg:24px;
+      --font:'Plus Jakarta Sans',system-ui,sans-serif;
+    }
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+    img{display:block;max-width:100%;height:auto;}
+    a{color:inherit;text-decoration:none;}
 
-    /* STEP CARDS */
-    .step-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 32px;margin-bottom:16px;}
-    .step-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
-    .step-num{width:32px;height:32px;border-radius:50%;background:var(--teal-dim);color:var(--teal-dark);font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-    .step-title{font-size:1rem;font-weight:800;color:var(--text);}
-    .step-sub{font-size:.82rem;color:var(--muted);margin-top:1px;}
+    /* NAV */
+    .nav{display:flex;align-items:center;padding:0 32px;height:60px;background:rgba(13,43,62,0.97);backdrop-filter:blur(14px);position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(255,255,255,.08);}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--teal);flex-shrink:0;margin-right:20px;}
+    .nav-logo svg{width:20px;height:20px;}
+    .nav-links{display:flex;align-items:center;gap:2px;}
+    .nav-links a{color:rgba(255,255,255,.55);font-weight:600;font-size:.875rem;padding:7px 12px;border-radius:var(--pill);transition:.18s;}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1);}
+    @media(max-width:720px){.nav-links{display:none;}}
+
+    /* HERO */
+    .hero{position:relative;height:68vh;min-height:420px;overflow:hidden;display:flex;align-items:flex-end;}
+    .hero-slides{position:absolute;inset:0;}
+    .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+    .hero-slide.active{opacity:1;}
+    .hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center 60%;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,43,62,0.92) 0%,rgba(13,43,62,0.4) 50%,rgba(13,43,62,0.2) 100%);}
+    .hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 40px 52px;width:100%;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.35);color:var(--teal);border-radius:var(--pill);padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.07em;margin-bottom:16px;}
+    .hero-h1{font-size:3rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:12px;text-shadow:0 2px 20px rgba(0,0,0,.4);max-width:640px;}
+    .hero-h1 em{font-style:normal;color:var(--amber);}
+    .hero-sub{font-size:1rem;color:rgba(255,255,255,.72);max-width:480px;line-height:1.6;}
+    .hero-dots{display:flex;gap:6px;position:absolute;bottom:20px;right:40px;}
+    .hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;border:none;transition:.2s;}
+    .hero-dot.active{background:#fff;}
+    @media(max-width:600px){.hero-h1{font-size:2rem;}.hero-content{padding:0 20px 40px;}}
+
+    /* PLANNER WRAPPER */
+    .planner{max-width:1100px;margin:0 auto;padding:0 24px 80px;}
+
+    /* PHOTO STRIP */
+    .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:-60px 0 48px;position:relative;z-index:10;}
+    @media(max-width:700px){.photo-strip{grid-template-columns:repeat(2,1fr);margin:-30px 0 32px;}}
+    .photo-card{border-radius:var(--r-md);overflow:hidden;height:130px;position:relative;box-shadow:0 8px 32px rgba(0,0,0,.25);}
+    .photo-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+    .photo-card:hover img{transform:scale(1.06);}
+    .photo-card-label{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(to top,rgba(13,43,62,.85),transparent);color:#fff;font-size:.72rem;font-weight:700;}
+
+    /* SECTION LABEL */
+    .sec-label{font-size:.72rem;font-weight:700;color:var(--teal-dark);letter-spacing:.1em;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+    .sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+    /* STEP GRID */
+    .steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+    @media(max-width:700px){.steps-grid{grid-template-columns:1fr;}}
+    .step-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:24px 26px;transition:.18s;}
+    .step-card:hover{border-color:rgba(0,229,255,.4);box-shadow:0 4px 20px rgba(0,229,255,.08);}
+    .step-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+    .step-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--teal);font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-title{font-size:.9rem;font-weight:800;}
+    .step-sub{font-size:.75rem;color:var(--muted);margin-top:1px;}
+    .step-full{grid-column:1/-1;}
 
     /* CHIPS */
-    .chips{display:flex;flex-wrap:wrap;gap:8px;}
-    .chip{border:1.5px solid var(--border);border-radius:var(--pill);padding:8px 16px;font-size:.85rem;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:.18s;user-select:none;}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;}
+    .chip{border:1.5px solid var(--border);border-radius:var(--pill);padding:7px 14px;font-size:.82rem;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:.18s;user-select:none;}
     .chip:hover{border-color:var(--teal-dark);color:var(--text);}
     .chip.sel{border-color:var(--teal);background:var(--teal-dim);color:var(--teal-dark);}
-    .chip-icon{margin-right:5px;}
 
     /* SLIDERS */
-    .slider-row{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+    .slider-row{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
     .slider-row:last-child{margin-bottom:0;}
-    .slider-label{font-size:.85rem;font-weight:600;color:var(--text);min-width:100px;}
+    .slider-label{font-size:.82rem;font-weight:600;min-width:90px;color:var(--text);}
     .slider-row input[type=range]{flex:1;accent-color:var(--teal-dark);}
-    .slider-val{font-size:.9rem;font-weight:700;color:var(--teal-dark);min-width:80px;text-align:right;}
+    .slider-val{font-size:.88rem;font-weight:700;color:var(--teal-dark);min-width:80px;text-align:right;}
 
     /* CALCULATE BUTTON */
-    .calc-btn{width:100%;padding:16px;background:var(--teal-dark);color:var(--white);border:none;border-radius:var(--r-lg);font-size:1rem;font-weight:800;cursor:pointer;transition:.18s;margin-top:8px;letter-spacing:.02em;}
-    .calc-btn:hover{background:var(--teal);color:var(--text);}
+    .calc-btn{width:100%;padding:17px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:var(--teal);border:none;border-radius:var(--r-lg);font-size:1rem;font-weight:800;cursor:pointer;transition:.18s;margin-bottom:48px;letter-spacing:.03em;box-shadow:0 4px 20px rgba(13,43,62,.25);}
+    .calc-btn:hover{background:var(--teal-dark);color:var(--white);}
 
-    /* RESULTS */
+    /* RESULTS SECTION */
     .results{display:none;}
     .results.show{display:block;}
-    .results-header{text-align:center;padding:40px 0 32px;border-top:1px solid var(--border);margin-top:32px;}
-    .results-header h2{font-size:1.8rem;font-weight:800;margin-bottom:6px;}
-    .results-header p{color:var(--muted);font-size:.95rem;}
 
-    /* METRIC CARDS */
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
-    @media(max-width:640px){.metrics{grid-template-columns:repeat(2,1fr);}}
-    .metric{background:var(--bg);border-radius:var(--r-md);padding:16px;}
-    .metric-label{font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.06em;margin-bottom:6px;}
-    .metric-val{font-size:1.5rem;font-weight:800;color:var(--text);}
-    .metric-sub{font-size:.75rem;color:var(--muted);margin-top:2px;}
+    /* METRICS */
+    .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+    @media(max-width:640px){.metrics-grid{grid-template-columns:repeat(2,1fr);}}
+    .metric{background:var(--navy);border-radius:var(--r-md);padding:18px 16px;}
+    .metric-label{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.07em;margin-bottom:6px;}
+    .metric-val{font-size:1.6rem;font-weight:800;color:var(--teal);line-height:1;}
+    .metric-sub{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:4px;}
 
-    /* SECTION TITLE */
-    .sec-title{font-size:.75rem;font-weight:700;color:var(--muted);letter-spacing:.08em;margin-bottom:14px;}
+    /* BUDGET CALLOUT */
+    .budget-bar{background:var(--teal-dim);border:1px solid rgba(0,229,255,.25);border-radius:var(--r-md);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:12px;}
+    .budget-bar p{font-size:.88rem;color:var(--teal-dark);font-weight:600;}
+    .budget-bar span{font-size:1.4rem;font-weight:800;color:var(--teal-dark);white-space:nowrap;}
 
     /* BOAT CARDS */
     .boat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
     @media(max-width:580px){.boat-grid{grid-template-columns:1fr;}}
-    .boat-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:18px;}
+    .boat-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:18px;transition:.18s;}
+    .boat-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(0,229,255,.1);}
     .boat-card.best{border-color:var(--teal);background:var(--teal-dim);}
-    .best-tag{display:inline-block;background:var(--teal-dark);color:var(--white);border-radius:var(--pill);padding:2px 10px;font-size:.68rem;font-weight:700;margin-bottom:8px;}
+    .best-tag{display:inline-block;background:var(--teal-dark);color:#fff;border-radius:var(--pill);padding:2px 10px;font-size:.68rem;font-weight:700;margin-bottom:8px;}
     .boat-name{font-size:.9rem;font-weight:800;margin-bottom:4px;}
     .boat-spec{font-size:.78rem;color:var(--muted);line-height:1.5;}
     .boat-price{font-size:.95rem;font-weight:800;color:var(--teal-dark);margin-top:8px;}
 
     /* ROUTE */
-    .route-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:28px;padding:16px 20px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);}
+    .route-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:16px 20px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:28px;}
     .route-stop{background:var(--bg);border:1px solid var(--border);border-radius:var(--pill);padding:5px 13px;font-size:.8rem;font-weight:600;}
-    .route-arrow{color:var(--teal-dark);font-size:.85rem;font-weight:700;}
+    .route-arrow{color:var(--teal-dark);font-weight:700;}
 
     /* COST TABLE */
-    .cost-table{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:.88rem;}
-    .cost-table tr{border-bottom:1px solid var(--border);}
-    .cost-table tr:last-child{border-bottom:none;font-weight:800;font-size:.95rem;}
-    .cost-table td{padding:11px 16px;}
-    .cost-table td:last-child{text-align:right;color:var(--teal-dark);font-weight:700;}
-    .cost-table tr:last-child td:last-child{color:var(--text);}
     .cost-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;margin-bottom:28px;}
+    .cost-row{display:flex;justify-content:space-between;padding:11px 18px;border-bottom:1px solid var(--border);font-size:.88rem;}
+    .cost-row:last-child{border-bottom:none;font-weight:800;font-size:.95rem;}
+    .cost-row span:last-child{color:var(--teal-dark);font-weight:700;}
+    .cost-row:last-child span:last-child{color:var(--text);}
 
-    /* PER PERSON CALLOUT */
-    .pp-callout{background:var(--teal-dim);border:1px solid rgba(0,229,255,.3);border-radius:var(--r-md);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
-    .pp-callout p{font-size:.9rem;color:var(--teal-dark);font-weight:600;}
-    .pp-callout span{font-size:1.6rem;font-weight:800;color:var(--teal-dark);}
+    /* DESTINATION PHOTO BAND */
+    .dest-band{border-radius:var(--r-lg);overflow:hidden;margin-bottom:28px;position:relative;height:200px;}
+    .dest-band img{width:100%;height:100%;object-fit:cover;}
+    .dest-band-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(13,43,62,.75) 0%,rgba(13,43,62,.2) 100%);}
+    .dest-band-text{position:absolute;left:28px;top:50%;transform:translateY(-50%);}
+    .dest-band-text h3{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:4px;}
+    .dest-band-text p{font-size:.85rem;color:rgba(255,255,255,.7);}
 
     /* AI SECTION */
-    .ai-section{background:linear-gradient(135deg,#0D2B3E 0%,#0D4F5C 100%);border-radius:var(--r-lg);padding:32px;margin-bottom:24px;height:auto !important;overflow:visible !important;}
+    .ai-section{background:linear-gradient(135deg,var(--navy) 0%,#0a3d50 100%);border-radius:var(--r-lg);padding:32px;margin-bottom:24px;border:1px solid rgba(0,229,255,.15);}
     .ai-header{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
     .ai-badge{background:var(--teal-dim);border:1px solid rgba(0,229,255,.3);color:var(--teal);border-radius:var(--pill);padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;}
-    .ai-title{font-size:1.2rem;font-weight:800;color:var(--white);}
-    .ai-desc{font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:20px;line-height:1.6;}
-    .ai-btn{background:var(--teal);color:var(--text);border:none;border-radius:var(--pill);padding:12px 28px;font-size:.9rem;font-weight:800;cursor:pointer;transition:.18s;}
-    .ai-btn:hover{background:var(--white);}
+    .ai-title{font-size:1.2rem;font-weight:800;color:#fff;}
+    .ai-desc{font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:20px;line-height:1.6;}
+    .ai-btn{background:var(--teal);color:var(--navy);border:none;border-radius:var(--pill);padding:13px 30px;font-size:.9rem;font-weight:800;cursor:pointer;transition:.18s;box-shadow:0 4px 16px rgba(0,229,255,.3);}
+    .ai-btn:hover{background:#fff;box-shadow:0 6px 24px rgba(0,229,255,.4);}
     .ai-btn:disabled{opacity:.5;cursor:not-allowed;}
-    .ai-output{margin-top:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);padding:20px 24px;color:rgba(255,255,255,.88);font-size:.88rem;line-height:1.8;display:none;width:100%;box-sizing:border-box;}
-    .ai-output.show{display:block;}
-    .ai-loading{display:none;align-items:center;gap:10px;margin-top:16px;color:rgba(255,255,255,.6);font-size:.85rem;}
+    .ai-loading{display:none;align-items:center;gap:10px;margin-top:16px;color:rgba(255,255,255,.55);font-size:.85rem;}
     .ai-loading.show{display:flex;}
-    .dot-spin{width:18px;height:18px;border:2px solid rgba(0,229,255,.3);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite;}
+    .dot-spin{width:18px;height:18px;border:2px solid rgba(0,229,255,.2);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0;}
     @keyframes spin{to{transform:rotate(360deg);}}
+    .ai-output{margin-top:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:22px 24px;color:rgba(255,255,255,.88);font-size:.88rem;line-height:1.8;display:none;width:100%;}
+    .ai-output.show{display:block;}
 
-    /* ACTION LINKS */
+    /* ACTION CARDS */
     .action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
     @media(max-width:560px){.action-grid{grid-template-columns:1fr;}}
-    .action-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:18px;text-decoration:none;color:var(--text);transition:.18s;display:block;}
+    .action-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:18px;transition:.18s;display:block;}
     .action-card:hover{border-color:var(--teal);background:var(--teal-dim);}
-    .action-icon{font-size:1.3rem;margin-bottom:8px;}
+    .action-icon{font-size:1.4rem;margin-bottom:8px;}
     .action-title{font-size:.88rem;font-weight:800;margin-bottom:3px;}
     .action-sub{font-size:.78rem;color:var(--muted);}
 
-    /* GEMINI KEY INPUT */
-    .key-row{display:flex;gap:10px;margin-top:12px;}
-    .key-row input{flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:.85rem;font-family:var(--font);background:rgba(255,255,255,.08);color:var(--white);outline:none;}
-    .key-row input::placeholder{color:rgba(255,255,255,.35);}
-    .key-row input:focus{border-color:var(--teal);}
+    /* RESULTS HEADER */
+    .results-head{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);border-radius:var(--r-lg);padding:28px 32px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    .results-head h2{font-size:1.5rem;font-weight:800;color:#fff;}
+    .results-head p{font-size:.85rem;color:rgba(255,255,255,.55);margin-top:4px;}
+    .results-tag{background:var(--teal-dim);border:1px solid rgba(0,229,255,.3);color:var(--teal);border-radius:var(--pill);padding:6px 16px;font-size:.78rem;font-weight:700;}
 
-    @media(max-width:600px){
-      .plan-intro h1{font-size:1.8rem;}
-      .step-card{padding:20px;}
-    }
+    footer{background:var(--navy);color:rgba(255,255,255,.45);padding:1.75rem 32px;text-align:center;font-size:.8rem;}
+    footer a{color:rgba(255,255,255,.35);margin:0 7px;}
+    footer a:hover{color:var(--teal);}
   </style>
 </head>
 <body>
 
-<nav class="s-nav">
-  <a href="/" class="s-nav-logo">
+<nav class="nav">
+  <a href="/" class="nav-logo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
     Skipper
   </a>
-  <div class="s-nav-links">
+  <div class="nav-links">
     <a href="/destinations/">Destinations</a>
     <a href="/guides/">Sailing Guides</a>
     <a href="/charter/">Yacht Charter</a>
@@ -152,114 +200,137 @@
   </div>
 </nav>
 
-<div class="s-bread">
-  <div class="s-bread-inner">
-    <a href="/">Home</a><span>›</span>
-    <span style="color:var(--text);font-weight:600">Yacht Trip Planner</span>
+<!-- HERO SLIDESHOW -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"><img src="https://images.pexels.com/photos/9408818/pexels-photo-9408818.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Aerial motor yacht turquoise water" loading="eager" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
+    <div class="hero-slide"><img src="https://images.pexels.com/photos/17567511/pexels-photo-17567511.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Luxury yacht Caribbean" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
+    <div class="hero-slide"><img src="https://images.pexels.com/photos/4784477/pexels-photo-4784477.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Catamaran turquoise waters" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
+    <div class="hero-slide"><img src="https://images.pexels.com/photos/15883439/pexels-photo-15883439.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Yachts sailing Mediterranean" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
   </div>
-</div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">✦ INTERACTIVE PLANNER</div>
+    <h1 class="hero-h1">Plan Your Perfect<br><em>Yacht Charter Holiday</em></h1>
+    <p class="hero-sub">Choose your destination, boat, and budget — get instant cost estimates, a suggested route, and an AI-generated day-by-day itinerary.</p>
+  </div>
+  <div class="hero-dots">
+    <button class="hero-dot active" onclick="goSlide(0)"></button>
+    <button class="hero-dot" onclick="goSlide(1)"></button>
+    <button class="hero-dot" onclick="goSlide(2)"></button>
+    <button class="hero-dot" onclick="goSlide(3)"></button>
+  </div>
+</section>
 
-<div class="plan-wrap">
+<div class="planner">
 
-  <div class="plan-intro">
-    <h1>Plan Your Yacht Charter Holiday</h1>
-    <p>Tell us where you want to go and we'll calculate costs, recommend boats, map your route, and generate a custom itinerary.</p>
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <div class="photo-card">
+      <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Greece" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      <div class="photo-card-label">Greece</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://images.pexels.com/photos/6072869/pexels-photo-6072869.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Croatia" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      <div class="photo-card-label">Croatia</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://images.pexels.com/photos/15766437/pexels-photo-15766437.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bahamas" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      <div class="photo-card-label">Bahamas</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://images.pexels.com/photos/34010867/pexels-photo-34010867.jpeg?auto=compress&cs=tinysrgb&w=600" alt="French Polynesia" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      <div class="photo-card-label">French Polynesia</div>
+    </div>
   </div>
 
-  <!-- STEP 1: DESTINATION -->
-  <div class="step-card">
-    <div class="step-head">
-      <div class="step-num">1</div>
-      <div>
-        <div class="step-title">Where do you want to go?</div>
-        <div class="step-sub">Select a destination</div>
+  <!-- STEP 1 & 2 -->
+  <div class="sec-label">STEP 1 OF 4 &nbsp;·&nbsp; BUILD YOUR TRIP</div>
+  <div class="steps-grid">
+
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Where do you want to go?</div><div class="step-sub">Pick your destination</div></div>
+      </div>
+      <div class="chips" id="dest-chips">
+        <div class="chip sel" data-val="greece">🇬🇷 Greece</div>
+        <div class="chip" data-val="croatia">🇭🇷 Croatia</div>
+        <div class="chip" data-val="bvi">🇻🇬 BVI</div>
+        <div class="chip" data-val="bahamas">🇧🇸 Bahamas</div>
+        <div class="chip" data-val="whitsundays">🇦🇺 Whitsundays</div>
+        <div class="chip" data-val="turkey">🇹🇷 Turkey</div>
+        <div class="chip" data-val="italy">🇮🇹 Italy</div>
+        <div class="chip" data-val="grenadines">🌴 Grenadines</div>
+        <div class="chip" data-val="france">🇫🇷 France</div>
+        <div class="chip" data-val="polynesia">🌺 French Polynesia</div>
       </div>
     </div>
-    <div class="chips" id="dest-chips">
-      <div class="chip sel" data-val="greece"><span class="chip-icon">🇬🇷</span>Greece</div>
-      <div class="chip" data-val="croatia"><span class="chip-icon">🇭🇷</span>Croatia</div>
-      <div class="chip" data-val="bvi"><span class="chip-icon">🇻🇬</span>BVI</div>
-      <div class="chip" data-val="bahamas"><span class="chip-icon">🇧🇸</span>Bahamas</div>
-      <div class="chip" data-val="whitsundays"><span class="chip-icon">🇦🇺</span>Whitsundays</div>
-      <div class="chip" data-val="turkey"><span class="chip-icon">🇹🇷</span>Turkey</div>
-      <div class="chip" data-val="italy"><span class="chip-icon">🇮🇹</span>Italy</div>
-      <div class="chip" data-val="grenadines"><span class="chip-icon">🌴</span>Grenadines</div>
-      <div class="chip" data-val="france"><span class="chip-icon">🇫🇷</span>France</div>
-      <div class="chip" data-val="polynesia"><span class="chip-icon">🌺</span>French Polynesia</div>
-    </div>
-  </div>
 
-  <!-- STEP 2: BOAT TYPE -->
-  <div class="step-card">
-    <div class="step-head">
-      <div class="step-num">2</div>
-      <div>
-        <div class="step-title">What type of yacht?</div>
-        <div class="step-sub">Motor or sailing, catamaran or monohull</div>
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div><div class="step-title">What type of yacht?</div><div class="step-sub">Motor, sailing, or crewed</div></div>
+      </div>
+      <div class="chips" id="boat-chips" style="margin-bottom:16px;">
+        <div class="chip sel" data-val="sailing">⛵ Sailing yacht</div>
+        <div class="chip" data-val="catamaran">🛥️ Catamaran</div>
+        <div class="chip" data-val="motor">🚢 Motor yacht</div>
+        <div class="chip" data-val="gulet">⚓ Gulet</div>
+      </div>
+      <div class="chips" id="charter-chips">
+        <div class="chip sel" data-val="bareboat">🎓 Bareboat</div>
+        <div class="chip" data-val="skippered">👨‍✈️ Skippered</div>
+        <div class="chip" data-val="crewed">👑 Fully crewed</div>
       </div>
     </div>
-    <div class="chips" id="boat-chips">
-      <div class="chip sel" data-val="sailing">⛵ Sailing yacht</div>
-      <div class="chip" data-val="catamaran">🛥️ Catamaran</div>
-      <div class="chip" data-val="motor">🚢 Motor yacht</div>
-      <div class="chip" data-val="gulet">⚓ Gulet</div>
-    </div>
-  </div>
 
-  <!-- STEP 3: CHARTER TYPE -->
-  <div class="step-card">
-    <div class="step-head">
-      <div class="step-num">3</div>
-      <div>
-        <div class="step-title">How do you want to sail?</div>
-        <div class="step-sub">Your experience level and crew preference</div>
+    <div class="step-card step-full">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Duration, guests & budget</div><div class="step-sub">Adjust the sliders</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px;">
+        <div>
+          <div class="slider-row">
+            <span class="slider-label">Duration</span>
+            <input type="range" id="days" min="3" max="21" step="1" value="7">
+            <span class="slider-val" id="days-out">7 days</span>
+          </div>
+          <div class="slider-row">
+            <span class="slider-label">Guests</span>
+            <input type="range" id="guests" min="2" max="12" step="1" value="4">
+            <span class="slider-val" id="guests-out">4 people</span>
+          </div>
+        </div>
+        <div>
+          <div class="slider-row">
+            <span class="slider-label">Budget pp</span>
+            <input type="range" id="budget" min="500" max="5000" step="100" value="2000">
+            <span class="slider-val" id="budget-out">$2,000</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="chips" id="charter-chips">
-      <div class="chip sel" data-val="bareboat">🎓 Bareboat — I'll skipper it</div>
-      <div class="chip" data-val="skippered">👨‍✈️ Skippered — bring a skipper</div>
-      <div class="chip" data-val="crewed">👑 Fully crewed — sit back and relax</div>
-    </div>
+
   </div>
 
-  <!-- STEP 4: DURATION & GROUP -->
-  <div class="step-card">
-    <div class="step-head">
-      <div class="step-num">4</div>
-      <div>
-        <div class="step-title">Duration & group size</div>
-        <div class="step-sub">How long and how many people</div>
-      </div>
-    </div>
-    <div class="slider-row">
-      <span class="slider-label">Duration</span>
-      <input type="range" id="days" min="3" max="21" step="1" value="7">
-      <span class="slider-val" id="days-out">7 days</span>
-    </div>
-    <div class="slider-row">
-      <span class="slider-label">Guests</span>
-      <input type="range" id="guests" min="2" max="12" step="1" value="4">
-      <span class="slider-val" id="guests-out">4 people</span>
-    </div>
-    <div class="slider-row">
-      <span class="slider-label">Budget pp</span>
-      <input type="range" id="budget" min="500" max="5000" step="100" value="2000">
-      <span class="slider-val" id="budget-out">$2,000</span>
-    </div>
-  </div>
-
-  <button class="calc-btn" onclick="calculate()">Calculate my trip →</button>
+  <button class="calc-btn" onclick="calculate()">Calculate my yacht trip →</button>
 
   <!-- RESULTS -->
   <div class="results" id="results">
 
-    <div class="results-header">
-      <h2 id="r-headline">Your Greece Sailing Holiday</h2>
-      <p id="r-tagline">7 days · 4 guests · Bareboat sailing yacht</p>
+    <div class="sec-label">YOUR TRIP ESTIMATE</div>
+
+    <div class="results-head">
+      <div>
+        <h2 id="r-headline">Your Greece Sailing Holiday</h2>
+        <p id="r-tagline">7 days · 4 guests · Bareboat sailing yacht</p>
+      </div>
+      <span class="results-tag" id="r-season-tag">May–Oct</span>
     </div>
 
-    <!-- METRICS -->
-    <div class="metrics">
+    <div class="metrics-grid">
       <div class="metric">
         <div class="metric-label">CHARTER FEE</div>
         <div class="metric-val" id="r-charter">—</div>
@@ -277,292 +348,240 @@
       </div>
       <div class="metric">
         <div class="metric-label">BEST SEASON</div>
-        <div class="metric-val" id="r-season">—</div>
+        <div class="metric-val" id="r-season" style="font-size:1.1rem;">—</div>
         <div class="metric-sub" id="r-peak">peak months</div>
       </div>
     </div>
 
-    <!-- PER PERSON CALLOUT -->
-    <div class="pp-callout">
+    <div class="budget-bar">
       <p id="r-budget-msg">Your budget comfortably covers this trip.</p>
       <span id="r-pp-big">—</span>
     </div>
 
-    <!-- RECOMMENDED BOATS -->
-    <div class="sec-title">RECOMMENDED BOATS FOR YOUR TRIP</div>
-    <div class="boat-grid" id="boat-grid"></div>
-
-    <!-- ROUTE -->
-    <div class="sec-title">SUGGESTED ROUTE</div>
-    <div class="route-strip" id="route-strip"></div>
-
-    <!-- COST BREAKDOWN -->
-    <div class="sec-title">FULL COST BREAKDOWN</div>
-    <div class="cost-wrap">
-      <table class="cost-table" id="cost-table"></table>
+    <!-- DESTINATION PHOTO BAND -->
+    <div class="dest-band" id="dest-band">
+      <img id="dest-band-img" src="" alt="" referrerpolicy="no-referrer-when-downgrade">
+      <div class="dest-band-overlay"></div>
+      <div class="dest-band-text">
+        <h3 id="dest-band-name">Greece</h3>
+        <p id="dest-band-bases">Charter bases: Athens, Corfu, Kos</p>
+      </div>
     </div>
 
-    <!-- AI ITINERARY -->
+    <div class="sec-label">RECOMMENDED BOATS</div>
+    <div class="boat-grid" id="boat-grid"></div>
+
+    <div class="sec-label">SUGGESTED ROUTE</div>
+    <div class="route-strip" id="route-strip"></div>
+
+    <div class="sec-label">FULL COST BREAKDOWN</div>
+    <div class="cost-wrap" id="cost-wrap"></div>
+
+    <div class="sec-label">AI-GENERATED ITINERARY</div>
     <div class="ai-section">
       <div class="ai-header">
         <span class="ai-badge">✦ AI POWERED</span>
-        <span class="ai-title">Generate My Itinerary</span>
+        <span class="ai-title">Generate My Day-by-Day Itinerary</span>
       </div>
-      <p class="ai-desc">Get a personalised day-by-day itinerary based on your selections — anchorages, sailing distances, must-see stops, and local tips. Powered by Google Gemini AI.</p>
-      <div class="key-row" style="display:none;">
-        <input type="password" id="gemini-key" placeholder="Paste your free Gemini API key (aistudio.google.com/app/apikey)">
-      </div>
-      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <p class="ai-desc">Get a personalised itinerary with daily sailing distances, anchorages, must-see stops, and local restaurant tips. Powered by Google Gemini AI.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
         <button class="ai-btn" id="ai-btn" onclick="generateItinerary()">Generate itinerary →</button>
-        <span style="font-size:.75rem;color:rgba(255,255,255,.4);">Powered by Google Gemini AI</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.35);">Powered by Google Gemini AI</span>
       </div>
       <div class="ai-loading" id="ai-loading">
         <div class="dot-spin"></div>
-        <span>Writing your itinerary…</span>
+        <span>Writing your personalised itinerary…</span>
       </div>
       <div class="ai-output" id="ai-output"></div>
+      <input type="hidden" id="gemini-key" value="">
     </div>
 
-    <!-- ACTION LINKS -->
-    <div class="sec-title">NEXT STEPS</div>
+    <div class="sec-label">NEXT STEPS</div>
     <div class="action-grid" id="action-grid"></div>
 
   </div>
 </div>
 
-<footer style="background:var(--text);color:rgba(255,255,255,.5);padding:2rem 32px;text-align:center;font-size:.8rem;margin-top:0;">
-  <p style="margin-bottom:.4rem;font-weight:700;font-size:.88rem;"><a href="/" style="color:var(--teal);text-decoration:none;">Skipper</a> — Smarter yachting, everywhere.</p>
-  <p><a href="/destinations/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Destinations</a><a href="/charter/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Charter</a><a href="/planning/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Planning</a><a href="/routes/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Routes</a></p>
+<footer>
+  <p style="margin-bottom:.4rem;font-weight:700;font-size:.88rem;"><a href="/" style="color:var(--teal);">Skipper</a> — Smarter yachting, everywhere.</p>
+  <p><a href="/destinations/">Destinations</a><a href="/charter/">Charter</a><a href="/planning/">Planning</a><a href="/routes/">Routes</a></p>
+  <p style="margin-top:.5rem;font-size:.72rem;color:rgba(255,255,255,.2);">Photography by creators on <a href="https://www.pexels.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.28);">Pexels</a></p>
 </footer>
 
 <script>
+// Hero slideshow
+let slideIdx = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+let slideTimer = setInterval(() => goSlide((slideIdx+1) % slides.length), 5000);
+function goSlide(n) {
+  slides[slideIdx].classList.remove('active');
+  dots[slideIdx].classList.remove('active');
+  slideIdx = n;
+  slides[slideIdx].classList.add('active');
+  dots[slideIdx].classList.add('active');
+  clearInterval(slideTimer);
+  slideTimer = setInterval(() => goSlide((slideIdx+1) % slides.length), 5000);
+}
+
+// Destination data
 const DEST = {
-  greece:    {name:'Greece',        flag:'🇬🇷', season:'May–Oct', peak:'Jun–Aug', bases:'Athens, Corfu, Kos', sailing:[2800,4500],catamaran:[4500,7500],motor:[6000,12000],gulet:[3500,6000], routes:['Athens','Hydra','Spetses','Nafplio','Monemvasia','Athens'], extras:{bareboat:0,skippered:1200,crewed:2800}, food:65,marina:35,fuel:40, link:'/destinations/europe/greece/', guide:'/planning/best-time-to-sail-greece/', cost:'/planning/sailing-cost-greece/'},
-  croatia:   {name:'Croatia',       flag:'🇭🇷', season:'Jun–Sep', peak:'Jul–Aug', bases:'Split, Dubrovnik, Zadar', sailing:[3200,5200],catamaran:[5500,9000],motor:[7000,14000],gulet:[4000,7000], routes:['Split','Hvar','Korčula','Mljet','Dubrovnik','Split'], extras:{bareboat:350,skippered:1400,crewed:3200}, food:70,marina:55,fuel:45, link:'/destinations/europe/croatia/', guide:'/planning/best-time-to-sail-croatia/', cost:'/planning/sailing-cost-croatia/'},
-  bvi:       {name:'British Virgin Islands', flag:'🇻🇬', season:'Dec–Apr', peak:'Jan–Mar', bases:'Road Town, Tortola', sailing:[4500,7000],catamaran:[8000,12500],motor:[10000,18000],gulet:[5000,8000], routes:['Road Town','Norman Island','Cooper Island','Virgin Gorda','Jost Van Dyke','Road Town'], extras:{bareboat:150,skippered:1600,crewed:3500}, food:90,marina:30,fuel:55, link:'/destinations/caribbean/british-virgin-islands/', guide:'/planning/best-time-to-sail-bvi/', cost:'/planning/sailing-cost-bvi/'},
-  bahamas:   {name:'Bahamas',       flag:'🇧🇸', season:'Dec–Apr', peak:'Jan–Mar', bases:'Nassau, Marsh Harbour', sailing:[3500,5800],catamaran:[5500,9000],motor:[8000,15000],gulet:[4000,7000], routes:['Nassau','Allens Cay','Staniel Cay','Great Exuma','George Town','Nassau'], extras:{bareboat:150,skippered:1400,crewed:3000}, food:85,marina:20,fuel:60, link:'/destinations/caribbean/bahamas/', guide:'/planning/best-time-to-sail-bahamas/', cost:'/planning/sailing-cost-caribbean/'},
-  whitsundays:{name:'Whitsundays', flag:'🇦🇺', season:'Jun–Aug', peak:'Jul', bases:'Airlie Beach', sailing:[3000,5000],catamaran:[5000,8500],motor:[7000,13000],gulet:[3500,6000], routes:['Airlie Beach','Whitsunday Island','Whitehaven Beach','Hill Inlet','Hook Island','Airlie Beach'], extras:{bareboat:0,skippered:1300,crewed:3000}, food:75,marina:40,fuel:45, link:'/destinations/pacific/whitsundays/', guide:'/planning/best-time-to-sail-whitsundays/', cost:'/planning/sailing-cost-worldwide/'},
-  turkey:    {name:'Turkey',        flag:'🇹🇷', season:'May–Oct', peak:'Jun–Sep', bases:'Bodrum, Marmaris, Göcek', sailing:[2200,3800],catamaran:[3800,6500],motor:[5000,10000],gulet:[2800,5500], routes:['Bodrum','Gökova Bay','Marmaris','Göcek','Fethiye','Bodrum'], extras:{bareboat:0,skippered:1000,crewed:2500}, food:45,marina:50,fuel:35, link:'/destinations/europe/turkey/', guide:'/planning/best-time-to-sail-turkey/', cost:'/planning/sailing-cost-mediterranean/'},
-  italy:     {name:'Italy',         flag:'🇮🇹', season:'May–Sep', peak:'Jun–Aug', bases:'Naples, Palermo, Olbia', sailing:[3000,5200],catamaran:[5000,8500],motor:[7000,14000],gulet:[3500,6000], routes:['Amalfi','Capri','Positano','Salerno','Ischia','Amalfi'], extras:{bareboat:0,skippered:1200,crewed:3000}, food:80,marina:70,fuel:50, link:'/destinations/europe/italy/', guide:'/planning/best-time-to-sail-italy/', cost:'/planning/sailing-cost-mediterranean/'},
-  grenadines:{name:'Grenadines',    flag:'🌴', season:'Dec–May', peak:'Jan–Apr', bases:'St Vincent, Grenada', sailing:[3500,5800],catamaran:[5000,8500],motor:[7000,13000],gulet:[4000,6500], routes:['St Vincent','Bequia','Mustique','Tobago Cays','Union Island','Grenada'], extras:{bareboat:0,skippered:1300,crewed:2800}, food:75,marina:25,fuel:45, link:'/destinations/caribbean/grenadines/', guide:'/planning/best-time-to-sail-grenadines/', cost:'/planning/sailing-cost-caribbean/'},
-  france:    {name:'France',        flag:'🇫🇷', season:'May–Sep', peak:'Jul–Aug', bases:'Antibes, Ajaccio, Marseille', sailing:[3500,6000],catamaran:[6000,10000],motor:[8000,15000],gulet:[4500,7500], routes:['Antibes','Cannes','St-Tropez','Toulon','Ajaccio','Antibes'], extras:{bareboat:0,skippered:1400,crewed:3200}, food:90,marina:120,fuel:55, link:'/destinations/europe/france/', guide:'/planning/best-time-to-sail-france/', cost:'/planning/sailing-cost-mediterranean/'},
-  polynesia: {name:'French Polynesia', flag:'🌺', season:'May–Oct', peak:'Jul–Sep', bases:'Raiatea, Papeete', sailing:[5000,8000],catamaran:[9000,15000],motor:[12000,22000],gulet:[7000,12000], routes:['Raiatea','Tahaa','Bora Bora','Huahine','Moorea','Papeete'], extras:{bareboat:0,skippered:1800,crewed:4000}, food:95,marina:45,fuel:70, link:'/destinations/pacific/french-polynesia/', guide:'/planning/best-time-to-sail-french-polynesia/', cost:'/planning/sailing-cost-worldwide/'},
+  greece:    {name:'Greece',flag:'🇬🇷',season:'May–Oct',peak:'Jun–Aug',bases:'Athens, Corfu, Kos',photo:'1285625',sailing:[2800,4500],catamaran:[4500,7500],motor:[6000,12000],gulet:[3500,6000],routes:['Athens','Hydra','Spetses','Nafplio','Monemvasia','Athens'],extras:{bareboat:0,skippered:1200,crewed:2800},food:65,marina:35,fuel:40,link:'/destinations/europe/greece/',cost:'/planning/sailing-cost-greece/',route:'/routes/greek-islands-7-day-cyclades/'},
+  croatia:   {name:'Croatia',flag:'🇭🇷',season:'Jun–Sep',peak:'Jul–Aug',bases:'Split, Dubrovnik',photo:'6072869',sailing:[3200,5200],catamaran:[5500,9000],motor:[7000,14000],gulet:[4000,7000],routes:['Split','Hvar','Korčula','Mljet','Dubrovnik','Split'],extras:{bareboat:350,skippered:1400,crewed:3200},food:70,marina:55,fuel:45,link:'/destinations/europe/croatia/',cost:'/planning/sailing-cost-croatia/',route:'/routes/croatia-7-day-split-dubrovnik/'},
+  bvi:       {name:'British Virgin Islands',flag:'🇻🇬',season:'Dec–Apr',peak:'Jan–Mar',bases:'Road Town, Tortola',photo:'17567511',sailing:[4500,7000],catamaran:[8000,12500],motor:[10000,18000],gulet:[5000,8000],routes:['Road Town','Norman Island','Cooper Island','Virgin Gorda','Jost Van Dyke','Road Town'],extras:{bareboat:150,skippered:1600,crewed:3500},food:90,marina:30,fuel:55,link:'/destinations/caribbean/british-virgin-islands/',cost:'/planning/sailing-cost-bvi/',route:'/routes/caribbean-sailing-routes/'},
+  bahamas:   {name:'Bahamas',flag:'🇧🇸',season:'Dec–Apr',peak:'Jan–Mar',bases:'Nassau, Marsh Harbour',photo:'15766437',sailing:[3500,5800],catamaran:[5500,9000],motor:[8000,15000],gulet:[4000,7000],routes:['Nassau','Allens Cay','Staniel Cay','Great Exuma','George Town','Nassau'],extras:{bareboat:150,skippered:1400,crewed:3000},food:85,marina:20,fuel:60,link:'/destinations/caribbean/bahamas/',cost:'/planning/sailing-cost-caribbean/',route:'/routes/bahamas-exumas/'},
+  whitsundays:{name:'Whitsundays',flag:'🇦🇺',season:'Jun–Aug',peak:'Jul',bases:'Airlie Beach',photo:'1661375',sailing:[3000,5000],catamaran:[5000,8500],motor:[7000,13000],gulet:[3500,6000],routes:['Airlie Beach','Whitsunday Island','Whitehaven Beach','Hill Inlet','Hook Island','Airlie Beach'],extras:{bareboat:0,skippered:1300,crewed:3000},food:75,marina:40,fuel:45,link:'/destinations/pacific/whitsundays/',cost:'/planning/sailing-cost-worldwide/',route:'/routes/whitsundays-7-day/'},
+  turkey:    {name:'Turkey',flag:'🇹🇷',season:'May–Oct',peak:'Jun–Sep',bases:'Bodrum, Marmaris, Göcek',photo:'3601425',sailing:[2200,3800],catamaran:[3800,6500],motor:[5000,10000],gulet:[2800,5500],routes:['Bodrum','Gökova Bay','Marmaris','Göcek','Fethiye','Bodrum'],extras:{bareboat:0,skippered:1000,crewed:2500},food:45,marina:50,fuel:35,link:'/destinations/europe/turkey/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/mediterranean-2-week-italy-greece/'},
+  italy:     {name:'Italy',flag:'🇮🇹',season:'May–Sep',peak:'Jun–Aug',bases:'Naples, Palermo, Olbia',photo:'15834546',sailing:[3000,5200],catamaran:[5000,8500],motor:[7000,14000],gulet:[3500,6000],routes:['Amalfi','Capri','Positano','Salerno','Ischia','Amalfi'],extras:{bareboat:0,skippered:1200,crewed:3000},food:80,marina:70,fuel:50,link:'/destinations/europe/italy/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/sardinia-circuit/'},
+  grenadines:{name:'Grenadines',flag:'🌴',season:'Dec–May',peak:'Jan–Apr',bases:'St Vincent, Grenada',photo:'16747502',sailing:[3500,5800],catamaran:[5000,8500],motor:[7000,13000],gulet:[4000,6500],routes:['St Vincent','Bequia','Mustique','Tobago Cays','Union Island','Grenada'],extras:{bareboat:0,skippered:1300,crewed:2800},food:75,marina:25,fuel:45,link:'/destinations/caribbean/grenadines/',cost:'/planning/sailing-cost-caribbean/',route:'/routes/grenadines-10-day/'},
+  france:    {name:'France',flag:'🇫🇷',season:'May–Sep',peak:'Jul–Aug',bases:'Antibes, Ajaccio',photo:'20536745',sailing:[3500,6000],catamaran:[6000,10000],motor:[8000,15000],gulet:[4500,7500],routes:['Antibes','Cannes','St-Tropez','Toulon','Ajaccio','Antibes'],extras:{bareboat:0,skippered:1400,crewed:3200},food:90,marina:120,fuel:55,link:'/destinations/europe/france/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/corsica-loop/'},
+  polynesia: {name:'French Polynesia',flag:'🌺',season:'May–Oct',peak:'Jul–Sep',bases:'Raiatea, Papeete',photo:'34010867',sailing:[5000,8000],catamaran:[9000,15000],motor:[12000,22000],gulet:[7000,12000],routes:['Raiatea','Tahaa','Bora Bora','Huahine','Moorea','Papeete'],extras:{bareboat:0,skippered:1800,crewed:4000},food:95,marina:45,fuel:70,link:'/destinations/pacific/french-polynesia/',cost:'/planning/sailing-cost-worldwide/',route:'/routes/whitsundays-7-day/'},
 };
 
 const BOATS = {
-  sailing:   [{name:'Bénéteau Oceanis 46',size:'46ft',pax:'up to 8',note:'Most popular bareboat choice',best:true},{name:'Jeanneau Sun Odyssey 51',size:'51ft',pax:'up to 10',note:'Extra space, more cabins'},{name:'Bavaria C45',size:'45ft',pax:'up to 8',note:'Great value option'}],
-  catamaran: [{name:'Leopard 45',size:'45ft',pax:'up to 10',note:'Top-selling charter cat',best:true},{name:'Fountaine Pajot Elba 45',size:'45ft',pax:'up to 10',note:'French quality, great layout'},{name:'Lagoon 42',size:'42ft',pax:'up to 8',note:'Compact & easy to handle'}],
-  motor:     [{name:'Azimut 50',size:'50ft',pax:'up to 8',note:'Sport cruiser, fast & stylish',best:true},{name:'Princess V52',size:'52ft',pax:'up to 10',note:'Full luxury fit-out'},{name:'Sunseeker Portofino 48',size:'48ft',pax:'up to 8',note:'Classic motor yacht'}],
-  gulet:     [{name:'Traditional Gulet 22m',size:'72ft',pax:'up to 10',note:'Classic timber build',best:true},{name:'Modern Gulet 24m',size:'78ft',pax:'up to 12',note:'A/C, watermaker, all mod cons'},{name:'Luxury Gulet 27m',size:'88ft',pax:'up to 12',note:'Premium interiors & crew'}],
-};
-
-const DEST_LINKS = {
-  greece:{dest:'/destinations/europe/greece/',cost:'/planning/sailing-cost-greece/',route:'/routes/greek-islands-7-day-cyclades/',marinas:'/planning/best-marinas-greece/'},
-  croatia:{dest:'/destinations/europe/croatia/',cost:'/planning/sailing-cost-croatia/',route:'/routes/croatia-7-day-split-dubrovnik/',marinas:'/planning/best-marinas-croatia/'},
-  bvi:{dest:'/destinations/caribbean/british-virgin-islands/',cost:'/planning/sailing-cost-bvi/',route:'/routes/caribbean-sailing-routes/',marinas:'/planning/best-marinas-bvi/'},
-  bahamas:{dest:'/destinations/caribbean/bahamas/',cost:'/planning/sailing-cost-caribbean/',route:'/routes/bahamas-exumas/',marinas:'/planning/best-marinas-bahamas/'},
-  whitsundays:{dest:'/destinations/pacific/whitsundays/',cost:'/planning/sailing-cost-worldwide/',route:'/routes/whitsundays-7-day/',marinas:'/planning/best-marinas-bvi/'},
-  turkey:{dest:'/destinations/europe/turkey/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/mediterranean-2-week-italy-greece/',marinas:'/planning/best-marinas-turkey/'},
-  italy:{dest:'/destinations/europe/italy/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/sardinia-circuit/',marinas:'/planning/best-marinas-italy/'},
-  grenadines:{dest:'/destinations/caribbean/grenadines/',cost:'/planning/sailing-cost-caribbean/',route:'/routes/grenadines-10-day/',marinas:'/planning/best-marinas-bvi/'},
-  france:{dest:'/destinations/europe/france/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/corsica-loop/',marinas:'/planning/best-marinas-france/'},
-  polynesia:{dest:'/destinations/pacific/french-polynesia/',cost:'/planning/sailing-cost-worldwide/',route:'/routes/whitsundays-7-day/',marinas:'/planning/best-marinas-bvi/'},
+  sailing:   [{name:'Bénéteau Oceanis 46',size:'46ft',pax:'up to 8',note:'Most popular bareboat',best:true},{name:'Jeanneau Sun Odyssey 51',size:'51ft',pax:'up to 10',note:'Extra space & cabins'},{name:'Bavaria C45',size:'45ft',pax:'up to 8',note:'Great value option'}],
+  catamaran: [{name:'Leopard 45',size:'45ft',pax:'up to 10',note:'Top-selling charter cat',best:true},{name:'Fountaine Pajot Elba 45',size:'45ft',pax:'up to 10',note:'French quality build'},{name:'Lagoon 42',size:'42ft',pax:'up to 8',note:'Compact & easy to handle'}],
+  motor:     [{name:'Azimut 50',size:'50ft',pax:'up to 8',note:'Sport cruiser, stylish',best:true},{name:'Princess V52',size:'52ft',pax:'up to 10',note:'Full luxury fit-out'},{name:'Sunseeker Portofino 48',size:'48ft',pax:'up to 8',note:'Classic motor yacht'}],
+  gulet:     [{name:'Traditional Gulet 22m',size:'72ft',pax:'up to 10',note:'Classic timber build',best:true},{name:'Modern Gulet 24m',size:'78ft',pax:'up to 12',note:'A/C + all mod cons'},{name:'Luxury Gulet 27m',size:'88ft',pax:'up to 12',note:'Premium interiors & crew'}],
 };
 
 let dest='greece', boat='sailing', charter='bareboat';
 
-function setChip(groupId, val) {
-  document.querySelectorAll(`#${groupId} .chip`).forEach(c => c.classList.toggle('sel', c.dataset.val === val));
-}
 document.querySelectorAll('.chip').forEach(c => {
   c.addEventListener('click', () => {
     const g = c.closest('.chips').id;
     c.closest('.chips').querySelectorAll('.chip').forEach(x => x.classList.remove('sel'));
     c.classList.add('sel');
-    if (g === 'dest-chips') dest = c.dataset.val;
-    else if (g === 'boat-chips') boat = c.dataset.val;
-    else charter = c.dataset.val;
+    if (g==='dest-chips') dest=c.dataset.val;
+    else if (g==='boat-chips') boat=c.dataset.val;
+    else charter=c.dataset.val;
   });
 });
 
-function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+function fmt(n){return '$'+Math.round(n).toLocaleString();}
+function getDays(){return parseInt(document.getElementById('days').value);}
+function getGuests(){return parseInt(document.getElementById('guests').value);}
 
-document.getElementById('days').oninput = e => { document.getElementById('days-out').textContent = e.target.value + ' days'; };
-document.getElementById('guests').oninput = e => { document.getElementById('guests-out').textContent = e.target.value + ' people'; };
-document.getElementById('budget').oninput = e => { document.getElementById('budget-out').textContent = '$' + parseInt(e.target.value).toLocaleString(); };
+document.getElementById('days').oninput=e=>{document.getElementById('days-out').textContent=e.target.value+' days';};
+document.getElementById('guests').oninput=e=>{document.getElementById('guests-out').textContent=e.target.value+' people';};
+document.getElementById('budget').oninput=e=>{document.getElementById('budget-out').textContent='$'+parseInt(e.target.value).toLocaleString();};
 
 function calculate() {
-  const d = DEST[dest];
-  const days = parseInt(document.getElementById('days').value);
-  const guests = parseInt(document.getElementById('guests').value);
-  const budgetPP = parseInt(document.getElementById('budget').value);
-  const weeks = days / 7;
+  const d=DEST[dest], days=getDays(), guests=getGuests(), budgetPP=parseInt(document.getElementById('budget').value);
+  const weeks=days/7;
+  const [lo,hi]=d[boat];
+  const charterFee=Math.round((lo+hi)/2*weeks);
+  const extraFee=Math.round(d.extras[charter]*weeks);
+  const food=Math.round(d.food*guests*days);
+  const marina=Math.round(d.marina*days);
+  const fuel=Math.round(d.fuel*days);
+  const total=charterFee+extraFee+food+marina+fuel;
+  const pp=Math.round(total/guests);
 
-  const [lo, hi] = d[boat];
-  const charterFee = Math.round((lo + hi) / 2 * weeks);
-  const extraFee = Math.round(d.extras[charter] * weeks);
-  const food = Math.round(d.food * guests * days);
-  const marina = Math.round(d.marina * days);
-  const fuel = Math.round(d.fuel * days);
-  const total = charterFee + extraFee + food + marina + fuel;
-  const pp = Math.round(total / guests);
-  const budgetTotal = budgetPP * guests;
+  const boatLabel={sailing:'Sailing Yacht',catamaran:'Catamaran',motor:'Motor Yacht',gulet:'Gulet'}[boat];
+  const charterLabel={bareboat:'Bareboat',skippered:'Skippered',crewed:'Fully Crewed'}[charter];
 
-  // Header
-  const boatLabel = {sailing:'Sailing Yacht',catamaran:'Catamaran',motor:'Motor Yacht',gulet:'Gulet'}[boat];
-  const charterLabel = {bareboat:'Bareboat',skippered:'Skippered',crewed:'Fully Crewed'}[charter];
-  document.getElementById('r-headline').textContent = `Your ${d.name} ${boatLabel} Holiday`;
-  document.getElementById('r-tagline').textContent = `${days} days · ${guests} guests · ${charterLabel} ${boatLabel}`;
+  document.getElementById('r-headline').textContent='Your '+d.name+' '+boatLabel+' Holiday';
+  document.getElementById('r-tagline').textContent=days+' days · '+guests+' guests · '+charterLabel+' '+boatLabel;
+  document.getElementById('r-charter').textContent=fmt(charterFee);
+  document.getElementById('r-total').textContent=fmt(total);
+  document.getElementById('r-pp').textContent=fmt(pp);
+  document.getElementById('r-season').textContent=d.season;
+  document.getElementById('r-season-tag').textContent='Best: '+d.peak;
+  document.getElementById('r-peak').textContent='peak: '+d.peak;
 
-  // Metrics
-  document.getElementById('r-charter').textContent = fmt(charterFee);
-  document.getElementById('r-total').textContent = fmt(total);
-  document.getElementById('r-pp').textContent = fmt(pp);
-  document.getElementById('r-season').textContent = d.season;
-  document.getElementById('r-peak').textContent = `peak: ${d.peak}`;
+  document.getElementById('r-pp-big').textContent=fmt(pp)+'/person';
+  const msg=document.getElementById('r-budget-msg');
+  if(pp<=budgetPP*0.85) msg.textContent='Great news — this trip fits well within your $'+budgetPP.toLocaleString()+'/person budget.';
+  else if(pp<=budgetPP*1.1) msg.textContent='Close to your $'+budgetPP.toLocaleString()+'/person budget — shoulder season saves 20–30%.';
+  else msg.textContent='This exceeds your $'+budgetPP.toLocaleString()+'/person budget. Try fewer days, a smaller boat, or Turkey for better value.';
 
-  // Budget callout
-  const ppEl = document.getElementById('r-pp-big');
-  const msgEl = document.getElementById('r-budget-msg');
-  ppEl.textContent = fmt(pp) + '/person';
-  if (pp <= budgetPP * 0.85) {
-    msgEl.textContent = `Great news — this trip fits well within your $${budgetPP.toLocaleString()}/person budget.`;
-  } else if (pp <= budgetPP * 1.1) {
-    msgEl.textContent = `This trip is close to your $${budgetPP.toLocaleString()}/person budget — consider sailing in shoulder season to save 20–30%.`;
-  } else {
-    msgEl.textContent = `This trip exceeds your $${budgetPP.toLocaleString()}/person budget. Try fewer days, a smaller boat, or ${d.name==='france'?'Italy':'Turkey'} for better value.`;
-  }
+  // Destination photo band
+  const pimg='https://images.pexels.com/photos/'+d.photo+'/pexels-photo-'+d.photo+'.jpeg?auto=compress&cs=tinysrgb&w=1400';
+  document.getElementById('dest-band-img').src=pimg;
+  document.getElementById('dest-band-img').alt=d.name;
+  document.getElementById('dest-band-name').textContent=d.flag+' '+d.name;
+  document.getElementById('dest-band-bases').textContent='Charter bases: '+d.bases;
 
-  // Boat cards
-  const bg = document.getElementById('boat-grid');
-  bg.innerHTML = BOATS[boat].map((b, i) => {
-    const bprice = Math.round(charterFee * (0.88 + i * 0.13));
-    return `<div class="boat-card${b.best?' best':''}">
-      ${b.best ? '<span class="best-tag">Best match</span>' : ''}
-      <div class="boat-name">${b.name}</div>
-      <div class="boat-spec">${b.size} · ${b.pax}<br>${b.note}</div>
-      <div class="boat-price">${fmt(bprice)}/week</div>
-    </div>`;
+  // Boats
+  document.getElementById('boat-grid').innerHTML=BOATS[boat].map((b,i)=>{
+    const bp=Math.round(charterFee*(0.88+i*0.13));
+    return '<div class="boat-card'+(b.best?' best':'')+'">'+
+      (b.best?'<span class="best-tag">Best match</span>':'')+
+      '<div class="boat-name">'+b.name+'</div>'+
+      '<div class="boat-spec">'+b.size+' · '+b.pax+'<br>'+b.note+'</div>'+
+      '<div class="boat-price">'+fmt(bp)+'/week</div></div>';
   }).join('');
 
   // Route
-  const rs = document.getElementById('route-strip');
-  rs.innerHTML = d.routes.map((s, i) =>
-    `<span class="route-stop">${s}</span>${i < d.routes.length - 1 ? '<span class="route-arrow">→</span>' : ''}`
+  document.getElementById('route-strip').innerHTML=d.routes.map((s,i)=>
+    '<span class="route-stop">'+s+'</span>'+(i<d.routes.length-1?'<span class="route-arrow">→</span>':'')
   ).join('');
 
-  // Cost table
-  const rows = [
-    ['Charter fee', fmt(charterFee)],
-    charter === 'skippered' ? ['Skipper hire', fmt(extraFee)] : null,
-    charter === 'crewed' ? ['Full crew', fmt(extraFee)] : null,
-    ['Food & provisioning', fmt(food)],
-    ['Marina fees', fmt(marina)],
-    ['Fuel', fmt(fuel)],
-    ['Total estimate', fmt(total)],
+  // Cost breakdown
+  const rows=[
+    ['Charter fee',fmt(charterFee)],
+    charter==='skippered'?['Skipper hire',fmt(extraFee)]:null,
+    charter==='crewed'?['Full crew',fmt(extraFee)]:null,
+    ['Food & provisioning',fmt(food)],
+    ['Marina fees',fmt(marina)],
+    ['Fuel',fmt(fuel)],
+    ['Total estimate',fmt(total)],
   ].filter(Boolean);
-  document.getElementById('cost-table').innerHTML = rows.map(([l, v]) =>
-    `<tr><td>${l}</td><td>${v}</td></tr>`
+  document.getElementById('cost-wrap').innerHTML=rows.map(([l,v])=>
+    '<div class="cost-row"><span>'+l+'</span><span>'+v+'</span></div>'
   ).join('');
 
   // Action cards
-  const links = DEST_LINKS[dest];
-  document.getElementById('action-grid').innerHTML = `
-    <a href="${links.dest}" class="action-card">
-      <div class="action-icon">🌍</div>
-      <div class="action-title">${d.name} destination guide</div>
-      <div class="action-sub">Best anchorages, tips & what to expect</div>
-    </a>
-    <a href="${links.cost}" class="action-card">
-      <div class="action-icon">💰</div>
-      <div class="action-title">Full cost breakdown</div>
-      <div class="action-sub">Detailed pricing for ${d.name} charters</div>
-    </a>
-    <a href="${links.route}" class="action-card">
-      <div class="action-icon">🗺️</div>
-      <div class="action-title">Detailed route guide</div>
-      <div class="action-sub">Day-by-day itinerary for ${d.name}</div>
-    </a>`;
+  document.getElementById('action-grid').innerHTML=
+    '<a href="'+d.link+'" class="action-card"><div class="action-icon">🌍</div><div class="action-title">'+d.name+' destination guide</div><div class="action-sub">Best anchorages, tips & what to expect</div></a>'+
+    '<a href="'+d.cost+'" class="action-card"><div class="action-icon">💰</div><div class="action-title">Full cost breakdown</div><div class="action-sub">Detailed pricing for '+d.name+' charters</div></a>'+
+    '<a href="'+d.route+'" class="action-card"><div class="action-icon">🗺️</div><div class="action-title">Detailed route guide</div><div class="action-sub">Day-by-day itinerary for '+d.name+'</div></a>';
 
   document.getElementById('results').classList.add('show');
-  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 
-  // Store state for AI
-  window._plannerState = {d, days, guests, boat, charter, charterFee, total, pp, boatLabel, charterLabel};
+  window._plannerState={d,days,guests,boat,charter,charterFee,total,pp,boatLabel,charterLabel};
 }
 
 async function generateItinerary() {
-  if (!window._plannerState) { alert('Please calculate your trip first.'); return; }
-
-  const {d, days, guests, boatLabel, charterLabel} = window._plannerState;
-
-  const btn = document.getElementById('ai-btn');
-  const loading = document.getElementById('ai-loading');
-  const output = document.getElementById('ai-output');
-
-  btn.disabled = true;
+  if (!window._plannerState){alert('Please calculate your trip first.');return;}
+  const {d,days,guests,boatLabel,charterLabel}=window._plannerState;
+  const btn=document.getElementById('ai-btn');
+  const loading=document.getElementById('ai-loading');
+  const output=document.getElementById('ai-output');
+  btn.disabled=true;
   loading.classList.add('show');
   output.classList.remove('show');
-  output.innerHTML = '';
-
+  output.innerHTML='';
   try {
-    const response = await fetch('/api/itinerary', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        destination: d.name,
-        days, guests,
-        boat: boatLabel,
-        charter: charterLabel,
-        routes: d.routes.join(' → '),
-        bases: d.bases,
-        season: d.season
-      })
+    const response=await fetch('/api/itinerary',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({destination:d.name,days,guests,boat:boatLabel,charter:charterLabel,routes:d.routes.join(' → '),bases:d.bases,season:d.season})
     });
-
-    if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error || 'Server error');
+    if(!response.ok){const e=await response.json();throw new Error(e.error||'Server error');}
+    const data=await response.json();
+    const text=data.itinerary;
+    if(!text)throw new Error('No itinerary returned');
+    function mdToHtml(md){
+      return md.split('\n').map(line=>{
+        if(/^#{1,3}\s/.test(line)){const t=line.replace(/^#{1,3}\s/,'').replace(/\*\*(.+?)\*\*/g,'$1');return '<p style="margin:16px 0 4px;font-size:1rem;font-weight:800;color:#00E5FF;">'+t+'</p>';}
+        if(/^Day \d/.test(line)){const t=line.replace(/\*\*(.+?)\*\*/g,'$1');return '<p style="margin:16px 0 6px;font-size:1rem;font-weight:800;color:#00E5FF;">'+t+'</p>';}
+        if(/^[\*\-]\s/.test(line)){const t=line.replace(/^[\*\-]\s/,'').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');return '<p style="margin:3px 0 3px 12px;color:rgba(255,255,255,.85);">• '+t+'</p>';}
+        if(/^\*\*/.test(line)){const t=line.replace(/\*\*(.+?)\*\*/g,'<strong style="color:#00E5FF;">$1</strong>');return '<p style="margin:10px 0 4px;">'+t+'</p>';}
+        if(line.trim()==='')return '<br>';
+        const t=line.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+        return '<p style="margin:3px 0;">'+t+'</p>';
+      }).join('');
     }
-
-    const data = await response.json();
-    const text = data.itinerary;
-    if (!text) throw new Error('No itinerary returned');
-
-    function mdToHtml(md) {
-      return md
-        .split('\n')
-        .map(line => {
-          // Day headings: "Day 1:" or "## Day 1"
-          if (/^#{1,3}\s/.test(line)) {
-            const t = line.replace(/^#{1,3}\s/, '').replace(/\*\*(.+?)\*\*/g, '$1');
-            return '<p style="margin:16px 0 4px;font-size:1rem;font-weight:800;color:#00E5FF;">' + t + '</p>';
-          }
-          // Bullet points
-          if (/^[\*\-]\s/.test(line)) {
-            const t = line.replace(/^[\*\-]\s/, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-            return '<p style="margin:2px 0 2px 12px;color:rgba(255,255,255,.85);">• ' + t + '</p>';
-          }
-          // Bold lines (e.g. "**Charter Details:**")
-          if (/^\*\*/.test(line)) {
-            const t = line.replace(/\*\*(.+?)\*\*/g, '<strong style="color:#00E5FF;">$1</strong>');
-            return '<p style="margin:12px 0 4px;">' + t + '</p>';
-          }
-          // Empty lines
-          if (line.trim() === '') return '<br>';
-          // Normal line — inline bold
-          const t = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-          return '<p style="margin:4px 0;">' + t + '</p>';
-        })
-        .join('');
-    }
-    output.innerHTML = mdToHtml(text);
+    output.innerHTML=mdToHtml(text);
     output.classList.add('show');
-  } catch (err) {
-    output.textContent = `Error: ${err.message}\n\nSomething went wrong generating your itinerary. Please try again.`;
+  } catch(err){
+    output.innerHTML='<p style="color:rgba(255,100,100,.9);">'+err.message+'</p><p style="color:rgba(255,255,255,.5);margin-top:8px;">Please try again shortly.</p>';
     output.classList.add('show');
-  } finally {
-    btn.disabled = false;
+  } finally{
+    btn.disabled=false;
     loading.classList.remove('show');
   }
 }
