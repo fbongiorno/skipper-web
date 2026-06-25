@@ -89,6 +89,13 @@ app.get('/api/admin/waitlist', async (req, res) => {
     }
 });
 
+// Gemini key endpoint — serves key from env var, never exposed in repo
+app.get('/api/gemini-key', (req, res) => {
+    const key = process.env.GEMINI_KEY;
+    if (!key) return res.status(404).json({ error: 'Not configured' });
+    res.json({ key });
+});
+
 // Custom 404 handler — must be last, after all other routes and static middleware
 app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'skipper-content', '404', 'index.html'));

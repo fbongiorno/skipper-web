@@ -308,13 +308,13 @@
         <span class="ai-badge">✦ AI POWERED</span>
         <span class="ai-title">Generate My Itinerary</span>
       </div>
-      <p class="ai-desc">Get a personalised day-by-day itinerary based on your selections — anchorages, sailing distances, must-see stops, and local tips. Powered by Google Gemini (free).</p>
-      <div class="key-row">
+      <p class="ai-desc">Get a personalised day-by-day itinerary based on your selections — anchorages, sailing distances, must-see stops, and local tips. Powered by Google Gemini AI.</p>
+      <div class="key-row" style="display:none;">
         <input type="password" id="gemini-key" placeholder="Paste your free Gemini API key (aistudio.google.com/app/apikey)">
       </div>
       <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
         <button class="ai-btn" id="ai-btn" onclick="generateItinerary()">Generate itinerary →</button>
-        <span style="font-size:.75rem;color:rgba(255,255,255,.4);">Free at aistudio.google.com · No credit card needed</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.4);">Powered by Google Gemini AI</span>
       </div>
       <div class="ai-loading" id="ai-loading">
         <div class="dot-spin"></div>
@@ -492,8 +492,15 @@ function calculate() {
 }
 
 async function generateItinerary() {
-  const key = document.getElementById('gemini-key').value.trim();
-  if (!key) { alert('Please enter your Gemini API key. Get one free at aistudio.google.com/app/apikey'); return; }
+  let key = document.getElementById('gemini-key').value.trim();
+  if (!key) {
+    try {
+      const r = await fetch('/api/gemini-key');
+      const data = await r.json();
+      key = data.key;
+    } catch(e) {}
+  }
+  if (!key) { alert('AI itinerary is temporarily unavailable. Please try again shortly.'); return; }
   if (!window._plannerState) { alert('Please calculate your trip first.'); return; }
 
   const {d, days, guests, boat, charter, charterFee, total, pp, boatLabel, charterLabel} = window._plannerState;
@@ -548,7 +555,7 @@ Keep it concise and practical. Format each day clearly as "Day 1:", "Day 2:" etc
     output.textContent = text;
     output.classList.add('show');
   } catch (err) {
-    output.textContent = `Error: ${err.message}\n\nMake sure your API key is correct. Get a free key at aistudio.google.com/app/apikey`;
+    output.textContent = `Error: ${err.message}\n\nSomething went wrong generating your itinerary. Please try again.`;
     output.classList.add('show');
   } finally {
     btn.disabled = false;
