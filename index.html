@@ -78,7 +78,9 @@
       border:1px solid rgba(0,229,255,.4);color:#00E5FF;
       border-radius:9999px;padding:4px 14px;
       font-size:.72rem;font-weight:700;letter-spacing:.05em;
+      text-decoration:none;cursor:pointer;transition:.18s;
     }
+    .hero-tag:hover{background:rgba(0,229,255,.15);border-color:#00E5FF;color:#fff;}
     @media(max-width:600px){
       .hero-content{padding:0 24px 36px;}
       .hero-content h1{font-size:1.9rem;}
@@ -192,12 +194,12 @@
     <h1>The world's best<br>yachting destinations,<br><em>fully planned.</em></h1>
     <p>Routes, budgets, marina guides, and charter advice — Greece, Croatia, the BVI, Whitsundays, and 14 more.</p>
     <div class="hero-tags">
-      <span class="hero-tag">Greece</span>
-      <span class="hero-tag">Croatia</span>
-      <span class="hero-tag">BVI</span>
-      <span class="hero-tag">Whitsundays</span>
-      <span class="hero-tag">French Polynesia</span>
-      <span class="hero-tag">Italy</span>
+      <a href="/destinations/europe/greece/" class="hero-tag">Greece</a>
+      <a href="/destinations/europe/croatia/" class="hero-tag">Croatia</a>
+      <a href="/destinations/caribbean/british-virgin-islands/" class="hero-tag">BVI</a>
+      <a href="/destinations/pacific/whitsundays/" class="hero-tag">Whitsundays</a>
+      <a href="/destinations/pacific/french-polynesia/" class="hero-tag">French Polynesia</a>
+      <a href="/destinations/europe/italy/" class="hero-tag">Italy</a>
     </div>
     <div class="hero-dots"><button class="dot active" onclick="goTo(0)" aria-label="Slide 1"></button><button class="dot " onclick="goTo(1)" aria-label="Slide 2"></button><button class="dot " onclick="goTo(2)" aria-label="Slide 3"></button><button class="dot " onclick="goTo(3)" aria-label="Slide 4"></button></div>
   </div>
