@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yacht Trip Planner — Plan Your Charter Holiday | Skipper</title>
+  <meta name="description" content="Plan your perfect yacht charter holiday. Choose your destination, boat type, duration and group size — get instant cost estimates, suggested routes, and an AI-generated itinerary.">
+  <meta property="og:title" content="Yacht Trip Planner | Skipper">
+  <meta property="og:description" content="Interactive yacht trip planner — costs, routes, boat types, and AI itineraries for Greece, Croatia, BVI, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.skipper.com/plan/">
+  <link rel="canonical" href="https://www.skipper.com/plan/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0D2B3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/skipper-content/assets/skipper.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Skipper Yacht Trip Planner","description":"Interactive yacht charter trip planner with cost estimates, route suggestions, and AI-generated itineraries","url":"https://www.skipper.com/plan/","applicationCategory":"TravelApplication"}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3W0MF9Q5VZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3W0MF9Q5VZ');</script>
+  <style>
+    .plan-wrap{max-width:900px;margin:0 auto;padding:48px 24px 80px;}
+    .plan-intro{text-align:center;margin-bottom:48px;}
+    .plan-intro h1{font-size:2.4rem;font-weight:800;margin-bottom:12px;}
+    .plan-intro p{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto;}
+
+    /* STEP CARDS */
+    .step-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 32px;margin-bottom:16px;}
+    .step-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+    .step-num{width:32px;height:32px;border-radius:50%;background:var(--teal-dim);color:var(--teal-dark);font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-title{font-size:1rem;font-weight:800;color:var(--text);}
+    .step-sub{font-size:.82rem;color:var(--muted);margin-top:1px;}
+
+    /* CHIPS */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;}
+    .chip{border:1.5px solid var(--border);border-radius:var(--pill);padding:8px 16px;font-size:.85rem;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:.18s;user-select:none;}
+    .chip:hover{border-color:var(--teal-dark);color:var(--text);}
+    .chip.sel{border-color:var(--teal);background:var(--teal-dim);color:var(--teal-dark);}
+    .chip-icon{margin-right:5px;}
+
+    /* SLIDERS */
+    .slider-row{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+    .slider-row:last-child{margin-bottom:0;}
+    .slider-label{font-size:.85rem;font-weight:600;color:var(--text);min-width:100px;}
+    .slider-row input[type=range]{flex:1;accent-color:var(--teal-dark);}
+    .slider-val{font-size:.9rem;font-weight:700;color:var(--teal-dark);min-width:80px;text-align:right;}
+
+    /* CALCULATE BUTTON */
+    .calc-btn{width:100%;padding:16px;background:var(--teal-dark);color:var(--white);border:none;border-radius:var(--r-lg);font-size:1rem;font-weight:800;cursor:pointer;transition:.18s;margin-top:8px;letter-spacing:.02em;}
+    .calc-btn:hover{background:var(--teal);color:var(--text);}
+
+    /* RESULTS */
+    .results{display:none;}
+    .results.show{display:block;}
+    .results-header{text-align:center;padding:40px 0 32px;border-top:1px solid var(--border);margin-top:32px;}
+    .results-header h2{font-size:1.8rem;font-weight:800;margin-bottom:6px;}
+    .results-header p{color:var(--muted);font-size:.95rem;}
+
+    /* METRIC CARDS */
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
+    @media(max-width:640px){.metrics{grid-template-columns:repeat(2,1fr);}}
+    .metric{background:var(--bg);border-radius:var(--r-md);padding:16px;}
+    .metric-label{font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.06em;margin-bottom:6px;}
+    .metric-val{font-size:1.5rem;font-weight:800;color:var(--text);}
+    .metric-sub{font-size:.75rem;color:var(--muted);margin-top:2px;}
+
+    /* SECTION TITLE */
+    .sec-title{font-size:.75rem;font-weight:700;color:var(--muted);letter-spacing:.08em;margin-bottom:14px;}
+
+    /* BOAT CARDS */
+    .boat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+    @media(max-width:580px){.boat-grid{grid-template-columns:1fr;}}
+    .boat-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:18px;}
+    .boat-card.best{border-color:var(--teal);background:var(--teal-dim);}
+    .best-tag{display:inline-block;background:var(--teal-dark);color:var(--white);border-radius:var(--pill);padding:2px 10px;font-size:.68rem;font-weight:700;margin-bottom:8px;}
+    .boat-name{font-size:.9rem;font-weight:800;margin-bottom:4px;}
+    .boat-spec{font-size:.78rem;color:var(--muted);line-height:1.5;}
+    .boat-price{font-size:.95rem;font-weight:800;color:var(--teal-dark);margin-top:8px;}
+
+    /* ROUTE */
+    .route-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:28px;padding:16px 20px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);}
+    .route-stop{background:var(--bg);border:1px solid var(--border);border-radius:var(--pill);padding:5px 13px;font-size:.8rem;font-weight:600;}
+    .route-arrow{color:var(--teal-dark);font-size:.85rem;font-weight:700;}
+
+    /* COST TABLE */
+    .cost-table{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:.88rem;}
+    .cost-table tr{border-bottom:1px solid var(--border);}
+    .cost-table tr:last-child{border-bottom:none;font-weight:800;font-size:.95rem;}
+    .cost-table td{padding:11px 16px;}
+    .cost-table td:last-child{text-align:right;color:var(--teal-dark);font-weight:700;}
+    .cost-table tr:last-child td:last-child{color:var(--text);}
+    .cost-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;margin-bottom:28px;}
+
+    /* PER PERSON CALLOUT */
+    .pp-callout{background:var(--teal-dim);border:1px solid rgba(0,229,255,.3);border-radius:var(--r-md);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+    .pp-callout p{font-size:.9rem;color:var(--teal-dark);font-weight:600;}
+    .pp-callout span{font-size:1.6rem;font-weight:800;color:var(--teal-dark);}
+
+    /* AI SECTION */
+    .ai-section{background:linear-gradient(135deg,#0D2B3E 0%,#0D4F5C 100%);border-radius:var(--r-lg);padding:32px;margin-bottom:24px;}
+    .ai-header{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+    .ai-badge{background:var(--teal-dim);border:1px solid rgba(0,229,255,.3);color:var(--teal);border-radius:var(--pill);padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;}
+    .ai-title{font-size:1.2rem;font-weight:800;color:var(--white);}
+    .ai-desc{font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:20px;line-height:1.6;}
+    .ai-btn{background:var(--teal);color:var(--text);border:none;border-radius:var(--pill);padding:12px 28px;font-size:.9rem;font-weight:800;cursor:pointer;transition:.18s;}
+    .ai-btn:hover{background:var(--white);}
+    .ai-btn:disabled{opacity:.5;cursor:not-allowed;}
+    .ai-output{margin-top:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);padding:20px;color:rgba(255,255,255,.88);font-size:.88rem;line-height:1.75;min-height:60px;white-space:pre-wrap;display:none;}
+    .ai-output.show{display:block;}
+    .ai-loading{display:none;align-items:center;gap:10px;margin-top:16px;color:rgba(255,255,255,.6);font-size:.85rem;}
+    .ai-loading.show{display:flex;}
+    .dot-spin{width:18px;height:18px;border:2px solid rgba(0,229,255,.3);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+
+    /* ACTION LINKS */
+    .action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+    @media(max-width:560px){.action-grid{grid-template-columns:1fr;}}
+    .action-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:18px;text-decoration:none;color:var(--text);transition:.18s;display:block;}
+    .action-card:hover{border-color:var(--teal);background:var(--teal-dim);}
+    .action-icon{font-size:1.3rem;margin-bottom:8px;}
+    .action-title{font-size:.88rem;font-weight:800;margin-bottom:3px;}
+    .action-sub{font-size:.78rem;color:var(--muted);}
+
+    /* GEMINI KEY INPUT */
+    .key-row{display:flex;gap:10px;margin-top:12px;}
+    .key-row input{flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:.85rem;font-family:var(--font);background:rgba(255,255,255,.08);color:var(--white);outline:none;}
+    .key-row input::placeholder{color:rgba(255,255,255,.35);}
+    .key-row input:focus{border-color:var(--teal);}
+
+    @media(max-width:600px){
+      .plan-intro h1{font-size:1.8rem;}
+      .step-card{padding:20px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="s-nav">
+  <a href="/" class="s-nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+    Skipper
+  </a>
+  <div class="s-nav-links">
+    <a href="/destinations/">Destinations</a>
+    <a href="/guides/">Sailing Guides</a>
+    <a href="/charter/">Yacht Charter</a>
+    <a href="/routes/">Routes</a>
+    <a href="/planning/">Trip Planning</a>
+    <a href="/magazine/">Magazine</a>
+  </div>
+</nav>
+
+<div class="s-bread">
+  <div class="s-bread-inner">
+    <a href="/">Home</a><span>›</span>
+    <span style="color:var(--text);font-weight:600">Yacht Trip Planner</span>
+  </div>
+</div>
+
+<div class="plan-wrap">
+
+  <div class="plan-intro">
+    <h1>Plan Your Yacht Charter Holiday</h1>
+    <p>Tell us where you want to go and we'll calculate costs, recommend boats, map your route, and generate a custom itinerary.</p>
+  </div>
+
+  <!-- STEP 1: DESTINATION -->
+  <div class="step-card">
+    <div class="step-head">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Where do you want to go?</div>
+        <div class="step-sub">Select a destination</div>
+      </div>
+    </div>
+    <div class="chips" id="dest-chips">
+      <div class="chip sel" data-val="greece"><span class="chip-icon">🇬🇷</span>Greece</div>
+      <div class="chip" data-val="croatia"><span class="chip-icon">🇭🇷</span>Croatia</div>
+      <div class="chip" data-val="bvi"><span class="chip-icon">🇻🇬</span>BVI</div>
+      <div class="chip" data-val="bahamas"><span class="chip-icon">🇧🇸</span>Bahamas</div>
+      <div class="chip" data-val="whitsundays"><span class="chip-icon">🇦🇺</span>Whitsundays</div>
+      <div class="chip" data-val="turkey"><span class="chip-icon">🇹🇷</span>Turkey</div>
+      <div class="chip" data-val="italy"><span class="chip-icon">🇮🇹</span>Italy</div>
+      <div class="chip" data-val="grenadines"><span class="chip-icon">🌴</span>Grenadines</div>
+      <div class="chip" data-val="france"><span class="chip-icon">🇫🇷</span>France</div>
+      <div class="chip" data-val="polynesia"><span class="chip-icon">🌺</span>French Polynesia</div>
+    </div>
+  </div>
+
+  <!-- STEP 2: BOAT TYPE -->
+  <div class="step-card">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">What type of yacht?</div>
+        <div class="step-sub">Motor or sailing, catamaran or monohull</div>
+      </div>
+    </div>
+    <div class="chips" id="boat-chips">
+      <div class="chip sel" data-val="sailing">⛵ Sailing yacht</div>
+      <div class="chip" data-val="catamaran">🛥️ Catamaran</div>
+      <div class="chip" data-val="motor">🚢 Motor yacht</div>
+      <div class="chip" data-val="gulet">⚓ Gulet</div>
+    </div>
+  </div>
+
+  <!-- STEP 3: CHARTER TYPE -->
+  <div class="step-card">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">How do you want to sail?</div>
+        <div class="step-sub">Your experience level and crew preference</div>
+      </div>
+    </div>
+    <div class="chips" id="charter-chips">
+      <div class="chip sel" data-val="bareboat">🎓 Bareboat — I'll skipper it</div>
+      <div class="chip" data-val="skippered">👨‍✈️ Skippered — bring a skipper</div>
+      <div class="chip" data-val="crewed">👑 Fully crewed — sit back and relax</div>
+    </div>
+  </div>
+
+  <!-- STEP 4: DURATION & GROUP -->
+  <div class="step-card">
+    <div class="step-head">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Duration & group size</div>
+        <div class="step-sub">How long and how many people</div>
+      </div>
+    </div>
+    <div class="slider-row">
+      <span class="slider-label">Duration</span>
+      <input type="range" id="days" min="3" max="21" step="1" value="7">
+      <span class="slider-val" id="days-out">7 days</span>
+    </div>
+    <div class="slider-row">
+      <span class="slider-label">Guests</span>
+      <input type="range" id="guests" min="2" max="12" step="1" value="4">
+      <span class="slider-val" id="guests-out">4 people</span>
+    </div>
+    <div class="slider-row">
+      <span class="slider-label">Budget pp</span>
+      <input type="range" id="budget" min="500" max="5000" step="100" value="2000">
+      <span class="slider-val" id="budget-out">$2,000</span>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate my trip →</button>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+
+    <div class="results-header">
+      <h2 id="r-headline">Your Greece Sailing Holiday</h2>
+      <p id="r-tagline">7 days · 4 guests · Bareboat sailing yacht</p>
+    </div>
+
+    <!-- METRICS -->
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-label">CHARTER FEE</div>
+        <div class="metric-val" id="r-charter">—</div>
+        <div class="metric-sub">boat only</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">TOTAL COST</div>
+        <div class="metric-val" id="r-total">—</div>
+        <div class="metric-sub">all-in estimate</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">PER PERSON</div>
+        <div class="metric-val" id="r-pp">—</div>
+        <div class="metric-sub">total ÷ guests</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">BEST SEASON</div>
+        <div class="metric-val" id="r-season">—</div>
+        <div class="metric-sub" id="r-peak">peak months</div>
+      </div>
+    </div>
+
+    <!-- PER PERSON CALLOUT -->
+    <div class="pp-callout">
+      <p id="r-budget-msg">Your budget comfortably covers this trip.</p>
+      <span id="r-pp-big">—</span>
+    </div>
+
+    <!-- RECOMMENDED BOATS -->
+    <div class="sec-title">RECOMMENDED BOATS FOR YOUR TRIP</div>
+    <div class="boat-grid" id="boat-grid"></div>
+
+    <!-- ROUTE -->
+    <div class="sec-title">SUGGESTED ROUTE</div>
+    <div class="route-strip" id="route-strip"></div>
+
+    <!-- COST BREAKDOWN -->
+    <div class="sec-title">FULL COST BREAKDOWN</div>
+    <div class="cost-wrap">
+      <table class="cost-table" id="cost-table"></table>
+    </div>
+
+    <!-- AI ITINERARY -->
+    <div class="ai-section">
+      <div class="ai-header">
+        <span class="ai-badge">✦ AI POWERED</span>
+        <span class="ai-title">Generate My Itinerary</span>
+      </div>
+      <p class="ai-desc">Get a personalised day-by-day itinerary based on your selections — anchorages, sailing distances, must-see stops, and local tips. Powered by Google Gemini (free).</p>
+      <div class="key-row">
+        <input type="password" id="gemini-key" placeholder="Paste your free Gemini API key (aistudio.google.com/app/apikey)">
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        <button class="ai-btn" id="ai-btn" onclick="generateItinerary()">Generate itinerary →</button>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.4);">Free at aistudio.google.com · No credit card needed</span>
+      </div>
+      <div class="ai-loading" id="ai-loading">
+        <div class="dot-spin"></div>
+        <span>Writing your itinerary…</span>
+      </div>
+      <div class="ai-output" id="ai-output"></div>
+    </div>
+
+    <!-- ACTION LINKS -->
+    <div class="sec-title">NEXT STEPS</div>
+    <div class="action-grid" id="action-grid"></div>
+
+  </div>
+</div>
+
+<footer style="background:var(--text);color:rgba(255,255,255,.5);padding:2rem 32px;text-align:center;font-size:.8rem;margin-top:0;">
+  <p style="margin-bottom:.4rem;font-weight:700;font-size:.88rem;"><a href="/" style="color:var(--teal);text-decoration:none;">Skipper</a> — Smarter yachting, everywhere.</p>
+  <p><a href="/destinations/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Destinations</a><a href="/charter/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Charter</a><a href="/planning/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Planning</a><a href="/routes/" style="color:rgba(255,255,255,.4);margin:0 7px;text-decoration:none;">Routes</a></p>
+</footer>
+
+<script>
+const DEST = {
+  greece:    {name:'Greece',        flag:'🇬🇷', season:'May–Oct', peak:'Jun–Aug', bases:'Athens, Corfu, Kos', sailing:[2800,4500],catamaran:[4500,7500],motor:[6000,12000],gulet:[3500,6000], routes:['Athens','Hydra','Spetses','Nafplio','Monemvasia','Athens'], extras:{bareboat:0,skippered:1200,crewed:2800}, food:65,marina:35,fuel:40, link:'/destinations/europe/greece/', guide:'/planning/best-time-to-sail-greece/', cost:'/planning/sailing-cost-greece/'},
+  croatia:   {name:'Croatia',       flag:'🇭🇷', season:'Jun–Sep', peak:'Jul–Aug', bases:'Split, Dubrovnik, Zadar', sailing:[3200,5200],catamaran:[5500,9000],motor:[7000,14000],gulet:[4000,7000], routes:['Split','Hvar','Korčula','Mljet','Dubrovnik','Split'], extras:{bareboat:350,skippered:1400,crewed:3200}, food:70,marina:55,fuel:45, link:'/destinations/europe/croatia/', guide:'/planning/best-time-to-sail-croatia/', cost:'/planning/sailing-cost-croatia/'},
+  bvi:       {name:'British Virgin Islands', flag:'🇻🇬', season:'Dec–Apr', peak:'Jan–Mar', bases:'Road Town, Tortola', sailing:[4500,7000],catamaran:[8000,12500],motor:[10000,18000],gulet:[5000,8000], routes:['Road Town','Norman Island','Cooper Island','Virgin Gorda','Jost Van Dyke','Road Town'], extras:{bareboat:150,skippered:1600,crewed:3500}, food:90,marina:30,fuel:55, link:'/destinations/caribbean/british-virgin-islands/', guide:'/planning/best-time-to-sail-bvi/', cost:'/planning/sailing-cost-bvi/'},
+  bahamas:   {name:'Bahamas',       flag:'🇧🇸', season:'Dec–Apr', peak:'Jan–Mar', bases:'Nassau, Marsh Harbour', sailing:[3500,5800],catamaran:[5500,9000],motor:[8000,15000],gulet:[4000,7000], routes:['Nassau','Allens Cay','Staniel Cay','Great Exuma','George Town','Nassau'], extras:{bareboat:150,skippered:1400,crewed:3000}, food:85,marina:20,fuel:60, link:'/destinations/caribbean/bahamas/', guide:'/planning/best-time-to-sail-bahamas/', cost:'/planning/sailing-cost-caribbean/'},
+  whitsundays:{name:'Whitsundays', flag:'🇦🇺', season:'Jun–Aug', peak:'Jul', bases:'Airlie Beach', sailing:[3000,5000],catamaran:[5000,8500],motor:[7000,13000],gulet:[3500,6000], routes:['Airlie Beach','Whitsunday Island','Whitehaven Beach','Hill Inlet','Hook Island','Airlie Beach'], extras:{bareboat:0,skippered:1300,crewed:3000}, food:75,marina:40,fuel:45, link:'/destinations/pacific/whitsundays/', guide:'/planning/best-time-to-sail-whitsundays/', cost:'/planning/sailing-cost-worldwide/'},
+  turkey:    {name:'Turkey',        flag:'🇹🇷', season:'May–Oct', peak:'Jun–Sep', bases:'Bodrum, Marmaris, Göcek', sailing:[2200,3800],catamaran:[3800,6500],motor:[5000,10000],gulet:[2800,5500], routes:['Bodrum','Gökova Bay','Marmaris','Göcek','Fethiye','Bodrum'], extras:{bareboat:0,skippered:1000,crewed:2500}, food:45,marina:50,fuel:35, link:'/destinations/europe/turkey/', guide:'/planning/best-time-to-sail-turkey/', cost:'/planning/sailing-cost-mediterranean/'},
+  italy:     {name:'Italy',         flag:'🇮🇹', season:'May–Sep', peak:'Jun–Aug', bases:'Naples, Palermo, Olbia', sailing:[3000,5200],catamaran:[5000,8500],motor:[7000,14000],gulet:[3500,6000], routes:['Amalfi','Capri','Positano','Salerno','Ischia','Amalfi'], extras:{bareboat:0,skippered:1200,crewed:3000}, food:80,marina:70,fuel:50, link:'/destinations/europe/italy/', guide:'/planning/best-time-to-sail-italy/', cost:'/planning/sailing-cost-mediterranean/'},
+  grenadines:{name:'Grenadines',    flag:'🌴', season:'Dec–May', peak:'Jan–Apr', bases:'St Vincent, Grenada', sailing:[3500,5800],catamaran:[5000,8500],motor:[7000,13000],gulet:[4000,6500], routes:['St Vincent','Bequia','Mustique','Tobago Cays','Union Island','Grenada'], extras:{bareboat:0,skippered:1300,crewed:2800}, food:75,marina:25,fuel:45, link:'/destinations/caribbean/grenadines/', guide:'/planning/best-time-to-sail-grenadines/', cost:'/planning/sailing-cost-caribbean/'},
+  france:    {name:'France',        flag:'🇫🇷', season:'May–Sep', peak:'Jul–Aug', bases:'Antibes, Ajaccio, Marseille', sailing:[3500,6000],catamaran:[6000,10000],motor:[8000,15000],gulet:[4500,7500], routes:['Antibes','Cannes','St-Tropez','Toulon','Ajaccio','Antibes'], extras:{bareboat:0,skippered:1400,crewed:3200}, food:90,marina:120,fuel:55, link:'/destinations/europe/france/', guide:'/planning/best-time-to-sail-france/', cost:'/planning/sailing-cost-mediterranean/'},
+  polynesia: {name:'French Polynesia', flag:'🌺', season:'May–Oct', peak:'Jul–Sep', bases:'Raiatea, Papeete', sailing:[5000,8000],catamaran:[9000,15000],motor:[12000,22000],gulet:[7000,12000], routes:['Raiatea','Tahaa','Bora Bora','Huahine','Moorea','Papeete'], extras:{bareboat:0,skippered:1800,crewed:4000}, food:95,marina:45,fuel:70, link:'/destinations/pacific/french-polynesia/', guide:'/planning/best-time-to-sail-french-polynesia/', cost:'/planning/sailing-cost-worldwide/'},
+};
+
+const BOATS = {
+  sailing:   [{name:'Bénéteau Oceanis 46',size:'46ft',pax:'up to 8',note:'Most popular bareboat choice',best:true},{name:'Jeanneau Sun Odyssey 51',size:'51ft',pax:'up to 10',note:'Extra space, more cabins'},{name:'Bavaria C45',size:'45ft',pax:'up to 8',note:'Great value option'}],
+  catamaran: [{name:'Leopard 45',size:'45ft',pax:'up to 10',note:'Top-selling charter cat',best:true},{name:'Fountaine Pajot Elba 45',size:'45ft',pax:'up to 10',note:'French quality, great layout'},{name:'Lagoon 42',size:'42ft',pax:'up to 8',note:'Compact & easy to handle'}],
+  motor:     [{name:'Azimut 50',size:'50ft',pax:'up to 8',note:'Sport cruiser, fast & stylish',best:true},{name:'Princess V52',size:'52ft',pax:'up to 10',note:'Full luxury fit-out'},{name:'Sunseeker Portofino 48',size:'48ft',pax:'up to 8',note:'Classic motor yacht'}],
+  gulet:     [{name:'Traditional Gulet 22m',size:'72ft',pax:'up to 10',note:'Classic timber build',best:true},{name:'Modern Gulet 24m',size:'78ft',pax:'up to 12',note:'A/C, watermaker, all mod cons'},{name:'Luxury Gulet 27m',size:'88ft',pax:'up to 12',note:'Premium interiors & crew'}],
+};
+
+const DEST_LINKS = {
+  greece:{dest:'/destinations/europe/greece/',cost:'/planning/sailing-cost-greece/',route:'/routes/greek-islands-7-day-cyclades/',marinas:'/planning/best-marinas-greece/'},
+  croatia:{dest:'/destinations/europe/croatia/',cost:'/planning/sailing-cost-croatia/',route:'/routes/croatia-7-day-split-dubrovnik/',marinas:'/planning/best-marinas-croatia/'},
+  bvi:{dest:'/destinations/caribbean/british-virgin-islands/',cost:'/planning/sailing-cost-bvi/',route:'/routes/caribbean-sailing-routes/',marinas:'/planning/best-marinas-bvi/'},
+  bahamas:{dest:'/destinations/caribbean/bahamas/',cost:'/planning/sailing-cost-caribbean/',route:'/routes/bahamas-exumas/',marinas:'/planning/best-marinas-bahamas/'},
+  whitsundays:{dest:'/destinations/pacific/whitsundays/',cost:'/planning/sailing-cost-worldwide/',route:'/routes/whitsundays-7-day/',marinas:'/planning/best-marinas-bvi/'},
+  turkey:{dest:'/destinations/europe/turkey/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/mediterranean-2-week-italy-greece/',marinas:'/planning/best-marinas-turkey/'},
+  italy:{dest:'/destinations/europe/italy/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/sardinia-circuit/',marinas:'/planning/best-marinas-italy/'},
+  grenadines:{dest:'/destinations/caribbean/grenadines/',cost:'/planning/sailing-cost-caribbean/',route:'/routes/grenadines-10-day/',marinas:'/planning/best-marinas-bvi/'},
+  france:{dest:'/destinations/europe/france/',cost:'/planning/sailing-cost-mediterranean/',route:'/routes/corsica-loop/',marinas:'/planning/best-marinas-france/'},
+  polynesia:{dest:'/destinations/pacific/french-polynesia/',cost:'/planning/sailing-cost-worldwide/',route:'/routes/whitsundays-7-day/',marinas:'/planning/best-marinas-bvi/'},
+};
+
+let dest='greece', boat='sailing', charter='bareboat';
+
+function setChip(groupId, val) {
+  document.querySelectorAll(`#${groupId} .chip`).forEach(c => c.classList.toggle('sel', c.dataset.val === val));
+}
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    const g = c.closest('.chips').id;
+    c.closest('.chips').querySelectorAll('.chip').forEach(x => x.classList.remove('sel'));
+    c.classList.add('sel');
+    if (g === 'dest-chips') dest = c.dataset.val;
+    else if (g === 'boat-chips') boat = c.dataset.val;
+    else charter = c.dataset.val;
+  });
+});
+
+function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+
+document.getElementById('days').oninput = e => { document.getElementById('days-out').textContent = e.target.value + ' days'; };
+document.getElementById('guests').oninput = e => { document.getElementById('guests-out').textContent = e.target.value + ' people'; };
+document.getElementById('budget').oninput = e => { document.getElementById('budget-out').textContent = '$' + parseInt(e.target.value).toLocaleString(); };
+
+function calculate() {
+  const d = DEST[dest];
+  const days = parseInt(document.getElementById('days').value);
+  const guests = parseInt(document.getElementById('guests').value);
+  const budgetPP = parseInt(document.getElementById('budget').value);
+  const weeks = days / 7;
+
+  const [lo, hi] = d[boat];
+  const charterFee = Math.round((lo + hi) / 2 * weeks);
+  const extraFee = Math.round(d.extras[charter] * weeks);
+  const food = Math.round(d.food * guests * days);
+  const marina = Math.round(d.marina * days);
+  const fuel = Math.round(d.fuel * days);
+  const total = charterFee + extraFee + food + marina + fuel;
+  const pp = Math.round(total / guests);
+  const budgetTotal = budgetPP * guests;
+
+  // Header
+  const boatLabel = {sailing:'Sailing Yacht',catamaran:'Catamaran',motor:'Motor Yacht',gulet:'Gulet'}[boat];
+  const charterLabel = {bareboat:'Bareboat',skippered:'Skippered',crewed:'Fully Crewed'}[charter];
+  document.getElementById('r-headline').textContent = `Your ${d.name} ${boatLabel} Holiday`;
+  document.getElementById('r-tagline').textContent = `${days} days · ${guests} guests · ${charterLabel} ${boatLabel}`;
+
+  // Metrics
+  document.getElementById('r-charter').textContent = fmt(charterFee);
+  document.getElementById('r-total').textContent = fmt(total);
+  document.getElementById('r-pp').textContent = fmt(pp);
+  document.getElementById('r-season').textContent = d.season;
+  document.getElementById('r-peak').textContent = `peak: ${d.peak}`;
+
+  // Budget callout
+  const ppEl = document.getElementById('r-pp-big');
+  const msgEl = document.getElementById('r-budget-msg');
+  ppEl.textContent = fmt(pp) + '/person';
+  if (pp <= budgetPP * 0.85) {
+    msgEl.textContent = `Great news — this trip fits well within your $${budgetPP.toLocaleString()}/person budget.`;
+  } else if (pp <= budgetPP * 1.1) {
+    msgEl.textContent = `This trip is close to your $${budgetPP.toLocaleString()}/person budget — consider sailing in shoulder season to save 20–30%.`;
+  } else {
+    msgEl.textContent = `This trip exceeds your $${budgetPP.toLocaleString()}/person budget. Try fewer days, a smaller boat, or ${d.name==='france'?'Italy':'Turkey'} for better value.`;
+  }
+
+  // Boat cards
+  const bg = document.getElementById('boat-grid');
+  bg.innerHTML = BOATS[boat].map((b, i) => {
+    const bprice = Math.round(charterFee * (0.88 + i * 0.13));
+    return `<div class="boat-card${b.best?' best':''}">
+      ${b.best ? '<span class="best-tag">Best match</span>' : ''}
+      <div class="boat-name">${b.name}</div>
+      <div class="boat-spec">${b.size} · ${b.pax}<br>${b.note}</div>
+      <div class="boat-price">${fmt(bprice)}/week</div>
+    </div>`;
+  }).join('');
+
+  // Route
+  const rs = document.getElementById('route-strip');
+  rs.innerHTML = d.routes.map((s, i) =>
+    `<span class="route-stop">${s}</span>${i < d.routes.length - 1 ? '<span class="route-arrow">→</span>' : ''}`
+  ).join('');
+
+  // Cost table
+  const rows = [
+    ['Charter fee', fmt(charterFee)],
+    charter === 'skippered' ? ['Skipper hire', fmt(extraFee)] : null,
+    charter === 'crewed' ? ['Full crew', fmt(extraFee)] : null,
+    ['Food & provisioning', fmt(food)],
+    ['Marina fees', fmt(marina)],
+    ['Fuel', fmt(fuel)],
+    ['Total estimate', fmt(total)],
+  ].filter(Boolean);
+  document.getElementById('cost-table').innerHTML = rows.map(([l, v]) =>
+    `<tr><td>${l}</td><td>${v}</td></tr>`
+  ).join('');
+
+  // Action cards
+  const links = DEST_LINKS[dest];
+  document.getElementById('action-grid').innerHTML = `
+    <a href="${links.dest}" class="action-card">
+      <div class="action-icon">🌍</div>
+      <div class="action-title">${d.name} destination guide</div>
+      <div class="action-sub">Best anchorages, tips & what to expect</div>
+    </a>
+    <a href="${links.cost}" class="action-card">
+      <div class="action-icon">💰</div>
+      <div class="action-title">Full cost breakdown</div>
+      <div class="action-sub">Detailed pricing for ${d.name} charters</div>
+    </a>
+    <a href="${links.route}" class="action-card">
+      <div class="action-icon">🗺️</div>
+      <div class="action-title">Detailed route guide</div>
+      <div class="action-sub">Day-by-day itinerary for ${d.name}</div>
+    </a>`;
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
+
+  // Store state for AI
+  window._plannerState = {d, days, guests, boat, charter, charterFee, total, pp, boatLabel, charterLabel};
+}
+
+async function generateItinerary() {
+  const key = document.getElementById('gemini-key').value.trim();
+  if (!key) { alert('Please enter your Gemini API key. Get one free at aistudio.google.com/app/apikey'); return; }
+  if (!window._plannerState) { alert('Please calculate your trip first.'); return; }
+
+  const {d, days, guests, boat, charter, charterFee, total, pp, boatLabel, charterLabel} = window._plannerState;
+
+  const prompt = `You are a professional yacht charter expert. Create a detailed ${days}-day yachting itinerary for ${guests} people chartering a ${boatLabel} (${charterLabel}) in ${d.name}.
+
+Route suggestion: ${d.routes.join(' → ')}
+Charter base: ${d.bases}
+Best season: ${d.season}
+Estimated total cost: $${Math.round(total).toLocaleString()} ($${Math.round(pp).toLocaleString()} per person)
+
+Write a practical day-by-day itinerary including:
+- Daily sailing distances (in nautical miles)
+- Recommended anchorages or marina stops each night
+- Key highlights and must-see spots
+- Practical tips (provisioning, weather, local customs)
+- Best restaurants or beach bars along the route
+
+Keep it concise and practical. Format each day clearly as "Day 1:", "Day 2:" etc.`;
+
+  const btn = document.getElementById('ai-btn');
+  const loading = document.getElementById('ai-loading');
+  const output = document.getElementById('ai-output');
+
+  btn.disabled = true;
+  loading.classList.add('show');
+  output.classList.remove('show');
+  output.textContent = '';
+
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,
+      {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          contents: [{parts: [{text: prompt}]}],
+          generationConfig: {temperature: 0.7, maxOutputTokens: 1200}
+        })
+      }
+    );
+
+    if (!response.ok) {
+      const err = await response.json();
+      throw new Error(err.error?.message || 'API error');
+    }
+
+    const data = await response.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!text) throw new Error('No response from Gemini');
+
+    output.textContent = text;
+    output.classList.add('show');
+  } catch (err) {
+    output.textContent = `Error: ${err.message}\n\nMake sure your API key is correct. Get a free key at aistudio.google.com/app/apikey`;
+    output.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    loading.classList.remove('show');
+  }
+}
+</script>
+</body>
+</html>
