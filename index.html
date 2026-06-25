@@ -53,28 +53,36 @@
     }
     .hero-overlay{
       position:absolute;inset:0;z-index:1;
-      background:linear-gradient(
-        to bottom,
-        rgba(10,25,41,0.25) 0%,
-        rgba(10,25,41,0.15) 40%,
-        rgba(10,25,41,0.65) 100%
-      );
+      background:linear-gradient(135deg,rgba(0,40,60,0.82) 0%,rgba(10,25,41,0.45) 60%,rgba(10,25,41,0.25) 100%);
     }
     .hero-content{
       position:absolute;inset:0;z-index:2;
-      display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-      padding:0 20px 44px;text-align:center;
+      display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+      padding:0 60px 48px;text-align:left;
     }
+    .hero-rule{width:44px;height:3px;background:#00E5FF;border-radius:2px;margin-bottom:16px;}
     .hero-content h1{
-      font-size:2.9rem;font-weight:800;color:#fff;
-      line-height:1.15;margin-bottom:10px;
-      text-shadow:0 2px 16px rgba(0,0,0,0.45);
-      max-width:680px;
+      font-size:2.8rem;font-weight:800;color:#fff;
+      line-height:1.12;margin-bottom:12px;
+      text-shadow:0 2px 16px rgba(0,0,0,0.5);
+      max-width:600px;
     }
+    .hero-content h1 em{font-style:normal;color:#FFBF00;}
     .hero-content p{
-      font-size:1.05rem;color:rgba(255,255,255,.85);
+      font-size:.95rem;color:rgba(255,255,255,.72);
       text-shadow:0 1px 8px rgba(0,0,0,.35);
-      max-width:520px;margin-bottom:24px;
+      max-width:460px;margin-bottom:20px;line-height:1.6;
+    }
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+    .hero-tag{
+      border:1px solid rgba(0,229,255,.4);color:#00E5FF;
+      border-radius:9999px;padding:4px 14px;
+      font-size:.72rem;font-weight:700;letter-spacing:.05em;
+    }
+    @media(max-width:600px){
+      .hero-content{padding:0 24px 36px;}
+      .hero-content h1{font-size:1.9rem;}
+      .hero-tags{display:none;}
     }
     .hero-dots{display:flex;gap:8px;justify-content:center;}
     .dot{
@@ -180,8 +188,17 @@
     </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Your Sailing Holiday Starts Here</h1>
-    <p>Guides, routes, and charter advice for Greece, Croatia, the BVI, and 14 more destinations worldwide.</p>
+    <div class="hero-rule"></div>
+    <h1>The world's best<br>yachting destinations,<br><em>fully planned.</em></h1>
+    <p>Routes, budgets, marina guides, and charter advice — Greece, Croatia, the BVI, Whitsundays, and 14 more.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Greece</span>
+      <span class="hero-tag">Croatia</span>
+      <span class="hero-tag">BVI</span>
+      <span class="hero-tag">Whitsundays</span>
+      <span class="hero-tag">French Polynesia</span>
+      <span class="hero-tag">Italy</span>
+    </div>
     <div class="hero-dots"><button class="dot active" onclick="goTo(0)" aria-label="Slide 1"></button><button class="dot " onclick="goTo(1)" aria-label="Slide 2"></button><button class="dot " onclick="goTo(2)" aria-label="Slide 3"></button><button class="dot " onclick="goTo(3)" aria-label="Slide 4"></button></div>
   </div>
   <button class="hero-arrow prev" onclick="move(-1)" aria-label="Previous">&#8249;</button>
