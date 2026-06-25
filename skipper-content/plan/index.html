@@ -368,9 +368,6 @@
       </div>
     </div>
 
-    <div class="sec-label">RECOMMENDED BOATS</div>
-    <div class="boat-grid" id="boat-grid"></div>
-
     <div class="sec-label">SUGGESTED ROUTE</div>
     <div class="route-strip" id="route-strip"></div>
 
@@ -503,15 +500,7 @@ function calculate() {
   document.getElementById('dest-band-name').textContent=d.flag+' '+d.name;
   document.getElementById('dest-band-bases').textContent='Charter bases: '+d.bases;
 
-  // Boats
-  document.getElementById('boat-grid').innerHTML=BOATS[boat].map((b,i)=>{
-    const bp=Math.round(charterFee*(0.88+i*0.13));
-    return '<div class="boat-card'+(b.best?' best':'')+'">'+
-      (b.best?'<span class="best-tag">Best match</span>':'')+
-      '<div class="boat-name">'+b.name+'</div>'+
-      '<div class="boat-spec">'+b.size+' · '+b.pax+'<br>'+b.note+'</div>'+
-      '<div class="boat-price">'+fmt(bp)+'/week</div></div>';
-  }).join('');
+  
 
   // Route
   document.getElementById('route-strip').innerHTML=d.routes.map((s,i)=>
