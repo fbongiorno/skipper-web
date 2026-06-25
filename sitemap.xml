@@ -3,7 +3,6 @@
 
   <!-- Core -->
   <url><loc>https://www.skipper.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.skipper.com/waitlist/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
 
   <!-- Destination hubs -->
   <url><loc>https://www.skipper.com/destinations/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
@@ -11,7 +10,7 @@
   <url><loc>https://www.skipper.com/destinations/caribbean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/pacific/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Destinations — Europe -->
+  <!-- Destinations: Europe -->
   <url><loc>https://www.skipper.com/destinations/europe/greece/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/europe/croatia/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/europe/italy/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
@@ -22,26 +21,32 @@
   <url><loc>https://www.skipper.com/destinations/europe/montenegro/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/europe/malta/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Destinations — Caribbean -->
-  <url><loc>https://www.skipper.com/destinations/caribbean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- Destinations: Caribbean -->
   <url><loc>https://www.skipper.com/destinations/caribbean/british-virgin-islands/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/caribbean/grenadines/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/caribbean/bahamas/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/caribbean/us-virgin-islands/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Destinations — Pacific -->
+  <!-- Destinations: Pacific -->
   <url><loc>https://www.skipper.com/destinations/pacific/whitsundays/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/destinations/pacific/french-polynesia/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Destinations — Global -->
+  <!-- Destinations: Global -->
   <url><loc>https://www.skipper.com/destinations/best-sailing-destinations-world/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Comparisons -->
-  <!-- placeholder --><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <!-- placeholder2 --><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <!-- placeholder3 --><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- Destination comparisons -->
+  <url><loc>https://www.skipper.com/destinations/compare/greece-vs-croatia/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/greece-vs-turkey/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/bvi-vs-usvi/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/whitsundays-vs-bvi/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/mediterranean-vs-caribbean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/catamaran-charter-families/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/destinations/compare/monohull-vs-catamaran-beginners/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/compare/bvi-vs-usvi/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/compare/catamaran-vs-monohull-families/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/compare/greece-vs-croatia/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Sailing Guides -->
+  <!-- Sailing guides -->
   <url><loc>https://www.skipper.com/guides/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/guides/sailing-for-beginners/</loc><priority>1.0</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/guides/sailing-with-kids/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
@@ -51,7 +56,7 @@
   <url><loc>https://www.skipper.com/guides/points-of-sail-wind-directions/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/guides/how-to-read-nautical-chart/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
 
-  <!-- Yacht Charter -->
+  <!-- Yacht charter -->
   <url><loc>https://www.skipper.com/charter/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/charter/catamaran-vs-monohull/</loc><priority>1.0</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/charter/yacht-charter-cost-guide/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
@@ -69,57 +74,37 @@
   <url><loc>https://www.skipper.com/routes/mediterranean-2-week-italy-greece/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/routes/sardinia-circuit/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/routes/corsica-loop/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/routes/corsica-circumnavigation/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/routes/bahamas-exumas/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/routes/grenadines-10-day/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/routes/whitsundays-7-day/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
 
-  <!-- Trip Planning -->
+  <!-- Trip planning -->
   <url><loc>https://www.skipper.com/planning/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/sailing-trip-budget-guide/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-mediterranean/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-caribbean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/sailing-trip-packing-list/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
 
-  <!-- Magazine -->
-  <url><loc>https://www.skipper.com/magazine/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/magazine/sailing-cyclades-solo/</loc><priority>0.7</priority><changefreq>never</changefreq></url>
-  <url><loc>https://www.skipper.com/magazine/bareboat-license-at-40/</loc><priority>0.7</priority><changefreq>never</changefreq></url>
-  <url><loc>https://www.skipper.com/magazine/most-beautiful-anchorages-mediterranean/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
-
-
-  <!-- Comparison pages -->
-  <url><loc>https://www.skipper.com/destinations/compare/greece-vs-croatia/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/destinations/compare/bvi-vs-usvi/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/destinations/compare/catamaran-charter-families/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-
-  <!-- Additional routes -->
-  <url><loc>https://www.skipper.com/routes/corsica-loop/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
-
-
-  <!-- Best time to sail pages -->
+  <!-- Best time to sail -->
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-mediterranean/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-caribbean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-time-to-sail-greece/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-time-to-sail-croatia/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-time-to-sail-turkey/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-time-to-sail-italy/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-sardinia/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-france/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-time-to-sail-bvi/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-bahamas/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-grenadines/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-time-to-sail-whitsundays/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-french-polynesia/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-montenegro/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.skipper.com/planning/best-time-to-sail-malta/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
 
   <!-- Marina guides -->
   <url><loc>https://www.skipper.com/planning/best-marinas-greece/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-marinas-croatia/</loc><priority>0.9</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-marinas-bvi/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
-
-
-  <!-- Best time to sail: new destinations -->
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-france/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-bahamas/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-grenadines/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-montenegro/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-malta/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-french-polynesia/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.skipper.com/planning/best-time-to-sail-sardinia/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
-
-  <!-- Marina guides: new destinations -->
   <url><loc>https://www.skipper.com/planning/best-marinas-turkey/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-marinas-italy/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/best-marinas-france/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
@@ -133,19 +118,10 @@
   <url><loc>https://www.skipper.com/planning/sailing-cost-mediterranean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.skipper.com/planning/sailing-cost-worldwide/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Comparison pages: new -->
-  <url><loc>https://www.skipper.com/destinations/compare/greece-vs-turkey/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/destinations/compare/whitsundays-vs-bvi/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/destinations/compare/mediterranean-vs-caribbean/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/destinations/compare/monohull-vs-catamaran-beginners/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-
-
-  <!-- Legacy compare pages -->
-  <url><loc>https://www.skipper.com/compare/bvi-vs-usvi/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/compare/catamaran-vs-monohull-families/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.skipper.com/compare/greece-vs-croatia/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-
-  <!-- Routes -->
-  <url><loc>https://www.skipper.com/routes/corsica-circumnavigation/</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <!-- Magazine -->
+  <url><loc>https://www.skipper.com/magazine/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.skipper.com/magazine/sailing-cyclades-solo/</loc><priority>0.7</priority><changefreq>never</changefreq></url>
+  <url><loc>https://www.skipper.com/magazine/bareboat-license-at-40/</loc><priority>0.7</priority><changefreq>never</changefreq></url>
+  <url><loc>https://www.skipper.com/magazine/most-beautiful-anchorages-mediterranean/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
 
 </urlset>
