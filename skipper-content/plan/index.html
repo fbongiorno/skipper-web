@@ -107,7 +107,7 @@
     .ai-btn{background:var(--teal);color:var(--text);border:none;border-radius:var(--pill);padding:12px 28px;font-size:.9rem;font-weight:800;cursor:pointer;transition:.18s;}
     .ai-btn:hover{background:var(--white);}
     .ai-btn:disabled{opacity:.5;cursor:not-allowed;}
-    .ai-output{margin-top:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);padding:20px;color:rgba(255,255,255,.88);font-size:.88rem;line-height:1.75;min-height:60px;display:none;}
+    .ai-output{margin-top:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);padding:20px;color:rgba(255,255,255,.88);font-size:.88rem;line-height:1.8;display:none;max-height:none;overflow:visible;}
     .ai-output.show{display:block;}
     .ai-loading{display:none;align-items:center;gap:10px;margin-top:16px;color:rgba(255,255,255,.6);font-size:.85rem;}
     .ai-loading.show{display:flex;}
@@ -538,7 +538,7 @@ Keep it concise and practical. Format each day clearly as "Day 1:", "Day 2:" etc
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           contents: [{parts: [{text: prompt}]}],
-          generationConfig: {temperature: 0.7, maxOutputTokens: 2000}
+          generationConfig: {temperature: 0.7, maxOutputTokens: 3000}
         })
       }
     );
@@ -552,16 +552,34 @@ Keep it concise and practical. Format each day clearly as "Day 1:", "Day 2:" etc
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
     if (!text) throw new Error('No response from Gemini');
 
-    // Convert markdown to readable text with line breaks
-    const formatted = text
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/^### (.+)$/gm, '<strong style="font-size:.95rem;color:#00E5FF;display:block;margin:14px 0 4px;">$1</strong>')
-      .replace(/^## (.+)$/gm, '<strong style="font-size:1rem;color:#00E5FF;display:block;margin:16px 0 6px;">$1</strong>')
-      .replace(/^# (.+)$/gm, '<strong style="font-size:1.1rem;color:#00E5FF;display:block;margin:16px 0 6px;">$1</strong>')
-      .replace(/^\* (.+)$/gm, '&nbsp;&nbsp;• $1')
-      .replace(/^- (.+)$/gm, '&nbsp;&nbsp;• $1')
-      .replace(/\n/g, '<br>');
-    output.innerHTML = formatted;
+    function mdToHtml(md) {
+      return md
+        .split('\n')
+        .map(line => {
+          // Day headings: "Day 1:" or "## Day 1"
+          if (/^#{1,3}\s/.test(line)) {
+            const t = line.replace(/^#{1,3}\s/, '').replace(/\*\*(.+?)\*\*/g, '$1');
+            return '<p style="margin:16px 0 4px;font-size:1rem;font-weight:800;color:#00E5FF;">' + t + '</p>';
+          }
+          // Bullet points
+          if (/^[\*\-]\s/.test(line)) {
+            const t = line.replace(/^[\*\-]\s/, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            return '<p style="margin:2px 0 2px 12px;color:rgba(255,255,255,.85);">• ' + t + '</p>';
+          }
+          // Bold lines (e.g. "**Charter Details:**")
+          if (/^\*\*/.test(line)) {
+            const t = line.replace(/\*\*(.+?)\*\*/g, '<strong style="color:#00E5FF;">$1</strong>');
+            return '<p style="margin:12px 0 4px;">' + t + '</p>';
+          }
+          // Empty lines
+          if (line.trim() === '') return '<br>';
+          // Normal line — inline bold
+          const t = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+          return '<p style="margin:4px 0;">' + t + '</p>';
+        })
+        .join('');
+    }
+    output.innerHTML = mdToHtml(text);
     output.classList.add('show');
   } catch (err) {
     output.textContent = `Error: ${err.message}\n\nSomething went wrong generating your itinerary. Please try again.`;
