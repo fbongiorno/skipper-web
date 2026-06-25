@@ -89,6 +89,55 @@ app.get('/api/admin/waitlist', async (req, res) => {
     }
 });
 
+// Itinerary generation — server-side Gemini call keeps key secure
+app.post('/api/itinerary', async (req, res) => {
+    const key = process.env.GEMINI_KEY;
+    if (!key) return res.status(503).json({ error: 'AI not configured' });
+
+    const { destination, days, guests, boat, charter, routes, bases, season } = req.body;
+
+    const prompt = `You are an expert yacht charter guide. Write a detailed day-by-day itinerary.
+
+Trip details:
+- Destination: ${destination}
+- Duration: ${days} days
+- Guests: ${guests} people
+- Boat: ${boat}
+- Charter type: ${charter}
+- Suggested route: ${routes}
+- Charter base: ${bases}
+- Best season: ${season}
+
+Write a practical day-by-day itinerary. For each day include:
+- Day heading (e.g. Day 1: Athens to Hydra)
+- Sailing distance in nautical miles
+- Morning, afternoon and evening activities
+- Where to anchor or moor overnight
+- One local tip or restaurant recommendation
+
+Format each day clearly starting with "Day X:" on its own line. Be specific and practical. Do not add an introduction or conclusion — just the days.`;
+
+    try {
+        const response = await fetch(
+            \`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=\${key}\`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: prompt }] }],
+                    generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
+                })
+            }
+        );
+        const data = await response.json();
+        if (!response.ok) return res.status(502).json({ error: data.error?.message || 'Gemini error' });
+        const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        res.json({ itinerary: text });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // Gemini key endpoint — serves key from env var, never exposed in repo
 app.get('/api/gemini-key', (req, res) => {
     const key = process.env.GEMINI_KEY;
