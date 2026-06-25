@@ -89,6 +89,11 @@ app.get('/api/admin/waitlist', async (req, res) => {
     }
 });
 
+// Custom 404 handler — must be last, after all other routes and static middleware
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, 'skipper-content', '404', 'index.html'));
+});
+
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
