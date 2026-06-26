@@ -37,18 +37,27 @@
     .nav-links{display:flex;align-items:center;gap:2px;}
     .nav-links a{color:rgba(255,255,255,.55);font-weight:600;font-size:.875rem;padding:7px 12px;border-radius:var(--pill);transition:.18s;}
     .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1);}
-    @media(max-width:720px){.nav-links{display:none;}}
+    .nav-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px;margin-left:auto;}
+    .nav-toggle svg{width:24px;height:24px;}
+    .nav-cta-mobile{display:none;}
+    @media(max-width:720px){
+      .nav-toggle{display:block;}
+      .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:8px;gap:2px;border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+      .nav-links.open{display:flex;}
+      .nav-links a{padding:12px 16px;font-size:.95rem;border-radius:8px;}
+      .nav-cta-mobile{display:block;background:var(--amber);color:var(--navy) !important;font-weight:800;margin-top:4px;}
+    }
 
     /* HERO */
-    .hero{position:relative;height:68vh;min-height:420px;overflow:hidden;display:flex;align-items:flex-end;}
+    .hero{position:relative;height:40vh;min-height:300px;max-height:440px;overflow:hidden;display:flex;align-items:flex-end;}
     .hero-slides{position:absolute;inset:0;}
     .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
     .hero-slide.active{opacity:1;}
     .hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center 60%;}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,43,62,0.92) 0%,rgba(13,43,62,0.4) 50%,rgba(13,43,62,0.2) 100%);}
-    .hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 40px 52px;width:100%;}
+    .hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 40px 36px;width:100%;}
     .hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.35);color:var(--teal);border-radius:var(--pill);padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.07em;margin-bottom:16px;}
-    .hero-h1{font-size:3rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:12px;text-shadow:0 2px 20px rgba(0,0,0,.4);max-width:640px;}
+    .hero-h1{font-size:2.3rem;font-weight:800;color:#fff;line-height:1.12;margin-bottom:10px;text-shadow:0 2px 20px rgba(0,0,0,.4);max-width:600px;}
     .hero-h1 em{font-style:normal;color:var(--amber);}
     .hero-sub{font-size:1rem;color:rgba(255,255,255,.72);max-width:480px;line-height:1.6;}
     .hero-dots{display:flex;gap:6px;position:absolute;bottom:20px;right:40px;}
@@ -58,14 +67,6 @@
 
     /* PLANNER WRAPPER */
     .planner{max-width:1100px;margin:0 auto;padding:0 24px 80px;}
-
-    /* PHOTO STRIP */
-    .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:-60px 0 48px;position:relative;z-index:10;}
-    @media(max-width:700px){.photo-strip{grid-template-columns:repeat(2,1fr);margin:-30px 0 32px;}}
-    .photo-card{border-radius:var(--r-md);overflow:hidden;height:130px;position:relative;box-shadow:0 8px 32px rgba(0,0,0,.25);}
-    .photo-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
-    .photo-card:hover img{transform:scale(1.06);}
-    .photo-card-label{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(to top,rgba(13,43,62,.85),transparent);color:#fff;font-size:.72rem;font-weight:700;}
 
     /* SECTION LABEL */
     .sec-label{font-size:.72rem;font-weight:700;color:var(--teal-dark);letter-spacing:.1em;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
@@ -190,14 +191,18 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
     Skipper
   </a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="/destinations/">Destinations</a>
     <a href="/guides/">Sailing Guides</a>
     <a href="/charter/">Yacht Charter</a>
     <a href="/routes/">Routes</a>
     <a href="/planning/">Trip Planning</a>
     <a href="/magazine/">Magazine</a>
+    <a href="/plan/" class="nav-cta-mobile">Plan a trip</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open');">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
 
 <!-- HERO SLIDESHOW -->
@@ -223,26 +228,6 @@
 </section>
 
 <div class="planner">
-
-  <!-- PHOTO STRIP -->
-  <div class="photo-strip">
-    <div class="photo-card">
-      <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Greece" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      <div class="photo-card-label">Greece</div>
-    </div>
-    <div class="photo-card">
-      <img src="https://images.pexels.com/photos/6072869/pexels-photo-6072869.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Croatia" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      <div class="photo-card-label">Croatia</div>
-    </div>
-    <div class="photo-card">
-      <img src="https://images.pexels.com/photos/15766437/pexels-photo-15766437.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bahamas" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      <div class="photo-card-label">Bahamas</div>
-    </div>
-    <div class="photo-card">
-      <img src="https://images.pexels.com/photos/34010867/pexels-photo-34010867.jpeg?auto=compress&cs=tinysrgb&w=600" alt="French Polynesia" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      <div class="photo-card-label">French Polynesia</div>
-    </div>
-  </div>
 
   <!-- STEP 1 & 2 -->
   <div class="sec-label">STEP 1 OF 4 &nbsp;·&nbsp; BUILD YOUR TRIP</div>
