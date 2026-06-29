@@ -91,6 +91,8 @@ app.get('/api/admin/waitlist', async (req, res) => {
 
 // ─── 301 Redirects: old site URLs -> new structure ───
 const redirects = {
+  '/waitlist/': '/plan/',
+  '/waitlist': '/plan/',
   '/destinations.html': '/destinations/',
   '/destinations/greece.html': '/destinations/europe/greece/',
   '/destinations/croatia.html': '/destinations/europe/croatia/',
