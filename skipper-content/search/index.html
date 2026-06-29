@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Search | Skipper</title>
+  <meta name="description" content="Search Skipper's yacht charter guides, destinations, routes, and trip planning resources.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0D2B3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/skipper-content/assets/skipper.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3W0MF9Q5VZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3W0MF9Q5VZ');</script>
+  <style>
+    .search-wrap{max-width:760px;margin:0 auto;padding:48px 24px 80px;}
+    .search-head{text-align:center;margin-bottom:32px;}
+    .search-head h1{font-size:2.2rem;font-weight:800;margin-bottom:8px;}
+    .search-head p{color:var(--muted);font-size:1rem;}
+    .search-box{position:relative;margin-bottom:32px;}
+    .search-box input{width:100%;padding:18px 20px 18px 54px;font-size:1.05rem;font-family:var(--font);border:2px solid var(--border);border-radius:var(--r-lg);outline:none;transition:.18s;background:var(--white);color:var(--text);}
+    .search-box input:focus{border-color:var(--teal);box-shadow:0 0 0 4px var(--teal-dim);}
+    .search-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);width:22px;height:22px;color:var(--muted);}
+    .search-meta{font-size:.85rem;color:var(--muted);margin-bottom:20px;}
+    .results-list{display:flex;flex-direction:column;gap:10px;}
+    .result-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:18px 22px;text-decoration:none;color:var(--text);transition:.16s;display:block;}
+    .result-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(0,229,255,.1);transform:translateY(-1px);}
+    .result-cat{font-size:.7rem;font-weight:700;color:var(--teal-dark);letter-spacing:.06em;margin-bottom:5px;}
+    .result-title{font-size:1.05rem;font-weight:800;margin-bottom:4px;line-height:1.3;}
+    .result-desc{font-size:.85rem;color:var(--muted);line-height:1.5;}
+    .result-title mark,.result-desc mark{background:var(--amber);color:var(--text);padding:0 2px;border-radius:2px;}
+    .no-results{text-align:center;padding:48px 20px;color:var(--muted);}
+    .no-results svg{width:48px;height:48px;margin:0 auto 16px;opacity:.3;}
+    .popular{margin-top:8px;}
+    .popular-label{font-size:.75rem;font-weight:700;color:var(--muted);letter-spacing:.06em;margin-bottom:14px;}
+    .popular-tags{display:flex;flex-wrap:wrap;gap:8px;}
+    .popular-tags button{background:var(--bg);border:1.5px solid var(--border);color:var(--text);border-radius:var(--pill);padding:8px 16px;font-size:.85rem;font-weight:600;cursor:pointer;transition:.15s;font-family:var(--font);}
+    .popular-tags button:hover{border-color:var(--teal-dark);background:var(--teal-dim);color:var(--teal-dark);}
+  </style>
+</head>
+<body>
+
+<nav class="s-nav"><a href="/" class="s-nav-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg><span>Skipper</span></a><div class="s-nav-links"><a href="/destinations/">Destinations</a><a href="/guides/">Sailing Guides</a><a href="/charter/">Yacht Charter</a><a href="/routes/">Routes</a><a href="/planning/">Trip Planning</a><a href="/magazine/">Magazine</a><a href="/plan/" style="background:var(--amber);color:var(--text);font-weight:800;padding:7px 14px;border-radius:var(--pill);margin-left:4px;">Plan a trip</a></div><button class="s-nav-toggle" aria-label="Menu" onclick="this.closest('nav').querySelector('.s-nav-links,.nav-links').classList.toggle('open');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></nav>
+
+<div class="search-wrap">
+  <div class="search-head">
+    <h1>Search Skipper</h1>
+    <p>Find destinations, guides, routes, and trip planning resources.</p>
+  </div>
+
+  <div class="search-box">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+    <input type="text" id="searchInput" placeholder="Search destinations, costs, routes…" autocomplete="off" autofocus>
+  </div>
+
+  <div id="searchMeta" class="search-meta" style="display:none;"></div>
+  <div id="resultsList" class="results-list"></div>
+
+  <div id="popular" class="popular">
+    <div class="popular-label">POPULAR SEARCHES</div>
+    <div class="popular-tags">
+      <button onclick="runSearch('Greece')">Greece</button>
+      <button onclick="runSearch('Croatia')">Croatia</button>
+      <button onclick="runSearch('cost')">Sailing costs</button>
+      <button onclick="runSearch('catamaran')">Catamaran</button>
+      <button onclick="runSearch('BVI')">BVI</button>
+      <button onclick="runSearch('best time')">Best time to sail</button>
+      <button onclick="runSearch('bareboat')">Bareboat charter</button>
+      <button onclick="runSearch('beginner')">Beginners</button>
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--text);color:rgba(255,255,255,.5);padding:2rem 32px;text-align:center;font-size:.8rem;">
+  <p style="margin-bottom:.4rem;font-weight:700;font-size:.88rem;"><a href="/" style="color:var(--teal);text-decoration:none;">Skipper</a> — Smarter yachting, everywhere.</p>
+</footer>
+
+<script>
+let INDEX = [];
+
+// Load the search index
+fetch('/skipper-content/assets/search-index.json')
+  .then(r => r.json())
+  .then(data => {
+    INDEX = data;
+    // If there's a ?q= param, run it
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    if (q) {
+      document.getElementById('searchInput').value = q;
+      runSearch(q);
+    }
+  })
+  .catch(e => console.error('Search index failed to load', e));
+
+function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function highlight(text, query) {
+  if (!query) return text;
+  const words = query.trim().split(/\s+/).filter(w => w.length > 1);
+  let result = text;
+  words.forEach(w => {
+    const re = new RegExp('(' + escapeRegex(w) + ')', 'gi');
+    result = result.replace(re, '<mark>$1</mark>');
+  });
+  return result;
+}
+
+function score(item, query) {
+  const q = query.toLowerCase();
+  const words = q.split(/\s+/).filter(w => w.length > 0);
+  const title = item.t.toLowerCase();
+  const desc = item.d.toLowerCase();
+  let s = 0;
+  words.forEach(w => {
+    if (title.includes(w)) s += 10;
+    if (title.startsWith(w)) s += 5;
+    if (desc.includes(w)) s += 3;
+    if (item.c.toLowerCase().includes(w)) s += 4;
+  });
+  // Exact phrase bonus
+  if (title.includes(q)) s += 15;
+  if (desc.includes(q)) s += 5;
+  return s;
+}
+
+function runSearch(query) {
+  document.getElementById('searchInput').value = query;
+  doSearch(query);
+}
+
+function doSearch(query) {
+  const meta = document.getElementById('searchMeta');
+  const list = document.getElementById('resultsList');
+  const popular = document.getElementById('popular');
+
+  query = query.trim();
+  if (!query) {
+    meta.style.display = 'none';
+    list.innerHTML = '';
+    popular.style.display = 'block';
+    return;
+  }
+
+  popular.style.display = 'none';
+
+  // Score and sort
+  const results = INDEX
+    .map(item => ({item, s: score(item, query)}))
+    .filter(r => r.s > 0)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 20);
+
+  meta.style.display = 'block';
+  meta.textContent = results.length + (results.length === 1 ? ' result' : ' results') + ' for "' + query + '"';
+
+  if (results.length === 0) {
+    list.innerHTML = '<div class="no-results"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg><p>No results found. Try a different search term, or browse <a href="/destinations/" style="color:var(--teal-dark);font-weight:600;">destinations</a>.</p></div>';
+    return;
+  }
+
+  list.innerHTML = results.map(r => {
+    const item = r.item;
+    return '<a href="' + item.u + '" class="result-card">' +
+      '<div class="result-cat">' + item.c.toUpperCase() + '</div>' +
+      '<div class="result-title">' + highlight(item.t, query) + '</div>' +
+      (item.d ? '<div class="result-desc">' + highlight(item.d, query) + '</div>' : '') +
+    '</a>';
+  }).join('');
+}
+
+// Live search as you type (debounced)
+let debounce;
+document.getElementById('searchInput').addEventListener('input', e => {
+  clearTimeout(debounce);
+  debounce = setTimeout(() => doSearch(e.target.value), 150);
+});
+
+// Update URL on search for shareable links
+document.getElementById('searchInput').addEventListener('change', e => {
+  const q = e.target.value.trim();
+  if (q) {
+    const url = new URL(window.location);
+    url.searchParams.set('q', q);
+    window.history.replaceState({}, '', url);
+  }
+});
+</script>
+</body>
+</html>
