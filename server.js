@@ -89,6 +89,35 @@ app.get('/api/admin/waitlist', async (req, res) => {
     }
 });
 
+// ─── 301 Redirects: old site URLs -> new structure ───
+const redirects = {
+  '/destinations.html': '/destinations/',
+  '/destinations/greece.html': '/destinations/europe/greece/',
+  '/destinations/croatia.html': '/destinations/europe/croatia/',
+  '/destinations/italy.html': '/destinations/europe/italy/',
+  '/destinations/turkey.html': '/destinations/europe/turkey/',
+  '/destinations/french-riviera.html': '/destinations/europe/france/',
+  '/destinations/monaco.html': '/destinations/europe/france/',
+  '/destinations/bahamas.html': '/destinations/caribbean/bahamas/',
+  '/destinations/caribbean.html': '/destinations/caribbean/',
+  '/destinations/australia.html': '/destinations/pacific/whitsundays/',
+  '/destinations/south-pacific.html': '/destinations/pacific/french-polynesia/',
+  '/destinations/southeast-asia.html': '/destinations/',
+  '/destinations/indian-ocean.html': '/destinations/',
+  '/destinations/red-sea.html': '/destinations/',
+  '/destinations/dubai.html': '/destinations/',
+  '/destinations/galapagos.html': '/destinations/pacific/',
+  '/destinations/florida.html': '/destinations/caribbean/',
+  '/destinations/mexico.html': '/destinations/caribbean/',
+  '/destinations/new-england.html': '/destinations/',
+  '/destinations/pacific-northwest.html': '/destinations/',
+  '/destinations/norway.html': '/destinations/europe/',
+};
+
+app.get(Object.keys(redirects), (req, res) => {
+  res.redirect(301, redirects[req.path]);
+});
+
 // Itinerary generation endpoint
 app.post('/api/itinerary', async (req, res) => {
     const key = process.env.GEMINI_KEY;
