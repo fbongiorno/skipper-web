@@ -67,6 +67,38 @@
 
 <div class="s-card"><h4>Related guides</h4><a href="/charter/catamaran-vs-monohull/" class="s-link"><div class="s-link-dot"></div><div class="s-link-text">Catamaran vs monohull</div></a><a href="/destinations/europe/greece/" class="s-link"><div class="s-link-dot"></div><div class="s-link-text">Sailing in Greece</div></a></div></aside>
 </div>
+<section class="s-signup">
+  <div class="s-signup-inner">
+    <div class="s-signup-eyebrow">FREE GUIDE</div>
+    <h2>The Complete Yacht Charter Planning Checklist</h2>
+    <p>Join our newsletter and get our free step-by-step checklist — everything from choosing a yacht and destination to provisioning and what to pack. Plus occasional yachting inspiration, no spam.</p>
+    <div class="s-signup-form">
+      <input type="email" id="signupEmail" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
+      <button id="signupBtn" onclick="skipperSubscribe()">Get the checklist →</button>
+    </div>
+    <div class="s-signup-msg" id="signupMsg"></div>
+    <div class="s-signup-fine">We respect your inbox. Unsubscribe anytime.</div>
+  </div>
+</section>
+<script>
+function skipperSubscribe(){
+  var input=document.getElementById('signupEmail');
+  var btn=document.getElementById('signupBtn');
+  var msg=document.getElementById('signupMsg');
+  var email=(input.value||'').trim();
+  if(!email||email.indexOf('@')<0){msg.className='s-signup-msg err';msg.textContent='Please enter a valid email address.';return;}
+  btn.disabled=true;msg.className='s-signup-msg';msg.textContent='Joining…';
+  fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:location.pathname})})
+    .then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
+    .then(function(res){
+      if(res.ok){msg.className='s-signup-msg ok';msg.textContent=res.d.message||"You're on the list!";input.value='';}
+      else{msg.className='s-signup-msg err';msg.textContent=res.d.error||'Something went wrong. Please try again.';}
+    })
+    .catch(function(){msg.className='s-signup-msg err';msg.textContent='Something went wrong. Please try again.';})
+    .finally(function(){btn.disabled=false;});
+}
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.activeElement&&document.activeElement.id==='signupEmail'){skipperSubscribe();}});
+</script>
 <footer class="s-footer"><div class="s-footer-inner">
 <div class="s-footer-top">
   <div class="s-footer-brand"><div class="s-footer-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg><span>Skipper</span></div>
