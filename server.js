@@ -33,6 +33,14 @@ async function ensureDbInitialized() {
             created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
         );
     `);
+    await pool.query(`
+        CREATE TABLE IF NOT EXISTS subscribers (
+            id SERIAL PRIMARY KEY,
+            email VARCHAR(255) UNIQUE NOT NULL,
+            source VARCHAR(120),
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        );
+    `);
     isDbInitialized = true;
     console.log('Database table verified/created successfully.');
 }
@@ -86,6 +94,39 @@ app.get('/api/admin/waitlist', async (req, res) => {
     } catch (err) {
         console.error('[ADMIN] Error fetching records:', err);
         res.status(500).send('Database connection completely failed: ' + err.message);
+    }
+});
+
+// Newsletter subscribe endpoint
+app.post('/api/subscribe', async (req, res) => {
+    const { email, source } = req.body;
+    if (!email || !email.includes('@') || email.length > 254) {
+        return res.status(400).json({ error: 'Please enter a valid email address.' });
+    }
+    try {
+        if (process.env.DATABASE_URL) {
+            await ensureDbInitialized();
+            await pool.query(
+                'INSERT INTO subscribers (email, source) VALUES ($1, $2) ON CONFLICT (email) DO NOTHING',
+                [email.trim().toLowerCase(), (source || 'site').slice(0, 120)]
+            );
+        }
+        res.status(200).json({ success: true, message: "You're on the list. Check your inbox for the guide." });
+    } catch (err) {
+        console.error('[SUBSCRIBE] Error:', err);
+        res.status(500).json({ error: 'Something went wrong. Please try again.' });
+    }
+});
+
+// Admin: view subscribers
+app.get('/api/admin/subscribers', async (req, res) => {
+    try {
+        if (!process.env.DATABASE_URL) return res.send('<h2>DATABASE_URL not connected.</h2>');
+        await ensureDbInitialized();
+        const result = await pool.query('SELECT * FROM subscribers ORDER BY created_at DESC');
+        res.json({ count: result.rows.length, records: result.rows });
+    } catch (err) {
+        res.status(500).send('Database error: ' + err.message);
     }
 });
 
