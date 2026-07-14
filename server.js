@@ -130,6 +130,39 @@ app.get('/api/admin/subscribers', async (req, res) => {
     }
 });
 
+// Admin: submit all sitemap URLs to IndexNow (Bing, Yandex, etc.)
+app.get('/api/admin/indexnow', async (req, res) => {
+    try {
+        const fs = require('fs');
+        const path = require('path');
+        const sitemap = fs.readFileSync(path.join(__dirname, 'sitemap.xml'), 'utf8');
+        const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+        const payload = JSON.stringify({
+            host: 'www.skipper.com',
+            key: 'fe134aab0171aeb2bfc6e3f031624134',
+            keyLocation: 'https://www.skipper.com/fe134aab0171aeb2bfc6e3f031624134.txt',
+            urlList: urls
+        });
+        const https = require('https');
+        const result = await new Promise((resolve, reject) => {
+            const r = https.request({
+                hostname: 'api.indexnow.org', path: '/indexnow', method: 'POST',
+                headers: { 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': Buffer.byteLength(payload) }
+            }, (resp) => {
+                let body = '';
+                resp.on('data', c => body += c);
+                resp.on('end', () => resolve({ status: resp.statusCode, body }));
+            });
+            r.on('error', reject);
+            r.write(payload);
+            r.end();
+        });
+        res.json({ submitted: urls.length, indexnow_status: result.status, note: result.status === 200 || result.status === 202 ? 'Success — URLs submitted to IndexNow (Bing/Yandex)' : 'Unexpected status: ' + result.body });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // ─── 301 Redirects: old site URLs -> new structure ───
 const redirects = {
   '/waitlist/': '/plan/',
