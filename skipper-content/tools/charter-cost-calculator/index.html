@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3W0MF9Q5VZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3W0MF9Q5VZ');</script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0D2B3E">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yacht Charter Cost Calculator: Estimate Your Trip (2026) | Skipper</title>
+  <meta name="description" content="Free yacht charter cost calculator. Pick a destination, boat type, crew option and group size — get an itemized weekly estimate and per-person cost instantly.">
+  <meta property="og:title" content="Yacht Charter Cost Calculator | Skipper">
+  <meta property="og:description" content="Estimate the full cost of a yacht charter — boat, crew, provisioning, marina and fuel — across 15 destinations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.skipper.com/tools/charter-cost-calculator/">
+  <link rel="canonical" href="https://www.skipper.com/tools/charter-cost-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/skipper-content/assets/skipper.css">
+  <style>
+    .calc-wrap{max-width:1000px;margin:0 auto;padding:36px 20px 80px;}
+    .calc-head{text-align:center;max-width:640px;margin:0 auto 30px;}
+    .calc-eyebrow{display:inline-block;background:var(--teal-dim);border:1px solid rgba(0,229,255,.35);color:var(--teal-dark);border-radius:var(--pill);padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.06em;margin-bottom:14px;}
+    .calc-head h1{font-size:2rem;font-weight:800;margin-bottom:10px;line-height:1.15;}
+    .calc-head p{color:var(--muted);font-size:.95rem;line-height:1.6;}
+    .calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start;}
+    .calc-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg,20px);padding:24px;box-shadow:0 2px 14px rgba(13,43,62,.06);}
+    .calc-label{font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px;}
+    .calc-label:first-child{margin-top:0;}
+    .calc-sel{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:12px;font-family:inherit;font-size:16px;font-weight:600;color:var(--text);background:#fff;}
+    .cchips{display:flex;flex-wrap:wrap;gap:8px;}
+    .cchip{border:1.5px solid var(--border);border-radius:var(--pill);padding:10px 16px;font-size:.9rem;font-weight:700;cursor:pointer;background:#fff;color:var(--muted);transition:.15s;min-height:42px;display:inline-flex;align-items:center;user-select:none;}
+    .cchip.on{border-color:var(--teal);background:var(--teal-dim);color:var(--teal-dark);}
+    .cslider{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+    .cslider input[type=range]{flex:1 1 160px;accent-color:var(--teal-dark);height:30px;}
+    .cslider .cval{font-weight:800;color:var(--teal-dark);min-width:76px;text-align:right;font-size:.95rem;}
+    .res-card{background:linear-gradient(160deg,var(--navy,#0D2B3E),var(--navy2,#0D4F5C));border-radius:var(--r-lg,20px);padding:26px;color:#fff;position:sticky;top:84px;}
+    .res-title{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px;}
+    .res-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.92rem;}
+    .res-row span:first-child{color:rgba(255,255,255,.75);}
+    .res-row span:last-child{font-weight:700;}
+    .res-total{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0 4px;font-size:1.05rem;font-weight:800;}
+    .res-total b{font-size:1.6rem;color:var(--teal,#00E5FF);}
+    .res-pp{display:flex;justify-content:space-between;align-items:baseline;background:rgba(0,229,255,.12);border:1px solid rgba(0,229,255,.3);border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:800;}
+    .res-pp b{font-size:1.3rem;color:var(--teal,#00E5FF);}
+    .res-note{font-size:.74rem;color:rgba(255,255,255,.5);margin-top:14px;line-height:1.5;}
+    .res-links{margin-top:16px;display:flex;flex-direction:column;gap:8px;}
+    .res-links a{display:block;text-align:center;border-radius:var(--pill);padding:12px 16px;font-weight:800;font-size:.9rem;transition:.15s;}
+    .res-links a.primary{background:var(--amber,#FFBF00);color:var(--navy,#0D2B3E);}
+    .res-links a.secondary{border:1.5px solid rgba(255,255,255,.35);color:#fff;}
+    .res-links a:hover{opacity:.9;}
+    .calc-note{max-width:760px;margin:26px auto 0;color:var(--muted);font-size:.82rem;line-height:1.6;text-align:center;}
+    .faq-wrap{max-width:760px;margin:44px auto 0;}
+    @media(max-width:820px){.calc-grid{grid-template-columns:1fr;}.res-card{position:static;}}
+  </style>
+</head>
+<body>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Yacht Charter Cost Calculator", "applicationCategory": "TravelApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Free calculator estimating the full cost of a yacht charter — boat, crew, food, marina and fuel — for 15 destinations.", "url": "https://www.skipper.com/tools/charter-cost-calculator/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How accurate are these charter cost estimates?", "acceptedAnswer": {"@type": "Answer", "text": "They're realistic planning ranges built from typical charter rates and running costs in each destination. Actual quotes vary by boat age, model, and demand — always confirm with a charter operator before budgeting."}}, {"@type": "Question", "name": "What's not included in the estimate?", "acceptedAnswer": {"@type": "Answer", "text": "A refundable security deposit (often $1,500–$4,000 on bareboat), the optional damage waiver, flights, and crew gratuity on crewed charters (customarily 5–15% of the fee)."}}, {"@type": "Question", "name": "Why does a crewed charter cost so much more?", "acceptedAnswer": {"@type": "Answer", "text": "You're paying professional salaries for a skipper and cook/host who work your entire trip. Split across a full group, the per-person premium is often smaller than expected."}}, {"@type": "Question", "name": "Is it cheaper to sail outside peak season?", "acceptedAnswer": {"@type": "Answer", "text": "Usually 15–30% cheaper. Shoulder months offer the same boats at lower rates, with quieter anchorages — the trade-off is slightly less settled weather."}}]}</script>
+<nav class="s-nav"><a href="/" class="s-nav-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg><span>Skipper</span></a><div class="s-nav-links"><a href="/destinations/" class="">Destinations</a><a href="/guides/" class="">Sailing Guides</a><div class="s-nav-dd"><a href="/charter/">Yacht Charter</a><div class="s-nav-dd-menu"><a href="/charter/"><strong>All charter advice</strong><span>Bareboat, crewed & how to choose</span></a><a href="/charter/motor-yacht-charter/"><strong>Motor yacht charter</strong><span>Speed, space & range</span></a><a href="/charter/superyacht-charter/"><strong>Superyacht charter</strong><span>Crewed luxury over 24m</span></a><a href="/charter/crewed-yacht-charter/"><strong>Crewed yacht charter</strong><span>A pro crew runs the yacht</span></a><a href="/charter/catamaran-charter/"><strong>Catamaran charter</strong><span>Stable, spacious, popular</span></a></div></div><a href="/routes/" class="">Routes</a><a href="/planning/" class="active">Trip Planning</a><a href="/magazine/" class="">Magazine</a><a href="/plan/" style="background:var(--amber);color:var(--text);font-weight:800;padding:7px 14px;border-radius:var(--pill);margin-left:4px;">Plan a trip</a></div><a href="/search/" class="s-nav-search" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a><button class="s-nav-toggle" aria-label="Menu" onclick="this.closest('nav').querySelector('.s-nav-links,.nav-links').classList.toggle('open');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></nav>
+<div class="s-bread"><div class="s-bread-inner"><a href="/planning/">Trip Planning</a><span>›</span><span style="color:var(--text);font-weight:600">Charter Cost Calculator</span></div></div>
+<div class="calc-wrap">
+  <div class="calc-head">
+    <div class="calc-eyebrow">FREE TOOL</div>
+    <h1>Yacht Charter Cost Calculator</h1>
+    <p>Estimate the true cost of a charter week — boat, crew, provisioning, marina fees and fuel — then see the per-person split for your group.</p>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-card">
+      <div class="calc-label">Destination</div>
+      <select id="dest" class="calc-sel" onchange="calc()"></select>
+      <div class="calc-label">Boat type</div>
+      <div class="cchips" id="boat">
+        <div class="cchip on" data-v="sailing" onclick="pick(this)">⛵ Sailing yacht</div>
+        <div class="cchip" data-v="catamaran" onclick="pick(this)">🛥 Catamaran</div>
+        <div class="cchip" data-v="motor" onclick="pick(this)">🚤 Motor yacht</div>
+        <div class="cchip" data-v="gulet" onclick="pick(this)">🇹🇷 Gulet</div>
+      </div>
+      <div class="calc-label">Crew</div>
+      <div class="cchips" id="crew">
+        <div class="cchip on" data-v="bareboat" onclick="pick(this)">Bareboat (you skipper)</div>
+        <div class="cchip" data-v="skippered" onclick="pick(this)">Skippered</div>
+        <div class="cchip" data-v="crewed" onclick="pick(this)">Crewed (skipper + cook)</div>
+      </div>
+      <div class="calc-label">Season</div>
+      <div class="cchips" id="season">
+        <div class="cchip on" data-v="peak" onclick="pick(this)">Peak <span id="peakLabel" style="font-weight:600;margin-left:5px;color:inherit;"></span></div>
+        <div class="cchip" data-v="shoulder" onclick="pick(this)">Shoulder</div>
+      </div>
+      <div class="calc-label">Group size</div>
+      <div class="cslider"><input type="range" id="ppl" min="2" max="12" value="6" oninput="calc()"><span class="cval" id="pplVal">6 people</span></div>
+      <div class="calc-label">Nights aboard</div>
+      <div class="cslider"><input type="range" id="nights" min="5" max="14" value="7" oninput="calc()"><span class="cval" id="nightsVal">7 nights</span></div>
+    </div>
+    <div class="res-card">
+      <div class="res-title">Estimated cost</div>
+      <div id="rows"></div>
+      <div class="res-total"><span>Total</span><b id="total">—</b></div>
+      <div class="res-pp"><span>Per person</span><b id="pp">—</b></div>
+      <div class="res-note" id="note"></div>
+      <div class="res-links">
+        <a class="primary" href="/plan/">Build a full trip plan →</a>
+        <a class="secondary" id="costLink" href="/planning/">Read the detailed cost guide</a>
+      </div>
+    </div>
+  </div>
+  <p class="calc-note"><strong>These are planning estimates, not quotes.</strong> Actual rates vary by boat model, age, and demand. Not included: a refundable security deposit (bareboat), the optional damage waiver, flights, and crew gratuity (customarily 5–15% on crewed charters).</p>
+  <div class="faq-wrap"><div class="faq-section"><h2 id="faq">Frequently asked questions</h2><div class="faq-item"><div class="faq-q">How accurate are these charter cost estimates?</div><div class="faq-a">They're realistic planning ranges built from typical charter rates and running costs in each destination. Actual quotes vary by boat age, model, and demand — always confirm with a charter operator before budgeting.</div></div><div class="faq-item"><div class="faq-q">What's not included in the estimate?</div><div class="faq-a">A refundable security deposit (often $1,500–$4,000 on bareboat), the optional damage waiver, flights, and crew gratuity on crewed charters (customarily 5–15% of the fee).</div></div><div class="faq-item"><div class="faq-q">Why does a crewed charter cost so much more?</div><div class="faq-a">You're paying professional salaries for a skipper and cook/host who work your entire trip. Split across a full group, the per-person premium is often smaller than expected.</div></div><div class="faq-item"><div class="faq-q">Is it cheaper to sail outside peak season?</div><div class="faq-a">Usually 15–30% cheaper. Shoulder months offer the same boats at lower rates, with quieter anchorages — the trade-off is slightly less settled weather.</div></div></div></div>
+</div>
+<footer class="s-footer"><div class="s-footer-inner"><div class="s-footer-top"><div class="s-footer-brand"><div class="s-footer-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg><span>Skipper</span></div><p class="s-footer-desc">Your digital first mate for yachting destinations, charter, and ocean adventure.</p></div><div class="s-footer-col"><h4>Plan</h4><a href="/plan/">Trip planner</a><a href="/tools/charter-cost-calculator/">Cost calculator</a><a href="/planning/">Trip planning</a><a href="/charter/">Yacht charter</a></div></div><div class="s-footer-bottom"><span class="s-footer-copy">© 2026 Skipper Global Yacht Rentals. All rights reserved.</span><div class="s-footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div></div></div></footer>
+<script>
+const D={greece:{name:'Greece',flag:'🇬🇷',season:'May–Oct',peak:'Jun–Aug',sailing:[2800,4500],catamaran:[4500,7500],motor:[6000,12000],gulet:[3500,6000],skippered:1200,crewed:2800,food:65,marina:35,fuel:40,link:'/destinations/europe/greece/',cost:'/planning/sailing-cost-greece/'},croatia:{name:'Croatia',flag:'🇭🇷',season:'Jun–Sep',peak:'Jul–Aug',sailing:[3200,5200],catamaran:[5500,9000],motor:[7000,14000],gulet:[4000,7000],skippered:1400,crewed:3200,food:70,marina:55,fuel:45,link:'/destinations/europe/croatia/',cost:'/planning/sailing-cost-croatia/'},italy:{name:'Italy',flag:'🇮🇹',season:'May–Sep',peak:'Jun–Aug',sailing:[3000,5200],catamaran:[5000,8500],motor:[7000,14000],gulet:[3500,6000],skippered:1200,crewed:3000,food:80,marina:70,fuel:50,link:'/destinations/europe/italy/',cost:'/planning/sailing-cost-mediterranean/'},france:{name:'France',flag:'🇫🇷',season:'May–Sep',peak:'Jul–Aug',sailing:[3500,6000],catamaran:[6000,10000],motor:[8000,15000],gulet:[4500,7500],skippered:1400,crewed:3200,food:90,marina:120,fuel:55,link:'/destinations/europe/france/',cost:'/planning/sailing-cost-mediterranean/'},turkey:{name:'Turkey',flag:'🇹🇷',season:'May–Oct',peak:'Jun–Sep',sailing:[2200,3800],catamaran:[3800,6500],motor:[5000,10000],gulet:[2800,5500],skippered:1000,crewed:2500,food:45,marina:50,fuel:35,link:'/destinations/europe/turkey/',cost:'/planning/sailing-cost-mediterranean/'},bvi:{name:'British Virgin Islands',flag:'🇻🇬',season:'Dec–Apr',peak:'Jan–Mar',sailing:[4500,7000],catamaran:[8000,12500],motor:[10000,18000],gulet:[5000,8000],skippered:1600,crewed:3500,food:90,marina:30,fuel:55,link:'/destinations/caribbean/british-virgin-islands/',cost:'/planning/sailing-cost-bvi/'},bahamas:{name:'Bahamas',flag:'🇧🇸',season:'Dec–Apr',peak:'Jan–Mar',sailing:[3500,5800],catamaran:[5500,9000],motor:[8000,15000],gulet:[4000,7000],skippered:1400,crewed:3000,food:85,marina:20,fuel:60,link:'/destinations/caribbean/bahamas/',cost:'/planning/sailing-cost-caribbean/'},grenadines:{name:'Grenadines',flag:'🌴',season:'Dec–May',peak:'Jan–Apr',sailing:[3500,5800],catamaran:[5000,8500],motor:[7000,13000],gulet:[4000,6500],skippered:1300,crewed:2800,food:75,marina:25,fuel:45,link:'/destinations/caribbean/grenadines/',cost:'/planning/sailing-cost-caribbean/'},whitsundays:{name:'Whitsundays',flag:'🇦🇺',season:'Jun–Aug',peak:'Jul',sailing:[3000,5000],catamaran:[5000,8500],motor:[7000,13000],gulet:[3500,6000],skippered:1300,crewed:3000,food:75,marina:40,fuel:45,link:'/destinations/pacific/whitsundays/',cost:'/planning/sailing-cost-worldwide/'},polynesia:{name:'French Polynesia',flag:'🌺',season:'May–Oct',peak:'Jul–Sep',sailing:[5000,8000],catamaran:[9000,15000],motor:[12000,22000],gulet:[7000,12000],skippered:1800,crewed:4000,food:95,marina:45,fuel:70,link:'/destinations/pacific/french-polynesia/',cost:'/planning/sailing-cost-worldwide/'},thailand:{name:'Thailand',flag:'🇹🇭',season:'Nov–Apr',peak:'Dec–Feb',sailing:[3000,5000],catamaran:[4000,8000],motor:[6000,11000],gulet:[3500,6000],skippered:1100,crewed:2600,food:40,marina:35,fuel:45,link:'/destinations/asia/thailand/',cost:'/planning/sailing-cost-worldwide/'},maldives:{name:'Maldives',flag:'🇲🇻',season:'Nov–Apr',peak:'Dec–Mar',sailing:[5000,8000],catamaran:[6000,14000],motor:[10000,20000],gulet:[6000,11000],skippered:1800,crewed:4000,food:90,marina:40,fuel:75,link:'/destinations/indian-ocean/maldives/',cost:'/planning/sailing-cost-worldwide/'},norway:{name:'Norway',flag:'🇳🇴',season:'Jun–Aug',peak:'Jul',sailing:[3500,6000],catamaran:[6000,10000],motor:[8000,15000],gulet:[4500,8000],skippered:1500,crewed:3400,food:95,marina:60,fuel:55,link:'/destinations/europe/norway/',cost:'/planning/sailing-cost-worldwide/'},azores:{name:'Azores',flag:'🇵🇹',season:'May–Sep',peak:'Jul–Aug',sailing:[3000,5500],catamaran:[5000,8500],motor:[7000,13000],gulet:[4000,7000],skippered:1300,crewed:3000,food:70,marina:45,fuel:50,link:'/destinations/europe/azores/',cost:'/planning/sailing-cost-worldwide/'},lithuania:{name:'Lithuania',flag:'🇱🇹',season:'Jun–Aug',peak:'Jul–Aug',sailing:[1500,3000],catamaran:[2500,4500],motor:[3500,6500],gulet:[2000,3800],skippered:900,crewed:2000,food:45,marina:25,fuel:30,link:'/destinations/europe/lithuania/',cost:'/planning/sailing-cost-worldwide/'}};
+const ORDER=['greece','croatia','italy','france','turkey','bvi','bahamas','grenadines','whitsundays','polynesia','thailand','maldives','norway','azores','lithuania'];
+const sel=document.getElementById('dest');
+ORDER.forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=D[k].flag+' '+D[k].name;sel.appendChild(o);});
+function pick(el){const g=el.parentElement;[...g.children].forEach(c=>c.classList.remove('on'));el.classList.add('on');calc();}
+function val(id){return document.querySelector('#'+id+' .cchip.on').dataset.v;}
+function fmt(n){return '$'+Math.round(n).toLocaleString();}
+function calc(){
+  const d=D[sel.value];
+  const boat=val('boat'), crew=val('crew'), season=val('season');
+  const ppl=+document.getElementById('ppl').value;
+  const nights=+document.getElementById('nights').value;
+  document.getElementById('pplVal').textContent=ppl+' people';
+  document.getElementById('nightsVal').textContent=nights+' nights';
+  document.getElementById('peakLabel').textContent='('+d.peak+')';
+  const [lo,hi]=d[boat];
+  const weekly=season==='peak'? lo+0.75*(hi-lo) : lo+0.2*(hi-lo);
+  const charter=weekly*(nights/7);
+  let crewCost=0, crewLabel=null;
+  if(crew==='skippered'){crewCost=d.skippered*(nights/7);crewLabel='Skipper';}
+  if(crew==='crewed'){crewCost=d.crewed*(nights/7);crewLabel='Crew (skipper + cook)';}
+  const food=d.food*ppl*nights;
+  const marinaNights=Math.round(nights*0.6);
+  const marina=d.marina*marinaNights;
+  const fuel=d.fuel*nights;
+  const total=charter+crewCost+food+marina+fuel;
+  let rows='';
+  rows+='<div class="res-row"><span>'+(boat==='sailing'?'Sailing yacht':boat==='catamaran'?'Catamaran':boat==='motor'?'Motor yacht':'Gulet')+' charter ('+nights+' nights, '+(season==='peak'?'peak':'shoulder')+')</span><span>'+fmt(charter)+'</span></div>';
+  if(crewCost>0) rows+='<div class="res-row"><span>'+crewLabel+'</span><span>'+fmt(crewCost)+'</span></div>';
+  rows+='<div class="res-row"><span>Provisioning &amp; dining (~$'+d.food+' pp/day)</span><span>'+fmt(food)+'</span></div>';
+  rows+='<div class="res-row"><span>Marina &amp; mooring (~'+marinaNights+' of '+nights+' nights)</span><span>'+fmt(marina)+'</span></div>';
+  rows+='<div class="res-row"><span>Fuel &amp; water</span><span>'+fmt(fuel)+'</span></div>';
+  document.getElementById('rows').innerHTML=rows;
+  document.getElementById('total').textContent=fmt(total);
+  document.getElementById('pp').textContent=fmt(total/ppl);
+  document.getElementById('note').textContent=d.name+' season: '+d.season+' · peak '+d.peak+'. Estimates assume a mid-size boat for your group with some nights at anchor.';
+  document.getElementById('costLink').href=d.cost;
+}
+calc();
+</script>
+</body>
+</html>
