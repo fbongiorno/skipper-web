@@ -188,10 +188,26 @@ const redirects = {
   '/destinations/new-england.html': '/destinations/',
   '/destinations/pacific-northwest.html': '/destinations/',
   '/destinations/norway.html': '/destinations/europe/',
+  '/home': '/',
 };
 
 app.get(Object.keys(redirects), (req, res) => {
   res.redirect(301, redirects[req.path]);
+});
+
+// ─── 410 Gone: legacy syndicated news-widget URLs ───
+// These are leftover pages from an old third-party news feed (boating
+// accident/news syndication), never part of Skipper.com's own content.
+// Returning 410 tells Google they're permanently gone so it stops
+// re-crawling and re-flagging them as 404s.
+const legacyNewsUrlPattern = /^\/\d{5,}\/.+/;
+const legacyContentGoPattern = /^\/content\/go\/\d+/;
+
+app.use((req, res, next) => {
+  if (legacyNewsUrlPattern.test(req.path) || legacyContentGoPattern.test(req.path)) {
+    return res.status(410).send('Gone');
+  }
+  next();
 });
 
 // Itinerary generation endpoint
