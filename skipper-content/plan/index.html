@@ -17,9 +17,13 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0D2B3E">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3W0MF9Q5VZ"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3W0MF9Q5VZ');</script>
+  <link rel="stylesheet" href="/skipper-content/assets/skipper.css">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
     :root{
@@ -262,24 +266,8 @@
 </head>
 <body>
 
-<nav class="nav">
-  <a href="/" class="nav-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
-    Skipper
-  </a>
-  <div class="nav-links" id="navLinks">
-    <div class="s-nav-dd"><a href="/destinations/">Destinations</a><div class="s-nav-dd-menu"><a href="/destinations/"><strong>All destinations</strong><span>Every cruising ground we cover</span></a><a href="/destinations/europe/greece/"><strong>Greece</strong><span>Cyclades, Ionian & 6,000 islands</span></a><a href="/destinations/europe/croatia/"><strong>Croatia</strong><span>Dalmatian coast & island chains</span></a><a href="/destinations/europe/italy/"><strong>Italy</strong><span>Amalfi, Sardinia & Sicily</span></a><a href="/destinations/caribbean/british-virgin-islands/"><strong>British Virgin Islands</strong><span>The easiest tropical charter</span></a></div></div>
-    <div class="s-nav-dd"><a href="/guides/">Sailing Guides</a><div class="s-nav-dd-menu"><a href="/guides/"><strong>All sailing guides</strong><span>Skills, safety & know-how</span></a><a href="/guides/sailing-for-beginners/"><strong>Sailing for beginners</strong><span>Start from zero</span></a><a href="/guides/first-sailing-holiday/"><strong>Your first charter</strong><span>What to expect, start to finish</span></a><a href="/guides/bareboat-charter-license-requirements/"><strong>Licence requirements</strong><span>What you need to bareboat</span></a><a href="/guides/sailing-with-kids/"><strong>Sailing with kids</strong><span>Family charter advice</span></a></div></div>
-    <div class="s-nav-dd"><a href="/charter/">Yacht Charter</a><div class="s-nav-dd-menu"><a href="/charter/"><strong>All charter advice</strong><span>Bareboat, crewed & how to choose</span></a><a href="/charter/motor-yacht-charter/"><strong>Motor yacht charter</strong><span>Speed, space & range</span></a><a href="/charter/superyacht-charter/"><strong>Superyacht charter</strong><span>Crewed luxury over 24m</span></a><a href="/charter/crewed-yacht-charter/"><strong>Crewed yacht charter</strong><span>A pro crew runs the yacht</span></a><a href="/charter/catamaran-charter/"><strong>Catamaran charter</strong><span>Stable, spacious, popular</span></a></div></div>
-    <div class="s-nav-dd"><a href="/routes/">Routes</a><div class="s-nav-dd-menu"><a href="/routes/"><strong>All routes</strong><span>Day-by-day sailing itineraries</span></a><a href="/routes/greek-islands-7-day-cyclades/"><strong>Greek Islands, 7 days</strong><span>Classic Cyclades loop</span></a><a href="/routes/croatia-7-day-split-dubrovnik/"><strong>Croatia, 7 days</strong><span>Split to Dubrovnik</span></a><a href="/routes/whitsundays-7-day/"><strong>Whitsundays, 7 days</strong><span>Great Barrier Reef</span></a><a href="/routes/caribbean-sailing-routes/"><strong>Caribbean routes</strong><span>BVI, Bahamas & Grenadines</span></a></div></div>
-    
-    <div class="s-nav-dd s-nav-dd-end"><a href="/magazine/">Magazine</a><div class="s-nav-dd-menu"><a href="/magazine/"><strong>All articles</strong><span>Stories, advice & inspiration</span></a><a href="/magazine/first-bareboat-charter-mistakes/"><strong>First charter mistakes</strong><span>What to avoid</span></a><a href="/magazine/superyacht-charter-guide/"><strong>Superyacht charter</strong><span>How the top end works</span></a><a href="/magazine/provisioning-a-yacht/"><strong>Provisioning a yacht</strong><span>Food, drink & stowage</span></a><a href="/magazine/most-beautiful-anchorages-mediterranean/"><strong>Best Med anchorages</strong><span>Where to drop the hook</span></a></div></div>
-    <a href="/tools/" class="nav-cta-mobile">Plan a trip</a>
-  </div>
-  <a href="/search/" class="nav-search" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a><button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open');">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-</nav>
+<nav class="s-nav"><a href="/" class="s-nav-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg><span>Skipper</span></a><div class="s-nav-links"><div class="s-nav-dd"><a href="/destinations/" class="">Destinations</a><div class="s-nav-dd-menu"><a href="/destinations/"><strong>All destinations</strong><span>Every cruising ground we cover</span></a><a href="/destinations/europe/greece/"><strong>Greece</strong><span>Cyclades, Ionian & 6,000 islands</span></a><a href="/destinations/europe/croatia/"><strong>Croatia</strong><span>Dalmatian coast & island chains</span></a><a href="/destinations/europe/italy/"><strong>Italy</strong><span>Amalfi, Sardinia & Sicily</span></a><a href="/destinations/caribbean/british-virgin-islands/"><strong>British Virgin Islands</strong><span>The easiest tropical charter</span></a></div></div><div class="s-nav-dd"><a href="/guides/" class="">Sailing Guides</a><div class="s-nav-dd-menu"><a href="/guides/"><strong>All sailing guides</strong><span>Skills, safety & know-how</span></a><a href="/guides/sailing-for-beginners/"><strong>Sailing for beginners</strong><span>Start from zero</span></a><a href="/guides/first-sailing-holiday/"><strong>Your first charter</strong><span>What to expect, start to finish</span></a><a href="/guides/bareboat-charter-license-requirements/"><strong>Licence requirements</strong><span>What you need to bareboat</span></a><a href="/guides/sailing-with-kids/"><strong>Sailing with kids</strong><span>Family charter advice</span></a></div></div><div class="s-nav-dd"><a href="/charter/" class="">Yacht Charter</a><div class="s-nav-dd-menu"><a href="/charter/"><strong>All charter advice</strong><span>Bareboat, crewed & how to choose</span></a><a href="/charter/motor-yacht-charter/"><strong>Motor yacht charter</strong><span>Speed, space & range</span></a><a href="/charter/superyacht-charter/"><strong>Superyacht charter</strong><span>Crewed luxury over 24m</span></a><a href="/charter/crewed-yacht-charter/"><strong>Crewed yacht charter</strong><span>A pro crew runs the yacht</span></a><a href="/charter/catamaran-charter/"><strong>Catamaran charter</strong><span>Stable, spacious, popular</span></a></div></div><div class="s-nav-dd"><a href="/routes/" class="">Routes</a><div class="s-nav-dd-menu"><a href="/routes/"><strong>All routes</strong><span>Day-by-day sailing itineraries</span></a><a href="/routes/greek-islands-7-day-cyclades/"><strong>Greek Islands, 7 days</strong><span>Classic Cyclades loop</span></a><a href="/routes/croatia-7-day-split-dubrovnik/"><strong>Croatia, 7 days</strong><span>Split to Dubrovnik</span></a><a href="/routes/whitsundays-7-day/"><strong>Whitsundays, 7 days</strong><span>Great Barrier Reef</span></a><a href="/routes/caribbean-sailing-routes/"><strong>Caribbean routes</strong><span>BVI, Bahamas & Grenadines</span></a></div></div><div class="s-nav-dd s-nav-dd-end"><a href="/magazine/" class="">Magazine</a><div class="s-nav-dd-menu"><a href="/magazine/"><strong>All articles</strong><span>Stories, advice & inspiration</span></a><a href="/magazine/first-bareboat-charter-mistakes/"><strong>First charter mistakes</strong><span>What to avoid</span></a><a href="/magazine/superyacht-charter-guide/"><strong>Superyacht charter</strong><span>How the top end works</span></a><a href="/magazine/provisioning-a-yacht/"><strong>Provisioning a yacht</strong><span>Food, drink & stowage</span></a><a href="/magazine/most-beautiful-anchorages-mediterranean/"><strong>Best Med anchorages</strong><span>Where to drop the hook</span></a></div></div><a href="/tools/" style="background:var(--amber);color:var(--text);font-weight:800;padding:7px 14px;border-radius:var(--pill);margin-left:4px;">Plan a trip</a></div><a href="/search/" class="s-nav-search" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></a><button class="s-nav-toggle" aria-label="Menu" onclick="this.closest('nav').querySelector('.s-nav-links,.nav-links').classList.toggle('open');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></nav>
+<div class="s-bread"><div class="s-bread-inner"><a href="/tools/">Tools</a><span>›</span><span style="color:var(--text);font-weight:600">Trip Planner</span></div></div>
 
 <!-- HERO SLIDESHOW -->
 <section class="hero">
@@ -471,6 +459,27 @@
   <p style="margin-top:.5rem;font-size:.72rem;color:rgba(255,255,255,.2);">Photography by creators on <a href="https://www.pexels.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.28);">Pexels</a></p>
 </footer>
 
+<footer class="s-footer"><div class="s-footer-inner">
+<div class="s-footer-top">
+  <div class="s-footer-brand"><div class="s-footer-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="22"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg><span>Skipper</span></div>
+  <p class="s-footer-desc">Your digital first mate for sailing destinations, yacht charter, and ocean adventure.</p></div>
+  <div class="s-footer-col"><h4>Destinations</h4>
+    <a href="/destinations/europe/greece/">Greece</a><a href="/destinations/europe/croatia/">Croatia</a>
+    <a href="/destinations/europe/turkey/">Turkey</a><a href="/destinations/caribbean/">Caribbean</a>
+    <a href="/destinations/best-sailing-destinations-world/">Best worldwide</a></div>
+  <div class="s-footer-col"><h4>Charter</h4>
+    <a href="/charter/catamaran-vs-monohull/">Catamaran vs. monohull</a>
+    <a href="/charter/bareboat-vs-crewed-charter/">Bareboat vs. crewed</a>
+    <a href="/charter/yacht-charter-cost-guide/">Charter costs</a></div>
+  <div class="s-footer-col"><h4>Resources</h4>
+    <a href="/guides/sailing-for-beginners/">Beginner guide</a>
+    <a href="/guides/bareboat-charter-license-requirements/">Charter license</a>
+    <a href="/planning/sailing-trip-budget-guide/">Budget guide</a></div>
+</div>
+<div class="s-footer-bottom">
+  <span class="s-footer-copy">© 2026 Skipper Global Yacht Rentals. All rights reserved.</span>
+  <div class="s-footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
+</div><p style="margin-top:.5rem;font-size:.78rem;color:rgba(255,255,255,.35);">Photography by talented creators on <a href="https://www.pexels.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:none;transition:.15s;" onmouseover="this.style.color='rgba(255,255,255,.8)'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pexels</a></p></div></footer>
 <script>
 // Hero slideshow
 let slideIdx = 0;
