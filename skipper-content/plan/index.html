@@ -238,6 +238,7 @@
     .tool-head p{color:var(--muted);font-size:.95rem;line-height:1.6;}
     @media(max-width:640px){.tool-head{padding:32px 18px 4px;}.tool-head h1{font-size:1.6rem;}}
 
+    .cost-note{padding:13px 18px;background:var(--bg);border-top:1px solid var(--border);font-size:.78rem;color:var(--muted);line-height:1.55;}
 </style>
 <style id="s-nav-mobile-fix">
 @media(max-width:768px){
@@ -475,6 +476,9 @@
 </div><p style="margin-top:.5rem;font-size:.78rem;color:rgba(255,255,255,.35);">Photography by talented creators on <a href="https://www.pexels.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:none;transition:.15s;" onmouseover="this.style.color='rgba(255,255,255,.8)'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pexels</a></p></div></footer>
 <script>
 
+// Local taxes & permits (2026 published rates) — keep in sync with /tools/charter-cost-calculator/
+const FEES={greece:{fix:90,ppd:0,ppo:0,note:'TEPAI cruising tax + DEKPA transit log'},croatia:{fix:0,ppd:5,ppo:0,note:'Transit log — tourist tax and port fees'},italy:{fix:60,ppd:0,ppo:0,note:'Marine reserve and mooring fees'},france:{fix:50,ppd:0,ppo:0,note:'Port taxes'},turkey:{fix:120,ppd:0,ppo:0,note:'Transit log and port clearance'},bvi:{fix:45,ppd:10,ppo:12,note:'Cruising permit, National Parks fees and environmental levy'},bahamas:{fix:350,ppd:0,ppo:30,note:'Cruising permit, anchorage fee and passenger tax'},grenadines:{fix:150,ppd:0,ppo:10,note:'Marine park fees and inter-island clearance'},whitsundays:{fix:0,ppd:5,ppo:0,note:'Great Barrier Reef environmental management charge'},polynesia:{fix:100,ppd:0,ppo:0,note:'Port and lagoon permit fees'},thailand:{fix:0,ppd:0,ppo:40,note:'National park landing fees'},maldives:{fix:0,ppd:6,ppo:0,note:'Government green tax, $6 per guest per night'},norway:{fix:0,ppd:0,ppo:0,note:'No cruising permit required'},azores:{fix:40,ppd:0,ppo:0,note:'Port and marina clearance fees'},lithuania:{fix:30,ppd:0,ppo:0,note:'Port fees'}};
+
 // Destination data
 const DEST = {
   greece:    {name:'Greece',flag:'🇬🇷',season:'May–Oct',peak:'Jun–Aug',bases:'Athens, Corfu, Kos',photo:'1285625',sailing:[2800,4500],catamaran:[4500,7500],motor:[6000,12000],gulet:[3500,6000],routes:['Athens','Hydra','Spetses','Nafplio','Monemvasia','Athens'],extras:{bareboat:0,skippered:1200,crewed:2800},food:65,marina:35,fuel:40,link:'/destinations/europe/greece/',cost:'/planning/sailing-cost-greece/',route:'/routes/greek-islands-7-day-cyclades/'},
@@ -531,7 +535,9 @@ function calculate() {
   const food=Math.round(d.food*guests*days);
   const marina=Math.round(d.marina*days);
   const fuel=Math.round(d.fuel*days);
-  const total=charterFee+extraFee+food+marina+fuel;
+  const ff=FEES[dest]||{fix:0,ppd:0,ppo:0,note:''};
+  const fees=Math.round(ff.fix + ff.ppd*guests*days + ff.ppo*guests);
+  const total=charterFee+extraFee+food+marina+fuel+fees;
   const pp=Math.round(total/guests);
 
   const boatLabel={sailing:'Sailing Yacht',catamaran:'Catamaran',motor:'Motor Yacht',gulet:'Gulet'}[boat];
@@ -574,11 +580,12 @@ function calculate() {
     ['Food & provisioning',fmt(food)],
     ['Marina fees',fmt(marina)],
     ['Fuel',fmt(fuel)],
+    fees>0?['Local taxes & permits',fmt(fees)]:null,
     ['Total estimate',fmt(total)],
   ].filter(Boolean);
   document.getElementById('cost-wrap').innerHTML=rows.map(([l,v])=>
     '<div class="cost-row"><span>'+l+'</span><span>'+v+'</span></div>'
-  ).join('');
+  ).join('')+(ff.note?'<div class="cost-note"><strong>Taxes &amp; permits:</strong> '+ff.note+'. Rates change often — confirm with your operator. VAT is normally already included in bareboat charter rates.</div>':'');
 
   // Action cards
   document.getElementById('action-grid').innerHTML=
