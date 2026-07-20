@@ -230,6 +230,14 @@
       .hero-h1{font-size:1.7rem;}
     }
 
+
+    /* Standard tool page header — matches /tools/ pages */
+    .tool-head{text-align:center;max-width:640px;margin:0 auto;padding:44px 20px 6px;}
+    .tool-eyebrow{display:inline-block;background:var(--teal-dim);border:1px solid rgba(0,229,255,.35);color:var(--teal-dark);border-radius:var(--pill,999px);padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.06em;margin-bottom:14px;}
+    .tool-head h1{font-size:2rem;font-weight:800;margin-bottom:10px;line-height:1.15;color:var(--text);}
+    .tool-head p{color:var(--muted);font-size:.95rem;line-height:1.6;}
+    @media(max-width:640px){.tool-head{padding:32px 18px 4px;}.tool-head h1{font-size:1.6rem;}}
+
 </style>
 <style id="s-nav-mobile-fix">
 @media(max-width:768px){
@@ -270,26 +278,11 @@
 <div class="s-bread"><div class="s-bread-inner"><a href="/tools/">Tools</a><span>›</span><span style="color:var(--text);font-weight:600">Trip Planner</span></div></div>
 
 <!-- HERO SLIDESHOW -->
-<section class="hero">
-  <div class="hero-slides">
-    <div class="hero-slide active"><img src="https://images.pexels.com/photos/9408818/pexels-photo-9408818.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aerial motor yacht turquoise water" loading="eager" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
-    <div class="hero-slide"><img src="https://images.pexels.com/photos/17567511/pexels-photo-17567511.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Luxury yacht Caribbean" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
-    <div class="hero-slide"><img src="https://images.pexels.com/photos/4784477/pexels-photo-4784477.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Catamaran turquoise waters" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
-    <div class="hero-slide"><img src="https://images.pexels.com/photos/15883439/pexels-photo-15883439.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Yachts sailing Mediterranean" loading="lazy" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.background='#0D2B3E'"></div>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">✦ INTERACTIVE PLANNER</div>
-    <h1 class="hero-h1">Plan Your Perfect<br><em>Yacht Charter Holiday</em></h1>
-    <p class="hero-sub">Choose your destination, boat, and budget — get instant cost estimates, a suggested route, and an AI-generated day-by-day itinerary.</p>
-  </div>
-  <div class="hero-dots">
-    <button class="hero-dot active" onclick="goSlide(0)"></button>
-    <button class="hero-dot" onclick="goSlide(1)"></button>
-    <button class="hero-dot" onclick="goSlide(2)"></button>
-    <button class="hero-dot" onclick="goSlide(3)"></button>
-  </div>
-</section>
+<div class="tool-head">
+  <div class="tool-eyebrow">FREE TOOL · AI ITINERARY</div>
+  <h1>Plan Your Perfect Yacht Charter Holiday</h1>
+  <p>Choose your destination, boat, and budget — get instant cost estimates, a suggested route, and an AI-generated day-by-day itinerary.</p>
+</div>
 
 <div class="planner">
 
@@ -481,20 +474,6 @@
   <div class="s-footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
 </div><p style="margin-top:.5rem;font-size:.78rem;color:rgba(255,255,255,.35);">Photography by talented creators on <a href="https://www.pexels.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:none;transition:.15s;" onmouseover="this.style.color='rgba(255,255,255,.8)'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pexels</a></p></div></footer>
 <script>
-// Hero slideshow
-let slideIdx = 0;
-const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.hero-dot');
-let slideTimer = setInterval(() => goSlide((slideIdx+1) % slides.length), 5000);
-function goSlide(n) {
-  slides[slideIdx].classList.remove('active');
-  dots[slideIdx].classList.remove('active');
-  slideIdx = n;
-  slides[slideIdx].classList.add('active');
-  dots[slideIdx].classList.add('active');
-  clearInterval(slideTimer);
-  slideTimer = setInterval(() => goSlide((slideIdx+1) % slides.length), 5000);
-}
 
 // Destination data
 const DEST = {
