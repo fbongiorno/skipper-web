@@ -415,34 +415,52 @@ document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.act
 </div><p style="margin-top:.5rem;font-size:.78rem;color:rgba(255,255,255,.35);">Photography by talented creators on <a href="https://www.pexels.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:none;transition:.15s;" onmouseover="this.style.color='rgba(255,255,255,.8)'" onmouseout="this.style.color='rgba(255,255,255,.45)'">Pexels</a></p></div></footer>
 <script id="s-nav-mobile-js">
 (function(){
+  var BURGER='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  var CLOSE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>';
+  function panel(){ return document.querySelector('.s-nav-links,.nav-links'); }
+  function toggleBtn(){ return document.querySelector('.s-nav-toggle,.nav-toggle'); }
+  function syncIcon(){
+    var b=toggleBtn(), p=panel();
+    if(!b||!p) return;
+    var open=p.classList.contains('open');
+    b.innerHTML = open ? CLOSE : BURGER;
+    b.setAttribute('aria-expanded', open?'true':'false');
+    b.setAttribute('aria-label', open?'Close menu':'Open menu');
+  }
   function bind(){
     document.querySelectorAll('.s-nav-dd').forEach(function(dd){
       var a=dd.querySelector('a');
       if(!a||a.getAttribute('data-dd')) return;
       a.setAttribute('data-dd','1');
       a.addEventListener('click',function(e){
-        if(window.innerWidth>768) return;      /* desktop keeps hover behaviour */
+        if(window.innerWidth>768) return;
         e.preventDefault();
         var open=dd.classList.contains('dd-open');
         document.querySelectorAll('.s-nav-dd.dd-open').forEach(function(o){o.classList.remove('dd-open');});
         if(!open) dd.classList.add('dd-open');
       });
     });
+    var b=toggleBtn();
+    if(b&&!b.getAttribute('data-icon')){
+      b.setAttribute('data-icon','1');
+      b.addEventListener('click',function(){ setTimeout(syncIcon,0); });
+    }
+    syncIcon();
   }
   function closeAll(){
-    var l=document.querySelector('.s-nav-links.open,.nav-links.open');
-    if(l) l.classList.remove('open');
+    var p=panel();
+    if(p) p.classList.remove('open');
     document.querySelectorAll('.s-nav-dd.dd-open').forEach(function(o){o.classList.remove('dd-open');});
+    syncIcon();
   }
   document.addEventListener('DOMContentLoaded',bind);
   if(document.readyState!=='loading') bind();
-  /* Tap outside the nav closes the menu */
   document.addEventListener('click',function(e){
     var nav=document.querySelector('nav');
     if(nav&&!nav.contains(e.target)) closeAll();
   });
-  /* Escape closes it too */
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeAll(); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>768) closeAll(); });
 })();
 </script>
 </body></html>
